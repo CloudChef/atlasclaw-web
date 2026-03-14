@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SectionHeading from "../../../components/SectionHeading.astro";
+import { siteContent } from "../../../content/site.js";
+import { locales } from "../../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.docs.title}
+  description={content.docs.description}
+  pathname={`/${lang}/docs/`}
+  theme="light"
+>
+  <section class="shell page-hero page-hero--light">
+    <span class="eyebrow">{content.docs.hero.eyebrow}</span>
+    <h1>{content.docs.hero.title}</h1>
+    <p>{content.docs.hero.description}</p>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={content.common.docsLabel}
+      title={lang === "zh" ? "先读核心路径，再深入仓库。" : "Start with the curated path, then dive into the repos."}
+    />
+    <div class="path-grid">
+      {
+        content.docs.items.map((item) => (
+          <a class="path-card path-card--light" href={item.href}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow="Repositories"
+      title={lang === "zh" ? "代码仓库" : "Repositories"}
+    />
+    <div class="feature-grid">
+      {
+        content.docs.repoCards.map((item) => (
+          <article class="feature-card feature-card--light">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a class="text-link" href={item.href}>
+              {content.common.githubPrimary}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

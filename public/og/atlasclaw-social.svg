@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#FBFAF6"/>
+  <rect x="46" y="46" width="1108" height="538" rx="28" fill="url(#panel)" stroke="#343539" stroke-opacity="0.16"/>
+  <path d="M0 126H1200" stroke="url(#line)" stroke-opacity="0.35"/>
+  <path d="M0 504H1200" stroke="url(#line)" stroke-opacity="0.22"/>
+  <path d="M120 0V630" stroke="url(#line)" stroke-opacity="0.18"/>
+  <path d="M1030 0V630" stroke="url(#line)" stroke-opacity="0.18"/>
+  <circle cx="945" cy="140" r="128" fill="#76BFA8" fill-opacity="0.14"/>
+  <circle cx="215" cy="500" r="132" fill="#A9CF7E" fill-opacity="0.12"/>
+  <rect x="110" y="118" width="98" height="98" rx="24" fill="#FFFFFF" stroke="#343539" stroke-opacity="0.24"/>
+  <path d="M148 183L160.5 151H173L185.5 183H176.6L173.9 176H159.8L157.1 183H148ZM162.4 168.8H171.2L166.8 156.7L162.4 168.8Z" fill="#343539"/>
+  <text x="238" y="177" fill="#343539" font-family="Sora, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="2">AtlasClaw</text>
+  <text x="112" y="272" fill="#4D8B79" font-family="IBM Plex Mono, monospace" font-size="20" letter-spacing="4">ENTERPRISE AGENT FRAMEWORK</text>
+  <text x="112" y="360" fill="#343539" font-family="IBM Plex Sans, Arial, sans-serif" font-size="32" font-weight="600">One agent surface for the systems</text>
+  <text x="112" y="404" fill="#343539" font-family="IBM Plex Sans, Arial, sans-serif" font-size="32" font-weight="600">your enterprise already runs.</text>
+  <text x="112" y="474" fill="#6F7075" font-family="IBM Plex Sans, Arial, sans-serif" font-size="22">Thin core. Rich providers. Governed execution across existing platforms.</text>
+  <g transform="translate(820 396)">
+    <rect width="250" height="54" rx="27" fill="#FFFFFF" stroke="#343539" stroke-opacity="0.18"/>
+    <text x="26" y="35" fill="#4D8B79" font-family="IBM Plex Mono, monospace" font-size="17">CHANNELS → CORE → PROVIDERS</text>
+  </g>
+  <defs>
+    <linearGradient id="panel" x1="50" y1="46" x2="1080" y2="584" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F5F1EA"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#343539" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#343539"/>
+      <stop offset="1" stop-color="#343539" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

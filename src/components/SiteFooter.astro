@@ -1,0 +1,55 @@
+---
+import { repoLinks } from "../content/site.js";
+
+const { lang, content } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__grid">
+    <div>
+      <div class="brand-mark brand-mark--footer">
+        <span class="brand-mark__glyph">
+          <img
+            class="brand-mark__icon"
+            src="/images/brand/atlasclaw-icon.png"
+            alt=""
+            width="394"
+            height="367"
+          />
+        </span>
+        <span class="brand-mark__text">
+          <strong>AtlasClaw</strong>
+          <small>{content.meta.footerTagline}</small>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <h2>{content.footer.product}</h2>
+      <a href={`/${lang}/`}>{content.nav.home}</a>
+      <a href={`/${lang}/architecture/`}>{content.nav.architecture}</a>
+      <a href={`/${lang}/integrations/`}>{content.nav.integrations}</a>
+      <a href={`/${lang}/docs/`}>{content.nav.docs}</a>
+    </div>
+
+    <div>
+      <h2>{content.footer.resources}</h2>
+      <a href="https://github.com/CloudChef/atlasclaw">atlasclaw</a>
+      <a href="https://github.com/CloudChef/atlasclaw-providers">atlasclaw-providers</a>
+      <a href="https://github.com/CloudChef/atlasclaw-web">atlasclaw-web</a>
+    </div>
+
+    <div>
+      <h2>{content.footer.repos}</h2>
+      <a href="https://github.com/CloudChef/atlasclaw/blob/main/README.md">README</a>
+      <a href="https://github.com/CloudChef/atlasclaw-providers/blob/main/README.md">Provider guide</a>
+      <a href="https://github.com/CloudChef/atlasclaw-web/blob/main/LICENSE">Apache-2.0</a>
+      <a href={repoLinks.contact}>{content.footer.contact}: atlasclaw@cloudchef.io</a>
+    </div>
+  </div>
+
+  <div class="shell site-footer__meta">
+    <span>{content.footer.rights}</span>
+    <span>atlasclaw.ai</span>
+  </div>
+</footer>

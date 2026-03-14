@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import FeatureGrid from "../../components/FeatureGrid.astro";
+import DiagramCard from "../../components/DiagramCard.astro";
+import CTASection from "../../components/CTASection.astro";
+import { siteContent } from "../../content/site.js";
+import { locales } from "../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.architecture.title}
+  description={content.architecture.description}
+  pathname={`/${lang}/architecture/`}
+  theme="light"
+>
+  <section class="shell page-hero">
+    <span class="eyebrow">{content.architecture.hero.eyebrow}</span>
+    <h1>{content.architecture.hero.title}</h1>
+    <p>{content.architecture.hero.description}</p>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={lang === "zh" ? "核心原则" : "Core principles"}
+      title={lang === "zh" ? "围绕企业边界设计。" : "Designed around enterprise boundaries."}
+      description={lang === "zh"
+        ? "AtlasClaw 的设计重点不是把所有逻辑堆进核心，而是保持边界稳定。"
+        : "AtlasClaw stays useful by keeping boundaries stable instead of swallowing every integration concern into the core."}
+    />
+    <FeatureGrid items={content.architecture.principles} />
+  </section>
+
+  <section class="shell section">
+    <div class="diagram-grid">
+      <DiagramCard
+        id="architecture-system-flow"
+        image="/images/architecture/overall-architecture.png"
+        alt="AtlasClaw overall architecture"
+        title={lang === "zh" ? "整体流转" : "System flow"}
+        description={lang === "zh"
+          ? "从入口通道到 Core，再到 Providers 和企业系统，执行路径保持清晰。"
+          : "From channel entrypoints to the core, then outward through providers to enterprise systems, the execution path remains explicit."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+      <DiagramCard
+        id="architecture-core-composition"
+        image="/images/architecture/core-components.png"
+        alt="AtlasClaw core architecture"
+        title={lang === "zh" ? "核心组成" : "Core composition"}
+        description={lang === "zh"
+          ? "API、Session、Agent Engine、Tools 和 Provider Registry 构成可复用底座。"
+          : "API services, session context, the agent engine, tools, and the provider registry form the reusable substrate."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+      <DiagramCard
+        id="architecture-provider-reference"
+        image="/images/architecture/cmp-flow.png"
+        alt="CMP interaction flow"
+        title={lang === "zh" ? "Provider 参考流" : "Provider reference flow"}
+        description={lang === "zh"
+          ? "SmartCMP 设计图展示了请求、审批与平台执行之间的关系。"
+          : "The SmartCMP flow shows how requests, approvals, and platform execution can be organized inside a provider model."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+    </div>
+  </section>
+
+  <section class="shell section section--split">
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "运行时路径" : "Runtime path"}
+        title={lang === "zh" ? "从消息到受控执行。" : "From request to governed execution."}
+      />
+      <ul class="signal-list">
+        {content.architecture.runtime.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "设计判断" : "Design choices"}
+        title={lang === "zh" ? "为什么是这种架构。" : "Why this architecture exists."}
+      />
+      <FeatureGrid items={content.architecture.comparison} compact={true} />
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow={lang === "zh" ? "下一步" : "Next"}
+    title={lang === "zh" ? "继续进入集成模型。" : "Continue into the integration model."}
+    description={lang === "zh"
+      ? "理解架构之后，下一步就是看 AtlasClaw 如何把外部系统组织成 Providers。"
+      : "Once the architecture is clear, the next step is understanding how AtlasClaw organizes external systems as providers."}
+    href={`/${lang}/integrations/`}
+    label={content.common.integrationsLabel}
+  />
+</BaseLayout>

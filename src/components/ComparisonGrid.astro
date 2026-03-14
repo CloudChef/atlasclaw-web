@@ -1,0 +1,21 @@
+---
+const { items } = Astro.props;
+---
+
+<div class="compare-grid">
+  {
+    items.map((item) => (
+      <article class="compare-card">
+        <h3>{item.title}</h3>
+        <div class="compare-card__lane compare-card__lane--problem">
+          <small>{item.personalLabel}</small>
+          <p>{item.personalText}</p>
+        </div>
+        <div class="compare-card__lane compare-card__lane--solution">
+          <small>{item.atlasLabel}</small>
+          <p>{item.atlasText}</p>
+        </div>
+      </article>
+    ))
+  }
+</div>

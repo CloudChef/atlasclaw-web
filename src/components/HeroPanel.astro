@@ -1,0 +1,58 @@
+---
+const {
+  eyebrow,
+  title,
+  subtitle,
+  description,
+  primaryCta,
+  secondaryCta,
+  signals,
+  panelTitle,
+  panelStatus
+} = Astro.props;
+---
+
+<section class="hero shell">
+  <div class="hero__copy">
+    <span class="eyebrow">{eyebrow}</span>
+    <h1>{title}</h1>
+    <p class="hero__subtitle">{subtitle}</p>
+    <p class="hero__description">{description}</p>
+    <div class="hero__actions">
+      <a class="button" href={primaryCta.href}>{primaryCta.label}</a>
+      <a class="button button--ghost" href={secondaryCta.href}>{secondaryCta.label}</a>
+    </div>
+  </div>
+
+  <div class="hero__panel">
+    <div class="hero__panel-header">
+      <span>{panelTitle}</span>
+      <span class="status-chip">{panelStatus}</span>
+    </div>
+    <div class="hero__brand-stage">
+      <div class="hero__brand-mark">
+        <img
+          src="/images/brand/atlasclaw-icon.png"
+          alt="AtlasClaw icon"
+          width="394"
+          height="367"
+        />
+      </div>
+      <div class="hero__brand-copy">
+        <strong>AtlasClaw</strong>
+        <p>{subtitle}</p>
+      </div>
+    </div>
+    <div class="hero__panel-grid">
+      {
+        signals.map((signal) => (
+          <article class="signal-card">
+            <small>{signal.label}</small>
+            <strong>{signal.value}</strong>
+            <span>{signal.detail ?? signal.label}</span>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

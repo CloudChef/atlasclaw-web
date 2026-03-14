@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import CTASection from "../../components/CTASection.astro";
+import DiagramCard from "../../components/DiagramCard.astro";
+import { siteContent } from "../../content/site.js";
+import { locales } from "../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.integrations.title}
+  description={content.integrations.description}
+  pathname={`/${lang}/integrations/`}
+  theme="light"
+>
+  <section class="shell page-hero">
+    <span class="eyebrow">{content.integrations.hero.eyebrow}</span>
+    <h1>{content.integrations.hero.title}</h1>
+    <p>{content.integrations.hero.description}</p>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={lang === "zh" ? "Provider 架构" : "Provider runtime"}
+      title={lang === "zh" ? "先看 Provider 运行时架构。" : "Start with the provider runtime architecture."}
+      description={lang === "zh"
+        ? "这张图把鉴权、Skills、脚本与目标系统调用如何落在 Provider 内部，展示得更清楚。"
+        : "This diagram shows more clearly how auth, skills, scripts, and downstream system execution are held inside the provider boundary."}
+    />
+    <div class="integration-runtime-diagram">
+      <DiagramCard
+        id={`integrations-provider-runtime-${lang}`}
+        image="/images/providers/provider-runtime-overview.svg"
+        alt="AtlasClaw provider runtime overview"
+        title={lang === "zh" ? "Provider 运行时架构" : "Provider runtime overview"}
+        description={lang === "zh"
+          ? "Provider 把鉴权、Skills、脚本与目标系统执行收拢到清晰边界之内。"
+          : "The provider keeps auth, skills, scripts, and downstream execution inside one explicit boundary."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={content.integrations.architecture.eyebrow}
+      title={content.integrations.architecture.title}
+      description={content.integrations.architecture.description}
+    />
+    <div class="feature-grid feature-grid--compact">
+      {content.integrations.architecture.items.map((item) => (
+        <article class="feature-card">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section section--split">
+    <div>
+      <SectionHeading
+        eyebrow={content.integrations.flow.eyebrow}
+        title={content.integrations.flow.title}
+        description={content.integrations.flow.description}
+      />
+      <ul class="signal-list">
+        {content.integrations.flow.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div class="section-stack">
+      <div class="panel-card">
+        <SectionHeading
+          eyebrow={lang === "zh" ? "集成方法" : "Integration method"}
+          title={content.integrations.providerModel.title}
+          description={content.integrations.providerModel.description}
+        />
+        <ul class="signal-list">
+          {content.integrations.providerModel.points.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="panel-card">
+        <SectionHeading
+          eyebrow={lang === "zh" ? "架构价值" : "Architecture value"}
+          title={content.integrations.valuePanel.title}
+          description={content.integrations.valuePanel.description}
+        />
+        <ul class="signal-list">
+          {content.integrations.valuePanel.points.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={content.integrations.domains.eyebrow}
+      title={content.integrations.domains.title}
+      description={content.integrations.domains.description}
+    />
+    <div class="integration-grid">
+      {content.integrations.domains.items.map((item) => (
+        <article class="integration-card">
+          <small class="integration-card__eyebrow">{item.eyebrow}</small>
+          <h3>{item.name}</h3>
+          <p>{item.description}</p>
+          {item.href && (
+            <a class="text-link" href={item.href}>
+              {lang === "zh" ? "查看参考" : "View reference"}
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow={lang === "zh" ? "开始构建" : "Build next"}
+    title={content.integrations.cta.title}
+    description={content.integrations.cta.description}
+    href={content.integrations.cta.href}
+    label={lang === "zh" ? "阅读 Provider 文档" : "Read provider docs"}
+    secondaryHref={content.integrations.cta.secondaryHref}
+    secondaryLabel={content.integrations.cta.secondaryLabel}
+  />
+</BaseLayout>

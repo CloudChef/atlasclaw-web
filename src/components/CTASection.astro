@@ -1,0 +1,27 @@
+---
+const {
+  title,
+  description,
+  href,
+  label,
+  eyebrow = "Next",
+  secondaryHref,
+  secondaryLabel
+} = Astro.props;
+---
+
+<section class="shell cta-section">
+  <div>
+    <span class="eyebrow">{eyebrow}</span>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    {
+      secondaryHref && secondaryLabel && (
+        <div class="link-list">
+          <a class="text-link" href={secondaryHref}>{secondaryLabel}</a>
+        </div>
+      )
+    }
+  </div>
+  <a class="button" href={href}>{label}</a>
+</section>

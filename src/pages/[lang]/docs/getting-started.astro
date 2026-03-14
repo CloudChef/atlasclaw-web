@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SectionHeading from "../../../components/SectionHeading.astro";
+import CodeBlock from "../../../components/CodeBlock.astro";
+import { siteContent } from "../../../content/site.js";
+import { locales } from "../../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.gettingStarted.title}
+  description={content.gettingStarted.description}
+  pathname={`/${lang}/docs/getting-started/`}
+  theme="light"
+>
+  <section class="shell page-hero page-hero--light">
+    <span class="eyebrow">{lang === "zh" ? "快速开始" : "Getting Started"}</span>
+    <h1>{lang === "zh" ? "理解仓库，再启动核心服务。" : "Understand the repos, then start the core runtime."}</h1>
+    <p>{content.gettingStarted.intro}</p>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={lang === "zh" ? "仓库布局" : "Repository layout"}
+      title={lang === "zh" ? "AtlasClaw 的三个公开仓库。" : "The three public AtlasClaw repositories."}
+    />
+    <div class="feature-grid feature-grid--compact">
+      {content.gettingStarted.repos.map((repo) => (
+        <article class="feature-card feature-card--light">
+          <h3>{repo.name}</h3>
+          <p>{repo.description}</p>
+          <a class="text-link" href={repo.href}>{content.common.githubPrimary}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section section--split">
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "最短路径" : "Shortest path"}
+        title={lang === "zh" ? "最小本地启动流程。" : "Minimal local startup flow."}
+      />
+      <ol class="ordered-list">
+        {content.gettingStarted.steps.map((step) => <li>{step}</li>)}
+      </ol>
+    </div>
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "命令" : "Commands"}
+        title={lang === "zh" ? "核心服务启动命令。" : "Core runtime commands."}
+      />
+      <CodeBlock code={content.gettingStarted.commands.join("\n")} />
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow="atlasclaw.json"
+      title={lang === "zh" ? "关键配置锚点。" : "The key configuration anchor."}
+      description={lang === "zh"
+        ? "`providers_root` 把核心仓库和 Provider 仓库连接起来。"
+        : "`providers_root` is what connects the core repo to the external provider repo."}
+    />
+    <CodeBlock code={content.gettingStarted.configSnippet} />
+  </section>
+
+  <section class="shell section">
+    <SectionHeading title={content.common.deepReference} />
+    <div class="link-list">
+      {content.gettingStarted.references.map((item) => (
+        <a class="text-link" href={item.href}>{item.label}</a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

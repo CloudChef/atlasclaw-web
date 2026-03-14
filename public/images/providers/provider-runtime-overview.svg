@@ -1,0 +1,61 @@
+<svg width="1320" height="840" viewBox="0 0 1320 840" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AtlasClaw provider runtime overview</title>
+  <desc id="desc">A diagram showing how AtlasClaw routes requests into provider packages with multiple skills, provider-owned authentication, and external enterprise system APIs.</desc>
+  <rect width="1320" height="840" fill="#F5F1E8"/>
+  <rect x="36" y="36" width="1248" height="768" rx="28" fill="#FFFDFC" stroke="#D8CFC1" stroke-width="2"/>
+  <text x="72" y="96" fill="#1B1B1B" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">AtlasClaw Providers</text>
+  <text x="72" y="138" fill="#5B5B5B" font-family="Arial, Helvetica, sans-serif" font-size="20">Portable integration packages that keep</text>
+  <text x="72" y="164" fill="#5B5B5B" font-family="Arial, Helvetica, sans-serif" font-size="20">enterprise-system logic outside the AtlasClaw core.</text>
+
+  <rect x="72" y="250" width="218" height="118" rx="20" fill="#1F4B99"/>
+  <text x="104" y="296" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">User or Caller</text>
+  <text x="104" y="330" fill="#DCE7FF" font-family="Arial, Helvetica, sans-serif" font-size="18">Chat UI</text>
+  <text x="104" y="356" fill="#DCE7FF" font-family="Arial, Helvetica, sans-serif" font-size="18">Webhook</text>
+
+  <rect x="360" y="220" width="292" height="180" rx="24" fill="#FFF8E8" stroke="#D1A44A" stroke-width="2"/>
+  <text x="390" y="272" fill="#4A3713" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">AtlasClaw Core</text>
+  <text x="390" y="308" fill="#6D5423" font-family="Arial, Helvetica, sans-serif" font-size="18">Routing, context, model calls,</text>
+  <text x="390" y="334" fill="#6D5423" font-family="Arial, Helvetica, sans-serif" font-size="18">tool selection, and execution</text>
+
+  <rect x="700" y="180" width="500" height="460" rx="26" fill="#F8FBF6" stroke="#8FAF87" stroke-width="2"/>
+  <text x="732" y="230" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Provider Package</text>
+  <text x="732" y="264" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">PROVIDER.md + README.md +</text>
+  <text x="732" y="288" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">one or more skills</text>
+
+  <rect x="732" y="316" width="436" height="76" rx="18" fill="#DFF0D8"/>
+  <text x="760" y="362" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">skills/</text>
+  <text x="860" y="362" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">multiple focused skills</text>
+
+  <rect x="732" y="416" width="436" height="148" rx="18" fill="#E9F1FF"/>
+  <text x="760" y="458" fill="#1B3A6F" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Auth Bridge</text>
+  <text x="760" y="489" fill="#42608F" font-family="Arial, Helvetica, sans-serif" font-size="17">Embedded UI: reuse browser identity</text>
+  <text x="760" y="516" fill="#42608F" font-family="Arial, Helvetica, sans-serif" font-size="17">Standalone: SSO token -&gt; provider token</text>
+  <text x="760" y="543" fill="#42608F" font-family="Arial, Helvetica, sans-serif" font-size="17">API/Webhook: resolve user-scoped auth</text>
+
+  <rect x="732" y="588" width="436" height="76" rx="18" fill="#EAF6E4"/>
+  <text x="760" y="634" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">scripts/</text>
+  <text x="862" y="634" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">API calls + normalization</text>
+
+  <rect x="360" y="500" width="292" height="132" rx="24" fill="#FFF3F1" stroke="#D29C92" stroke-width="2"/>
+  <text x="390" y="552" fill="#5C261D" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Provider Config</text>
+  <text x="390" y="588" fill="#855045" font-family="Arial, Helvetica, sans-serif" font-size="18">`service_providers` instances</text>
+  <text x="390" y="614" fill="#855045" font-family="Arial, Helvetica, sans-serif" font-size="18">resolved from `atlasclaw.json`</text>
+
+  <rect x="700" y="684" width="500" height="104" rx="22" fill="#162A44"/>
+  <text x="732" y="736" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">External Enterprise System</text>
+  <text x="732" y="760" fill="#C9D8EE" font-family="Arial, Helvetica, sans-serif" font-size="18">Jira, SmartCMP, ITSM, CRM, monitoring,</text>
+  <text x="732" y="782" fill="#C9D8EE" font-family="Arial, Helvetica, sans-serif" font-size="18">and internal APIs</text>
+
+  <path d="M290 309H344" stroke="#6D7FA6" stroke-width="6" stroke-linecap="round"/>
+  <path d="M336 294L360 309L336 324" fill="none" stroke="#6D7FA6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M652 309H680" stroke="#9AA56E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M672 294L696 309L672 324" fill="none" stroke="#9AA56E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M950 640V660" stroke="#6D8C66" stroke-width="6" stroke-linecap="round"/>
+  <path d="M935 652L950 676L965 652" fill="none" stroke="#6D8C66" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M652 566H700" stroke="#B07F74" stroke-width="6" stroke-linecap="round"/>
+  <path d="M692 551L716 566L692 581" fill="none" stroke="#B07F74" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>
