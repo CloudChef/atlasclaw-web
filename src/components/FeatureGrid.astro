@@ -1,0 +1,14 @@
+---
+const { items, compact = false } = Astro.props;
+---
+
+<div class:list={["feature-grid", compact && "feature-grid--compact"]}>
+  {
+    items.map((item) => (
+      <article class="feature-card">
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+      </article>
+    ))
+  }
+</div>

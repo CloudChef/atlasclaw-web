@@ -1,0 +1,57 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { siteContent } from "../content/site.js";
+import { locales, swapLocaleInPath } from "../lib/i18n.js";
+import "../styles/global.css";
+
+const { lang, title, description, pathname, theme = "light" } = Astro.props;
+const content = siteContent[lang];
+const pageTitle = title ?? content.meta.defaultTitle;
+const pageDescription = description ?? content.meta.defaultDescription;
+const canonicalUrl = `https://atlasclaw.ai${pathname}`;
+const socialImage = "https://atlasclaw.ai/og/atlasclaw-social.svg";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content={theme === "light" ? "#fbfaf6" : "#343539"} />
+    <link rel="icon" type="image/png" href="/images/brand/atlasclaw-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      locales.map((locale) => (
+        <link
+          rel="alternate"
+          hreflang={locale}
+          href={`https://atlasclaw.ai${locale === lang ? pathname : swapLocaleInPath(pathname, lang)}`}
+        />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href="https://atlasclaw.ai/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={content.meta.siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialImage} />
+  </head>
+  <body class:list={["theme", `theme--${theme}`]}>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="ambient-orbit ambient-orbit--left" aria-hidden="true"></div>
+    <div class="ambient-orbit ambient-orbit--right" aria-hidden="true"></div>
+    <SiteHeader lang={lang} pathname={pathname} content={content} />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter lang={lang} content={content} />
+  </body>
+</html>

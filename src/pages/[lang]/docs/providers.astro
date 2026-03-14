@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SectionHeading from "../../../components/SectionHeading.astro";
+import CodeBlock from "../../../components/CodeBlock.astro";
+import DiagramCard from "../../../components/DiagramCard.astro";
+import { siteContent } from "../../../content/site.js";
+import { locales } from "../../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.providers.title}
+  description={content.providers.description}
+  pathname={`/${lang}/docs/providers/`}
+  theme="light"
+>
+  <section class="shell page-hero page-hero--light">
+    <span class="eyebrow">Providers</span>
+    <h1>{lang === "zh" ? "集成从 Provider 开始。" : "Integrations start with providers."}</h1>
+    <p>{content.providers.intro}</p>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={lang === "zh" ? "运行时架构" : "Runtime architecture"}
+      title={lang === "zh" ? "先看 Provider 如何承接运行时。" : "See how a provider carries runtime execution."}
+      description={lang === "zh"
+        ? "这张架构图展示了 Provider 如何承接鉴权、Skills、脚本与目标系统调用。"
+        : "This diagram shows how a provider carries auth, skills, scripts, and downstream system execution."}
+    />
+    <div class="diagram-grid">
+      <DiagramCard
+        id={`providers-runtime-${lang}`}
+        image="/images/providers/provider-runtime-overview.svg"
+        alt="AtlasClaw provider runtime overview"
+        title={lang === "zh" ? "Provider 运行时架构" : "Provider runtime overview"}
+        description={lang === "zh"
+          ? "Provider 把鉴权、Skills、脚本与目标系统执行收拢到清晰边界之内。"
+          : "The provider keeps auth, skills, scripts, and downstream execution inside one explicit boundary."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+    </div>
+  </section>
+
+  <section class="shell section section--split">
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "文件结构" : "Package structure"}
+        title={lang === "zh" ? "Provider 文件夹结构。" : "Provider package shape."}
+      />
+      <CodeBlock code={content.providers.structure} />
+    </div>
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "关键原则" : "Key rules"}
+        title={lang === "zh" ? "让边界明确、脚本收敛。" : "Keep boundaries explicit and scripts narrow."}
+      />
+      <ul class="signal-list signal-list--light">
+        {content.providers.points.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={lang === "zh" ? "命名约定" : "Naming"}
+      title={lang === "zh" ? "Provider Qualified Skills。" : "Provider-qualified skills."}
+      description={lang === "zh"
+        ? "通过 provider 前缀避免不同系统技能的命名冲突。"
+        : "Provider prefixes prevent skill collisions across systems."}
+    />
+    <CodeBlock code={content.providers.naming} />
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={lang === "zh" ? "参考实现" : "Examples"}
+      title={lang === "zh" ? "先看参考，再自己扩展。" : "Study the references, then extend."}
+    />
+    <div class="link-list">
+      {content.providers.examples.map((item) => (
+        <a class="text-link" href={item.href}>{item.label}</a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

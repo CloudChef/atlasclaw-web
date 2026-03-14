@@ -1,0 +1,22 @@
+---
+import { getAlternateLocale } from "../lib/i18n.js";
+import { localeLabels } from "../content/site.js";
+
+const { lang, pathname } = Astro.props;
+const alternate = getAlternateLocale(lang);
+const alternatePath = pathname.replace(`/${lang}/`, `/${alternate}/`);
+const enPath = lang === "en" ? pathname : alternatePath;
+const zhPath = lang === "zh" ? pathname : alternatePath;
+---
+
+<div class="locale-switch" aria-label="Language switcher">
+  <a class:list={["locale-switch__item", lang === "en" && "is-active"]} href={enPath}>
+    {localeLabels.en}
+  </a>
+  <a
+    class:list={["locale-switch__item", lang === "zh" && "is-active"]}
+    href={zhPath}
+  >
+    {localeLabels.zh}
+  </a>
+</div>

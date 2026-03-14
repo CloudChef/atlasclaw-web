@@ -1,0 +1,45 @@
+---
+const {
+  id,
+  image,
+  alt,
+  title,
+  description,
+  zoomLabel = "Click to enlarge",
+  closeLabel = "Close preview"
+} = Astro.props;
+---
+
+<article class="diagram-card">
+  <a class="diagram-card__media" href={`#${id}`} aria-label={`${zoomLabel}: ${title}`}>
+    <img src={image} alt={alt} loading="lazy" />
+    <span class="diagram-card__zoom">{zoomLabel}</span>
+  </a>
+  <div class="diagram-card__body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</article>
+
+<div class="diagram-lightbox" id={id}>
+  <a class="diagram-lightbox__backdrop" href="#" aria-label={closeLabel}></a>
+  <div
+    class="diagram-lightbox__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby={`${id}-title`}
+  >
+    <div class="diagram-lightbox__header">
+      <div>
+        <strong id={`${id}-title`}>{title}</strong>
+        <p>{description}</p>
+      </div>
+      <a class="diagram-lightbox__close" href="#" aria-label={closeLabel}>
+        {closeLabel}
+      </a>
+    </div>
+    <div class="diagram-lightbox__frame">
+      <img src={image} alt={alt} loading="lazy" />
+    </div>
+  </div>
+</div>

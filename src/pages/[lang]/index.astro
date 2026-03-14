@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroPanel from "../../components/HeroPanel.astro";
+import ComparisonGrid from "../../components/ComparisonGrid.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import FeatureGrid from "../../components/FeatureGrid.astro";
+import DiagramCard from "../../components/DiagramCard.astro";
+import CTASection from "../../components/CTASection.astro";
+import { siteContent } from "../../content/site.js";
+import { locales } from "../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.home.title}
+  description={content.home.description}
+  pathname={`/${lang}/`}
+  theme="light"
+>
+  <HeroPanel {...content.home.hero} />
+
+  <section class="shell section">
+    <SectionHeading {...content.home.comparison} />
+    <ComparisonGrid items={content.home.comparison.items} />
+  </section>
+
+  <section class="shell section">
+    <SectionHeading {...content.home.features} />
+    <FeatureGrid items={content.home.features.items} compact={true} />
+  </section>
+
+  <section class="shell section section--split">
+    <div>
+      <SectionHeading {...content.home.modes} />
+      <FeatureGrid items={content.home.modes.items} compact={true} />
+    </div>
+    <div>
+      <SectionHeading {...content.home.flow} />
+      <ul class="signal-list">
+        {content.home.flow.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <div class="diagram-grid">
+      <DiagramCard
+        id="home-overall-architecture"
+        image="/images/architecture/overall-architecture.png"
+        alt="AtlasClaw overall architecture"
+        title="Overall architecture"
+        description={lang === "zh"
+          ? "访问通道进入 Core，再由 Providers 对接企业系统。"
+          : "Access channels feed the core, which delegates execution to providers and downstream systems."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+      <DiagramCard
+        id="home-core-components"
+        image="/images/architecture/core-components.png"
+        alt="AtlasClaw core components"
+        title="Core components"
+        description={lang === "zh"
+          ? "API 层、Agent Engine、Session、Tools 与 Provider Registry 构成可复用核心。"
+          : "The reusable core centers on the API layer, agent engine, sessions, tools, and provider registry."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+      <DiagramCard
+        id="home-provider-runtime"
+        image="/images/providers/provider-runtime-overview.svg"
+        alt="AtlasClaw provider runtime overview"
+        title={lang === "zh" ? "Provider 架构" : "Provider runtime"}
+        description={lang === "zh"
+          ? "展示 Provider 如何承接鉴权、Skills、脚本与目标系统调用。"
+          : "Shows how a provider carries auth, skills, scripts, and downstream system execution."}
+        zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
+        closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
+      />
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading {...content.home.paths} />
+    <div class="path-grid">
+      {
+        content.home.paths.items.map((item) => (
+          <a class="path-card" href={item.href}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow={lang === "zh" ? "开源入口" : "Open-source entry"}
+    title={lang === "zh" ? "现在就进入代码与文档。" : "Step into the code and the docs."}
+    description={lang === "zh"
+      ? "官网负责方向感，仓库负责实现细节。两者一起构成 AtlasClaw 的开源入口。"
+      : "The website gives structure. The repositories give implementation detail. Together they form the open-source entrypoint."}
+    href="https://github.com/CloudChef/atlasclaw"
+    label={content.common.githubSecondary}
+  />
+</BaseLayout>
