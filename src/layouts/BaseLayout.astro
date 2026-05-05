@@ -2,15 +2,28 @@
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { siteContent } from "../content/site.js";
-import { locales, swapLocaleInPath } from "../lib/i18n.js";
+import {
+  buildLocalizedSeoUrls,
+  buildStructuredData,
+  getLocaleSeoMetadata,
+  socialImageUrl
+} from "../lib/seo.js";
 import "../styles/global.css";
 
 const { lang, title, description, pathname, theme = "light" } = Astro.props;
 const content = siteContent[lang];
 const pageTitle = title ?? content.meta.defaultTitle;
 const pageDescription = description ?? content.meta.defaultDescription;
-const canonicalUrl = `https://atlasclaw.ai${pathname}`;
-const socialImage = "https://atlasclaw.ai/og/atlasclaw-social.svg";
+const { canonicalUrl, alternates, xDefaultUrl } = buildLocalizedSeoUrls(pathname, lang);
+const localeSeo = getLocaleSeoMetadata(lang);
+const socialImage = socialImageUrl();
+const structuredData = buildStructuredData({
+  lang,
+  pathname,
+  title: pageTitle,
+  description: pageDescription,
+  content
+});
 ---
 
 <!doctype html>
@@ -20,20 +33,28 @@ const socialImage = "https://atlasclaw.ai/og/atlasclaw-social.svg";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="theme-color" content={theme === "light" ? "#fbfaf6" : "#343539"} />
     <link rel="icon" type="image/png" href="/images/brand/atlasclaw-icon.png" />
     <link rel="canonical" href={canonicalUrl} />
     {
-      locales.map((locale) => (
-        <link
-          rel="alternate"
-          hreflang={locale}
-          href={`https://atlasclaw.ai${locale === lang ? pathname : swapLocaleInPath(pathname, lang)}`}
-        />
+      alternates.map((alternate) => (
+        <link rel="alternate" hreflang={alternate.locale} href={alternate.href} />
       ))
     }
-    <link rel="alternate" hreflang="x-default" href="https://atlasclaw.ai/en/" />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={localeSeo.ogLocale} />
+    {
+      alternates
+        .filter((alternate) => alternate.locale !== lang)
+        .map((alternate) => (
+          <meta
+            property="og:locale:alternate"
+            content={getLocaleSeoMetadata(alternate.locale).ogLocale}
+          />
+        ))
+    }
     <meta property="og:site_name" content={content.meta.siteName} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
@@ -43,6 +64,7 @@ const socialImage = "https://atlasclaw.ai/og/atlasclaw-social.svg";
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={socialImage} />
+    <script type="application/ld+json" set:html={structuredData} />
   </head>
   <body class:list={["theme", `theme--${theme}`]}>
     <div class="ambient-grid" aria-hidden="true"></div>

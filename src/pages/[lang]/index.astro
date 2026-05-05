@@ -54,7 +54,7 @@ const content = siteContent[lang];
       <DiagramCard
         id="home-overall-architecture"
         image="/images/architecture/overall-architecture.png"
-        alt="AtlasClaw overall architecture"
+        alt="AtlasClaw enterprise AI agent architecture with channels, core, providers, and enterprise systems"
         title="Overall architecture"
         description={lang === "zh"
           ? "访问通道进入 Core，再由 Providers 对接企业系统。"
@@ -65,7 +65,7 @@ const content = siteContent[lang];
       <DiagramCard
         id="home-core-components"
         image="/images/architecture/core-components.png"
-        alt="AtlasClaw core components"
+        alt="AtlasClaw core components for agent orchestration, sessions, tools, and provider registry"
         title="Core components"
         description={lang === "zh"
           ? "API 层、Agent Engine、Session、Tools 与 Provider Registry 构成可复用核心。"
@@ -76,7 +76,7 @@ const content = siteContent[lang];
       <DiagramCard
         id="home-provider-runtime"
         image="/images/providers/provider-runtime-overview.svg"
-        alt="AtlasClaw provider runtime overview"
+        alt="AtlasClaw provider runtime overview for Skills, scripts, auth, and downstream enterprise systems"
         title={lang === "zh" ? "Provider 架构" : "Provider runtime"}
         description={lang === "zh"
           ? "展示 Provider 如何承接鉴权、Skills、脚本与目标系统调用。"

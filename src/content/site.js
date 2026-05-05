@@ -22,11 +22,11 @@ export const siteContent = {
   en: {
     meta: {
       siteName: "AtlasClaw",
-      defaultTitle: "AtlasClaw | Open Source AI Agent Framework for Enterprise",
+      defaultTitle: "AtlasClaw | Open Source Enterprise AI Agent Framework",
       defaultDescription:
-        "AtlasClaw is an open-source AI agent framework for enterprise: built for multi-user AI agent deployment, permission-governed execution, system integration, and enterprise-approved LLMs.",
+        "AtlasClaw is an open source enterprise AI agent framework for multi-user deployment, governed execution, provider-based integrations, webhook AI integration, SSO, RBAC, and enterprise-approved LLMs.",
       footerTagline:
-        "Open-source AI agent framework for enterprise systems."
+        "Open source AI agent framework for governed enterprise systems."
     },
     nav: {
       home: "Home",
@@ -53,16 +53,16 @@ export const siteContent = {
       rights: "AtlasClaw website content for atlasclaw.ai"
     },
     home: {
-      title: "AtlasClaw | Open Source AI Agent Framework for Enterprise",
+      title: "AtlasClaw | Open Source Enterprise AI Agent Framework",
       description:
-        "AtlasClaw is an open-source AI agent framework for enterprise, built for multi-user AI agent deployment, governed execution, and AI-enabled enterprise systems.",
+        "AtlasClaw is an open source enterprise AI agent framework for multi-user AI agents, governed execution, webhook AI integration, provider-based integrations, SSO, RBAC, and enterprise-approved LLMs.",
       hero: {
         eyebrow: "Open Source AI Agent Framework for Enterprise",
-        title: "Open Source AI Agent Framework for Enterprise",
+        title: "Open Source Enterprise AI Agent Framework",
         subtitle:
-          "Built for multi-user AI agent deployment, governed by enterprise permissions, and designed for real AI application delivery.",
+          "Built for multi-user AI agent deployment, governed execution, and real enterprise AI application delivery.",
         description:
-          "AtlasClaw helps enterprises move beyond personal agents with multi-user AI agent deployment, SSO-based access to enterprise systems in standalone mode, Skill-based system integration, and enterprise-approved model providers.",
+          "AtlasClaw helps enterprises move beyond personal agents with SSO-based access, RBAC permission governance, Skill-based system integration, provider-based integrations, webhook AI integration, and enterprise-approved model providers.",
         primaryCta: { label: "Start with the core repo", href: repoLinks.core },
         secondaryCta: { label: "Read the architecture", href: "/en/architecture/" },
         panelTitle: "Enterprise fit",
@@ -71,7 +71,7 @@ export const siteContent = {
           {
             label: "Multi-user AI agent",
             value: "One deployment for organization users",
-            detail: "Avoid per-user setup, duplication, and wasted resources."
+            detail: "Run one open source multi-user AI agent framework instead of per-user agent stacks."
           },
           {
             label: "Systems by Skills",
@@ -81,7 +81,7 @@ export const siteContent = {
           {
             label: "Enterprise security and compliance",
             value: "SSO, RBAC, and admin control",
-            detail: "RBAC integrates with existing systems through SSO. Admins approve LLM providers and control agent behavior."
+            detail: "SSO and RBAC keep governed AI agent execution aligned with enterprise-approved LLM providers."
           },
           {
             label: "Multi channels",
@@ -94,7 +94,7 @@ export const siteContent = {
         eyebrow: "Why AtlasClaw for enterprise",
         title: "Personal agents solve personal workflows. AtlasClaw solves enterprise ones.",
         description:
-          "Personal agents are useful for individuals. AtlasClaw is built for organizations that need a multi-user AI agent, governed execution, system integration, and model control.",
+          "Personal agents are useful for individuals. AtlasClaw is built for organizations that need a multi-user AI agent, governed execution, provider-based integrations, webhook AI integration, and model control.",
         items: [
           {
             title: "Multi-user deployment",
@@ -108,14 +108,14 @@ export const siteContent = {
             personalLabel: "Personal agent",
             personalText: "Unsafe or over-permissive execution is hard to standardize and govern.",
             atlasLabel: "AtlasClaw",
-            atlasText: "Execution stays permission-governed to reduce unsafe operations."
+            atlasText: "Governed AI agent execution stays aligned with enterprise SSO and RBAC controls."
           },
           {
             title: "Enterprise system access",
             personalLabel: "Personal agent",
             personalText: "Individual tools rarely map cleanly onto internal enterprise systems.",
             atlasLabel: "AtlasClaw",
-            atlasText: "Webhook entrypoints and skill-based Providers let observability, ITSM, OA, CRM, and other enterprise systems gain AI capability without rewriting them."
+            atlasText: "Webhook entrypoints, Skills, and provider-based integrations let observability, ITSM, OA, CRM, SmartCMP, Jira, and other enterprise systems gain AI capability without rewriting them."
           },
           {
             title: "Model governance",
@@ -130,7 +130,7 @@ export const siteContent = {
         eyebrow: "Enterprise application focus",
         title: "The core enterprise requirements are built in from the start.",
         description:
-          "AtlasClaw is designed for organizations that want AI capabilities to live inside actual enterprise products, workflows, and system boundaries.",
+          "AtlasClaw is designed for organizations that want enterprise AI agent capabilities to live inside actual products, workflows, permissions, and system boundaries.",
         items: [
           {
             title: "Multi-user AI agent deployment",
@@ -145,12 +145,12 @@ export const siteContent = {
           {
             title: "Skill-based multi-system integration",
             description:
-              "Connect observability, ITSM, OA, CRM, and other internal systems through webhook entrypoints, Skills, and Providers so enterprise software can gain AI capability."
+              "Connect observability, ITSM, OA, CRM, SmartCMP, Jira, and other internal systems through webhook entrypoints, Skills, and Providers so enterprise software can gain AI capability."
           },
           {
             title: "Enterprise-approved model access",
             description:
-              "Route AI requests through enterprise-controlled LLM providers instead of ad hoc user-by-user model choices."
+              "Route AI requests through enterprise-approved LLM providers instead of ad hoc user-by-user model choices."
           }
         ]
       },
@@ -208,14 +208,14 @@ export const siteContent = {
       }
     },
     architecture: {
-      title: "Architecture | AtlasClaw",
+      title: "Enterprise AI Agent Architecture | AtlasClaw",
       description:
-        "AtlasClaw architecture overview covering thin core, rich providers, execution flow, and permission inheritance.",
+        "AtlasClaw enterprise AI agent architecture covering thin core orchestration, provider runtime, Skill-based execution, webhook AI integration, governed execution, and permission inheritance.",
       hero: {
         eyebrow: "Architecture",
         title: "Built for enterprise systems, not just personal agents.",
         description:
-          "Personal agents such as OpenClaw are optimized for individual tools and user-owned setup. AtlasClaw separates core orchestration from provider contracts so multi-user deployment, governed execution, and enterprise system boundaries can hold in production."
+          "Personal agents such as OpenClaw are optimized for individual tools and user-owned setup. AtlasClaw separates core orchestration from provider runtime contracts so multi-user deployment, governed AI agent execution, and enterprise system boundaries can hold in production."
       },
       principles: [
         {
@@ -226,7 +226,7 @@ export const siteContent = {
         {
           title: "Rich providers",
           description:
-            "Each provider packages auth behavior, skills, scripts, references, and normalization for a target system."
+            "Each provider packages auth behavior, Skills, scripts, references, and normalization for target systems such as SmartCMP, Jira, ITSM, observability, OA, and CRM."
         },
         {
           title: "Permission inheritance",
@@ -235,9 +235,9 @@ export const siteContent = {
         }
       ],
       runtime: [
-        "Access channels include web UI, embedded panels, chat platforms, and programmatic webhook calls.",
+        "Access channels include web UI, embedded panels, chat platforms, and programmatic webhook AI integration calls.",
         "The AtlasClaw core exposes the API layer, session services, provider registry, and agent engine.",
-        "Execution is handed to providers that speak the target platform's auth and operation model.",
+        "Skill-based execution is handed to providers that speak the target platform's auth and operation model.",
         "External enterprise systems remain the execution target and source of operational truth."
       ],
       comparison: [
@@ -264,25 +264,25 @@ export const siteContent = {
       ]
     },
     integrations: {
-      title: "Integrations | AtlasClaw",
+      title: "Provider-Based Enterprise AI Agent Integrations | AtlasClaw",
       description:
-        "AtlasClaw integrations architecture for connecting enterprise systems through providers, skills, and governed execution.",
+        "AtlasClaw integration architecture for connecting enterprise systems through provider-based integrations, Skills, webhook AI integration, SmartCMP, Jira, and governed execution.",
       hero: {
         eyebrow: "Integrations",
         title: "An integration architecture for enterprise systems, not just tool connectors.",
         description:
-          "AtlasClaw turns integrations into provider contracts so IM, web, embedded apps, and webhook calls can reach one agent layer, execute skills, and interact with governed enterprise systems."
+          "AtlasClaw turns integrations into provider contracts so IM, web, embedded apps, and webhook AI integration calls can reach one multi-user AI agent layer, execute Skills, and interact with governed enterprise systems."
       },
       architecture: {
         eyebrow: "Why this architecture",
         title: "Integration is where enterprise AI either becomes reliable or falls apart.",
         description:
-          "AtlasClaw is designed so integrations stay explicit. Providers hold system contracts, skills stay executable and narrow, and the core keeps one reusable orchestration model.",
+          "AtlasClaw is designed so integrations stay explicit. Providers hold system contracts, Skills stay executable and narrow, and the core keeps one reusable orchestration model for governed execution.",
         items: [
           {
             title: "Provider contracts, not loose tool wrappers",
             description:
-              "Each integration owns its auth model, scripts, references, and system-specific rules instead of leaking them into the core."
+              "Each provider-based integration owns its auth model, scripts, references, and system-specific rules instead of leaking them into the core."
           },
           {
             title: "Skills become controlled system verbs",
@@ -297,7 +297,7 @@ export const siteContent = {
           {
             title: "Existing systems gain AI without being rebuilt",
             description:
-              "Traditional products can call AtlasClaw as an AI layer instead of implementing their own agent stack from scratch."
+              "Traditional products can call AtlasClaw as a webhook AI integration layer instead of implementing their own agent stack from scratch."
           }
         ]
       },
@@ -317,20 +317,20 @@ export const siteContent = {
         eyebrow: "Enterprise domains",
         title: "One provider model across the enterprise stack.",
         description:
-          "The same integration architecture can be applied across operational systems, business systems, and developer systems.",
+          "The same provider-based integration architecture can be applied across operational systems, business systems, developer systems, SmartCMP, and Jira.",
         items: [
           {
             eyebrow: "Reference today",
             name: "SmartCMP",
             description:
-              "A strong provider reference showing request flows, approvals, webhook orchestration, and business-facing skill layers.",
+              "A SmartCMP provider reference showing cloud management request flows, approvals, webhook orchestration, and business-facing Skill layers.",
             href: repoLinks.smartCmp
           },
           {
             eyebrow: "Example today",
             name: "Jira",
             description:
-              "A concrete provider example for issue operations and provider wiring patterns.",
+              "A Jira provider example for issue operations, provider-qualified skills, and enterprise agent wiring patterns.",
             href: repoLinks.jira
           },
           {
@@ -389,9 +389,9 @@ export const siteContent = {
       }
     },
     docs: {
-      title: "Docs | AtlasClaw",
+      title: "AtlasClaw Docs | Enterprise AI Agent Framework",
       description:
-        "Curated AtlasClaw docs covering getting started, providers, and deployment.",
+        "Curated AtlasClaw docs covering the open source enterprise AI agent framework, provider-based integrations, Skills, webhook AI integration, and deployment.",
       hero: {
         eyebrow: "Docs",
         title: "A focused guide into the AtlasClaw codebase and model.",
@@ -437,11 +437,11 @@ export const siteContent = {
       ]
     },
     gettingStarted: {
-      title: "Getting Started | AtlasClaw",
+      title: "Getting Started with AtlasClaw Enterprise AI Agent Framework",
       description:
-        "Getting started with AtlasClaw, its repositories, and a minimal local setup.",
+        "Getting started with AtlasClaw, the open source enterprise AI agent framework, its repositories, provider-based integrations, and a minimal local setup.",
       intro:
-        "AtlasClaw gives teams a practical way to build one conversational execution layer across existing enterprise systems.",
+        "AtlasClaw gives teams a practical way to build one multi-user AI agent and conversational execution layer across existing enterprise systems.",
       repos: [
         {
           name: "atlasclaw",
@@ -495,11 +495,11 @@ export const siteContent = {
       ]
     },
     providers: {
-      title: "Providers | AtlasClaw Docs",
+      title: "AtlasClaw Providers | Skills and Enterprise AI Integrations",
       description:
-        "Provider structure, skill model, provider-qualified naming, and example references for AtlasClaw.",
+        "AtlasClaw Provider structure, Skill model, provider-qualified naming, webhook AI integration, SmartCMP, Jira, and enterprise AI integration references.",
       intro:
-        "Providers are AtlasClaw's integration boundary. Each provider packages the target-system contract, one or more skills, implementation scripts, and the context needed to keep the integration understandable.",
+        "Providers are AtlasClaw's integration boundary. Each provider packages the target-system contract, one or more Skills, implementation scripts, auth context, and the reference material needed to keep enterprise AI integrations understandable.",
       structure: `providers/<provider-name>/
 ├── PROVIDER.md
 ├── README.md
@@ -531,11 +531,11 @@ export const siteContent = {
       ]
     },
     deployment: {
-      title: "Deployment | AtlasClaw Docs",
+      title: "AtlasClaw Deployment | Multi-User Enterprise AI Agent",
       description:
-        "AtlasClaw deployment modes, config basics, and runtime considerations.",
+        "AtlasClaw deployment modes, SSO/RBAC configuration basics, provider runtime wiring, and enterprise AI agent runtime considerations.",
       intro:
-        "AtlasClaw supports two practical shapes: embedding into an existing product, or running as a standalone agent layer above multiple systems.",
+        "AtlasClaw supports two practical shapes: embedding into an existing product, or running as a standalone multi-user AI agent layer above multiple enterprise systems.",
       modes: [
         {
           title: "Embedded deployment",
@@ -545,7 +545,7 @@ export const siteContent = {
         {
           title: "Standalone deployment",
           description:
-            "Best when the enterprise needs one multi-user AI agent entry point above multiple systems."
+            "Best when the enterprise needs one SSO-backed multi-user AI agent entry point above multiple systems."
         }
       ],
       config: `{
@@ -568,7 +568,7 @@ export const siteContent = {
       notes: [
         "Use `providers_root` to load provider folders from the external providers repository.",
         "Keep secrets in environment variables, not committed JSON.",
-        "Use webhook mode for fire-and-forget system-to-system invocation with constrained skills.",
+        "Use webhook mode for fire-and-forget system-to-system invocation with constrained Skills.",
         "Keep target-platform auth and audit in the provider and the downstream platform."
       ],
       references: [
@@ -580,10 +580,10 @@ export const siteContent = {
   zh: {
     meta: {
       siteName: "AtlasClaw",
-      defaultTitle: "AtlasClaw | 面向企业的开源 AI Agent 框架",
+      defaultTitle: "AtlasClaw | 企业级开源 AI Agent 框架",
       defaultDescription:
-        "AtlasClaw 是面向企业的开源 AI Agent 框架，支持多用户 AI Agent 部署、受控执行、跨系统集成，以及对企业受控大模型的对接。",
-      footerTagline: "面向企业级跨系统受控执行的开源 Agent 框架。"
+        "AtlasClaw 是企业级开源 AI Agent 框架，支持多用户 AI Agent 部署、受控执行、权限治理、Provider 集成、Webhook AI 集成、SSO、RBAC 和企业受控大模型。",
+      footerTagline: "面向企业级跨系统受控执行的开源 AI Agent 框架。"
     },
     nav: {
       home: "首页",
@@ -610,16 +610,16 @@ export const siteContent = {
       rights: "AtlasClaw 官网内容，服务于 atlasclaw.ai"
     },
     home: {
-      title: "AtlasClaw | 面向企业的开源 AI Agent 框架",
+      title: "AtlasClaw | 企业级开源 AI Agent 框架",
       description:
-        "AtlasClaw 是一个面向企业的开源 AI Agent 框架，帮助组织以多用户 AI Agent 部署的方式受控接入 AI 与企业系统。",
+        "AtlasClaw 是企业级开源 AI Agent 框架，帮助组织以多用户 AI Agent、受控执行、Provider 集成、Webhook AI 集成、SSO、RBAC 和企业受控大模型接入 AI 与企业系统。",
       hero: {
-        eyebrow: "面向企业的开源 AI Agent 框架",
-        title: "Open Source AI Agent Framework for Enterprise",
+        eyebrow: "企业级开源 AI Agent 框架",
+        title: "Open Source Enterprise AI Agent Framework",
         subtitle:
-          "为多用户 AI Agent、受控执行，以及真实企业 AI 技术应用而设计。",
+          "为多用户 AI Agent、受控执行、权限治理，以及真实企业 AI 技术应用而设计。",
         description:
-          "AtlasClaw 不是个人 Agent 的企业放大版，而是帮助组织通过多用户 AI Agent 部署、SSO、Skill、Provider 和企业受控模型，把 AI 能力真正接入系统和流程。",
+          "AtlasClaw 不是个人 Agent 的企业放大版，而是帮助组织通过多用户 AI Agent 部署、SSO、RBAC、Skill 执行、Provider 集成、Webhook AI 集成和企业受控大模型，把 AI 能力真正接入系统和流程。",
         primaryCta: { label: "从核心仓库开始", href: repoLinks.core },
         secondaryCta: { label: "阅读架构说明", href: "/zh/architecture/" },
         panelTitle: "企业适配",
@@ -628,17 +628,17 @@ export const siteContent = {
           {
             label: "多用户 AI Agent",
             value: "统一部署，多人使用",
-            detail: "避免每个人单独配置 Agent，减少重复与浪费。"
+            detail: "用一个企业级开源 AI Agent 框架统一服务组织用户，避免每个人单独配置。"
           },
           {
             label: "通过 Skills 连接系统",
             value: "Webhook 与 Provider 集成",
-            detail: "通过 Webhook 入口和 Skills，让可观测、ITSM、OA、CRM 等现有企业系统在既有边界内获得 AI 能力。"
+            detail: "通过 Webhook AI 集成、Skills 和 Providers，让可观测、ITSM、OA、CRM、SmartCMP、Jira 等系统在既有边界内获得 AI 能力。"
           },
           {
             label: "企业安全与合规",
             value: "SSO、RBAC 与管理员控制",
-            detail: "基于 SSO 对接现有系统权限，管理员可批准模型提供方并控制 Agent 行为。"
+            detail: "基于 SSO 和 RBAC 对接现有系统权限，管理员可批准企业受控大模型并控制 Agent 行为。"
           },
           {
             label: "多通道接入",
@@ -651,7 +651,7 @@ export const siteContent = {
         eyebrow: "为什么企业场景需要 AtlasClaw",
         title: "个人 Agent 解决个人问题，AtlasClaw 解决企业问题。",
         description:
-          "个人 Agent 适合个人工作流。AtlasClaw 面向多用户 AI Agent、权限治理、系统对接和企业级模型控制。",
+          "个人 Agent 适合个人工作流。AtlasClaw 面向多用户 AI Agent、受控执行、权限治理、Provider 集成、Webhook AI 集成和企业受控大模型。",
         items: [
           {
             title: "多用户部署",
@@ -665,21 +665,21 @@ export const siteContent = {
             personalLabel: "个人 Agent",
             personalText: "执行行为难以统一治理，也更容易出现不安全操作。",
             atlasLabel: "AtlasClaw",
-            atlasText: "执行行为受权限体系约束，降低不安全操作风险。"
+            atlasText: "执行行为受 SSO、RBAC 和权限治理约束，降低不安全操作风险。"
           },
           {
             title: "企业系统对接",
             personalLabel: "个人 Agent",
             personalText: "个人工具链很难自然映射到企业内部系统与传统软件。",
             atlasLabel: "AtlasClaw",
-            atlasText: "通过 Webhook 入口、Skill 和 Provider，把可观测、ITSM、OA、CRM 等企业系统和传统软件纳入 AI 能力层。"
+            atlasText: "通过 Webhook AI 集成、Skill 执行和 Provider 集成，把可观测、ITSM、OA、CRM、SmartCMP、Jira 等企业系统和传统软件纳入 AI 能力层。"
           },
           {
             title: "模型治理",
             personalLabel: "个人 Agent",
             personalText: "模型接入通常是用户自己选择，难以满足企业治理要求。",
             atlasLabel: "AtlasClaw",
-            atlasText: "统一对接企业允许的大模型与受控模型服务。"
+            atlasText: "统一对接企业受控大模型与管理员批准的模型服务。"
           }
         ]
       },
@@ -687,7 +687,7 @@ export const siteContent = {
         eyebrow: "企业应用重点",
         title: "AtlasClaw 从一开始就围绕企业核心诉求设计。",
         description:
-          "它不是给单个用户堆工具，而是为了让企业里的 AI 技术应用真正落到系统、流程和治理边界之内。",
+          "它不是给单个用户堆工具，而是为了让企业级 AI Agent 应用真正落到系统、流程、权限治理和受控执行边界之内。",
         items: [
           {
             title: "多用户 AI Agent 部署",
@@ -697,17 +697,17 @@ export const siteContent = {
           {
             title: "权限受控执行",
             description:
-              "所有动作都在真实权限体系内执行，避免不安全操作越过企业边界。"
+              "所有动作都在 SSO、RBAC 和真实权限体系内执行，避免不安全操作越过企业边界。"
           },
           {
             title: "基于 Skill 的多系统对接",
             description:
-              "通过 Webhook 入口、Skill 与 Provider，把可观测、ITSM、OA、CRM 等组织内系统和传统系统接进 AI 能力层。"
+              "通过 Webhook AI 集成、Skill 执行与 Provider 集成，把可观测、ITSM、OA、CRM、SmartCMP、Jira 等组织内系统和传统系统接进 AI 能力层。"
           },
           {
             title: "企业受控模型接入",
             description:
-              "统一接入企业允许的大模型与模型服务，而不是分散的个人模型配置。"
+              "统一接入企业受控大模型与模型服务，而不是分散的个人模型配置。"
           }
         ]
       },
@@ -762,14 +762,14 @@ export const siteContent = {
       }
     },
     architecture: {
-      title: "架构 | AtlasClaw",
+      title: "企业级 AI Agent 架构 | AtlasClaw",
       description:
-        "AtlasClaw 架构总览：轻核心、强 Provider、运行时流转和权限继承。",
+        "AtlasClaw 企业级 AI Agent 架构总览：轻核心编排、Provider 运行时、Skill 执行、Webhook AI 集成、受控执行和权限继承。",
       hero: {
         eyebrow: "架构",
         title: "这是一套面向企业系统，而不是个人 Agent 的架构。",
         description:
-          "像 OpenClaw 这类个人 Agent 更偏向个人工具使用和用户自有配置。AtlasClaw 则把核心编排与 Provider 合同分开，让多用户部署、受控执行和企业系统边界能够在生产环境里成立。"
+          "像 OpenClaw 这类个人 Agent 更偏向个人工具使用和用户自有配置。AtlasClaw 则把核心编排与 Provider 运行时合同分开，让多用户部署、受控执行、权限治理和企业系统边界能够在生产环境里成立。"
       },
       principles: [
         {
@@ -780,7 +780,7 @@ export const siteContent = {
         {
           title: "强 Provider",
           description:
-            "每个 Provider 都封装目标系统的鉴权行为、Skills、脚本、参考资料与接口归一化。"
+            "每个 Provider 都封装 SmartCMP、Jira、ITSM、可观测、OA、CRM 等目标系统的鉴权行为、Skills、脚本、参考资料与接口归一化。"
         },
         {
           title: "权限继承",
@@ -789,9 +789,9 @@ export const siteContent = {
         }
       ],
       runtime: [
-        "访问通道包括 Web UI、嵌入面板、聊天平台与 Webhook。",
+        "访问通道包括 Web UI、嵌入面板、聊天平台与 Webhook AI 集成。",
         "AtlasClaw Core 提供 API 层、会话服务、Provider Registry 与 Agent Engine。",
-        "执行交给理解目标平台鉴权和操作模型的 Provider。",
+        "Skill 执行交给理解目标平台鉴权和操作模型的 Provider。",
         "外部企业系统仍然是执行落点与业务真实来源。"
       ],
       comparison: [
@@ -818,25 +818,25 @@ export const siteContent = {
       ]
     },
     integrations: {
-      title: "集成 | AtlasClaw",
+      title: "企业级 AI Agent Provider 集成 | AtlasClaw",
       description:
-        "AtlasClaw 集成架构页面，说明如何通过 Provider、Skills 与受控执行连接企业系统。",
+        "AtlasClaw 集成架构页面，说明如何通过 Provider 集成、Skills、Webhook AI 集成、SmartCMP、Jira 与受控执行连接企业系统。",
       hero: {
         eyebrow: "集成",
         title: "这是一套面向企业系统的集成架构，而不是零散的工具连接。",
         description:
-          "AtlasClaw 把集成建模为 Provider 合同，让 IM、Web、嵌入式应用与 Webhook 都能访问同一个 Agent 层，由 Skills 执行并连接受控企业系统。"
+          "AtlasClaw 把集成建模为 Provider 合同，让 IM、Web、嵌入式应用与 Webhook AI 集成都能访问同一个多用户 AI Agent 层，由 Skills 执行并连接受控企业系统。"
       },
       architecture: {
         eyebrow: "为什么是这种架构",
         title: "企业 AI 的成败，往往就在集成层。",
         description:
-          "AtlasClaw 的集成模型强调边界显式化。Provider 承担系统合同，Skills 作为可执行且收敛的动作边界，Core 保持统一编排模型。",
+          "AtlasClaw 的 Provider 集成模型强调边界显式化。Provider 承担系统合同，Skills 作为可执行且收敛的动作边界，Core 保持统一编排模型。",
         items: [
           {
             title: "Provider 合同，而不是松散工具包装",
             description:
-              "每个集成自己承接鉴权模型、脚本、参考资料与系统侧规则，而不是把这些逻辑泄漏到核心里。"
+              "每个 Provider 集成自己承接鉴权模型、脚本、参考资料与系统侧规则，而不是把这些逻辑泄漏到核心里。"
           },
           {
             title: "Skills 变成受控的系统动作",
@@ -851,7 +851,7 @@ export const siteContent = {
           {
             title: "让现有系统获得 AI，而不是重建系统",
             description:
-              "传统产品可以把 AtlasClaw 当作 AI 层调用，而不必从头实现自己的一整套 Agent 栈。"
+              "传统产品可以把 AtlasClaw 当作 Webhook AI 集成层调用，而不必从头实现自己的一整套 Agent 栈。"
           }
         ]
       },
@@ -871,20 +871,20 @@ export const siteContent = {
         eyebrow: "企业系统域",
         title: "一套 Provider 模型，贯穿整个企业技术栈。",
         description:
-          "同一套集成架构可以落到运维系统、业务系统和研发系统中。",
+          "同一套 Provider 集成架构可以落到运维系统、业务系统、研发系统、SmartCMP 和 Jira 中。",
         items: [
           {
             eyebrow: "当前参考",
             name: "SmartCMP",
             description:
-              "一个很强的 Provider 参考，覆盖请求流、审批、Webhook 编排和面向业务的 Skill 分层。",
+              "一个 SmartCMP Provider 参考，覆盖云管理请求流、审批、Webhook 编排和面向业务的 Skill 分层。",
             href: repoLinks.smartCmp
           },
           {
             eyebrow: "当前示例",
             name: "Jira",
             description:
-              "一个具体的 Provider 示例，展示 Issue 操作和 Provider 接线模式。",
+              "一个 Jira Provider 示例，展示 Issue 操作、provider-qualified skills 和企业 Agent 接线模式。",
             href: repoLinks.jira
           },
           {
@@ -943,9 +943,9 @@ export const siteContent = {
       }
     },
     docs: {
-      title: "文档 | AtlasClaw",
+      title: "AtlasClaw 文档 | 企业级 AI Agent 框架",
       description:
-        "AtlasClaw 精简文档入口，涵盖快速开始、Providers 与部署。",
+        "AtlasClaw 文档入口，涵盖企业级开源 AI Agent 框架、Provider 集成、Skill 执行、Webhook AI 集成、快速开始与部署。",
       hero: {
         eyebrow: "文档",
         title: "从官网快速进入 AtlasClaw 的代码、模型与设计文档。",
@@ -988,11 +988,11 @@ export const siteContent = {
       ]
     },
     gettingStarted: {
-      title: "快速开始 | AtlasClaw",
+      title: "AtlasClaw 快速开始 | 企业级 AI Agent 框架",
       description:
-        "快速开始使用 AtlasClaw，并理解它的仓库结构与最小启动流程。",
+        "快速开始使用 AtlasClaw 企业级开源 AI Agent 框架，并理解仓库结构、Provider 集成和最小启动流程。",
       intro:
-        "AtlasClaw 提供了一种务实方式，帮助团队在既有企业系统之上搭建统一的 Agent 交互与执行层。",
+        "AtlasClaw 提供了一种务实方式，帮助团队在既有企业系统之上搭建统一的多用户 AI Agent 交互与执行层。",
       repos: [
         {
           name: "atlasclaw",
@@ -1043,11 +1043,11 @@ export const siteContent = {
       ]
     },
     providers: {
-      title: "Providers | AtlasClaw 文档",
+      title: "AtlasClaw Providers | Skill 执行与企业 AI 集成",
       description:
-        "Provider 结构、Skill 模型、provider-qualified naming 与 AtlasClaw 参考示例。",
+        "AtlasClaw Provider 结构、Skill 模型、provider-qualified naming、Webhook AI 集成、SmartCMP、Jira 与企业 AI 集成参考示例。",
       intro:
-        "Provider 是 AtlasClaw 的集成边界。每个 Provider 都封装目标系统合同、一个或多个 Skills、实现脚本，以及让集成保持可理解的参考资料。",
+        "Provider 是 AtlasClaw 的集成边界。每个 Provider 都封装目标系统合同、一个或多个 Skills、鉴权上下文、实现脚本，以及让企业 AI 集成保持可理解的参考资料。",
       structure: `providers/<provider-name>/
 ├── PROVIDER.md
 ├── README.md
@@ -1079,11 +1079,11 @@ export const siteContent = {
       ]
     },
     deployment: {
-      title: "部署 | AtlasClaw 文档",
+      title: "AtlasClaw 部署 | 多用户企业级 AI Agent",
       description:
-        "AtlasClaw 的部署模式、配置基础与运行时关键点。",
+        "AtlasClaw 的部署模式、SSO/RBAC 配置基础、Provider 运行时接线与企业级 AI Agent 运行时关键点。",
       intro:
-        "AtlasClaw 支持两种实用形态：嵌入已有产品，或者作为统一的独立 Agent 层运行在多个系统之上。",
+        "AtlasClaw 支持两种实用形态：嵌入已有产品，或者作为统一的多用户 AI Agent 层运行在多个企业系统之上。",
       modes: [
         {
           title: "嵌入式部署",
@@ -1093,7 +1093,7 @@ export const siteContent = {
         {
           title: "独立式部署",
           description:
-            "适合企业需要在多个系统之上提供统一的 Agent 入口。"
+            "适合企业需要在多个系统之上提供统一的 SSO 多用户 AI Agent 入口。"
         }
       ],
       config: `{
@@ -1116,7 +1116,7 @@ export const siteContent = {
       notes: [
         "使用 `providers_root` 从外部 providers 仓库加载 Provider 文件夹。",
         "密钥放在环境变量里，不要提交到 JSON 配置。",
-        "Webhook 模式适合系统到系统的 fire-and-forget 调用。",
+        "Webhook 模式适合系统到系统的 fire-and-forget 调用，并通过受限 Skills 控制执行边界。",
         "目标平台的鉴权与审计继续保留在 Provider 和下游平台内部。"
       ],
       references: [
