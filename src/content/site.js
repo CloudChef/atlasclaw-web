@@ -231,10 +231,10 @@ export const siteContent = {
       timelineLabel: "AtlasClaw release timeline",
       milestonesLabel: "Version milestones",
       hero: {
-        eyebrow: "Release notes",
-        title: "Platform release notes for technical teams.",
+        eyebrow: "Releases",
+        title: "AtlasClaw Release Notes",
         description:
-          "This page records AtlasClaw releases as technical product notes: what changed in Core, which Providers gained new capabilities, and why those changes matter for enterprise AI agent deployment."
+          "Version updates for AtlasClaw Core and Providers, including runtime capabilities, enterprise security, provider integrations, and workflow automation."
       },
       stats: [
         {
@@ -254,17 +254,17 @@ export const siteContent = {
         }
       ],
       index: {
-        eyebrow: "Release archive",
-        title: "Track AtlasClaw's path from framework foundation to enterprise platform.",
+        eyebrow: "Version history",
+        title: "Current and recent platform updates",
         description:
-          "Each entry keeps the product context, implementation-level capability changes, and provider impact visible in one place.",
-        actionLabel: "Read release details"
+          "Browse release entries by version to see Core runtime changes, Provider capabilities, and enterprise workflow improvements.",
+        actionLabel: "Open release"
       },
       cta: {
         eyebrow: "Source and implementation",
-        title: "Follow the implementation in the open-source repositories.",
+        title: "Review the source behind each release",
         description:
-          "The release archive explains the product changes. The core and provider repositories show the implementation details, examples, and contribution path.",
+          "The release notes summarize product changes. The Core and Providers repositories contain the implementation details, examples, and contribution path.",
         href: repoLinks.core,
         label: "Open core repo",
         secondaryHref: repoLinks.providers,
@@ -579,8 +579,8 @@ export const siteContent = {
             {
               eyebrow: "Runtime hooks and deployment",
               title: "Lifecycle hooks and deployment options made customization practical",
-          body: [
-            "The hook system grew to cover 17+ phases of the agent lifecycle, while deployment options covered embedded and standalone use cases."
+              body: [
+                "The hook system grew to cover 17+ phases of the agent lifecycle, while deployment options covered embedded and standalone use cases."
               ],
               points: [
                 "Hooks support configuration-driven script handlers, typed runtime events, per-user state persistence, and script fault isolation.",
@@ -1175,10 +1175,10 @@ export const siteContent = {
       timelineLabel: "AtlasClaw 发布时间线",
       milestonesLabel: "版本阶段",
       hero: {
-        eyebrow: "发布记录",
-        title: "面向技术团队的产品发布记录。",
+        eyebrow: "版本发布",
+        title: "AtlasClaw 发布记录",
         description:
-          "本页以技术产品发布说明的形式记录 AtlasClaw 的版本演进：Core 运行时发生了什么变化，Provider 新增了哪些能力，以及这些变化为什么会影响企业级 AI Agent 的部署与落地。"
+          "查看 AtlasClaw Core 与 Providers 的版本更新，包括运行时能力、企业安全、Provider 集成和工作流自动化。"
       },
       stats: [
         {
@@ -1198,17 +1198,17 @@ export const siteContent = {
         }
       ],
       index: {
-        eyebrow: "发布归档",
-        title: "从框架底座到企业级平台，持续追踪 AtlasClaw 的演进。",
+        eyebrow: "版本历史",
+        title: "当前与近期平台更新",
         description:
-          "每个条目都呈现产品背景、实现层能力变化和 Provider 影响，方便技术团队理解版本价值。",
-        actionLabel: "查看版本详情"
+          "按版本查看 Core 运行时变化、Provider 能力更新和企业工作流改进。",
+        actionLabel: "打开版本"
       },
       cta: {
         eyebrow: "源码与实现",
-        title: "继续在开源仓库中跟进实现细节。",
+        title: "查看每个版本背后的实现",
         description:
-          "发布记录说明产品层变化；Core 和 Providers 仓库保留实现细节、参考示例和贡献入口。",
+          "发布记录概括产品变化；Core 和 Providers 仓库保留实现细节、参考示例和贡献入口。",
         href: repoLinks.core,
         label: "打开 Core 仓库",
         secondaryHref: repoLinks.providers,
