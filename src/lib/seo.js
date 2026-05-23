@@ -20,6 +20,7 @@ const localeMetadata = {
       "SSO",
       "RBAC",
       "enterprise-approved LLM",
+      "AtlasClaw releases",
       "SmartCMP provider",
       "Jira provider"
     ]
@@ -38,6 +39,7 @@ const localeMetadata = {
       "Skill 执行",
       "Webhook AI 集成",
       "企业受控大模型",
+      "AtlasClaw 发布记录",
       "SmartCMP",
       "Jira"
     ]
@@ -137,12 +139,43 @@ export function buildBreadcrumbItems({ lang, pathname, content }) {
  * @param {string} params.title Rendered page title.
  * @param {string} params.description Rendered page description.
  * @param {object} params.content Locale content bundle from siteContent.
+ * @param {string[]} [params.keywords] Page-specific search keywords.
+ * @param {Array<{
+ *   headline: string,
+ *   description: string,
+ *   datePublished: string,
+ *   url: string,
+ *   keywords?: string[]
+ * }>} [params.articles] Article-like entries represented as TechArticle nodes.
  * @returns {string} JSON-LD graph serialized for an application/ld+json script tag.
  */
-export function buildStructuredData({ lang, pathname, title, description, content }) {
+export function buildStructuredData({
+  lang,
+  pathname,
+  title,
+  description,
+  content,
+  keywords,
+  articles = []
+}) {
   const canonicalUrl = absoluteUrl(pathname);
   const localeSeo = getLocaleSeoMetadata(lang);
+  const pageKeywords = keywords ?? localeSeo.keywords;
   const breadcrumbItems = buildBreadcrumbItems({ lang, pathname, content });
+  const pageId = `${canonicalUrl}#webpage`;
+  const articleNodes = articles.map((article) => ({
+    "@type": "TechArticle",
+    "@id": `${article.url}#techarticle`,
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.datePublished,
+    url: article.url,
+    inLanguage: localeSeo.languageName,
+    keywords: (article.keywords ?? pageKeywords).join(", "),
+    isPartOf: { "@id": pageId },
+    publisher: { "@id": `${siteUrl}/#organization` }
+  }));
   const graph = [
     {
       "@type": "WebSite",
@@ -166,16 +199,19 @@ export function buildStructuredData({ lang, pathname, title, description, conten
       ]
     },
     {
-      "@type": "WebPage",
-      "@id": `${canonicalUrl}#webpage`,
+      "@type": articleNodes.length > 0 ? "CollectionPage" : "WebPage",
+      "@id": pageId,
       url: canonicalUrl,
       name: title,
       description,
-      keywords: localeSeo.keywords.join(", "),
+      keywords: pageKeywords.join(", "),
       isPartOf: { "@id": `${siteUrl}/#website` },
       inLanguage: localeSeo.languageName,
       primaryImageOfPage: absoluteUrl(socialImagePath),
-      breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` }
+      breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+      ...(articleNodes.length > 0
+        ? { mainEntity: articleNodes.map((article) => ({ "@id": article["@id"] })) }
+        : {})
     },
     {
       "@type": "BreadcrumbList",
@@ -186,7 +222,8 @@ export function buildStructuredData({ lang, pathname, title, description, conten
         name: item.name,
         item: item.item
       }))
-    }
+    },
+    ...articleNodes
   ];
 
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
@@ -205,6 +242,7 @@ function buildRouteLabels(content) {
   return {
     architecture: content.nav.architecture,
     integrations: content.nav.integrations,
+    releases: content.nav.releases,
     docs: content.nav.docs,
     "getting-started": content.docs.items[0].title,
     providers: content.docs.items[1].title,

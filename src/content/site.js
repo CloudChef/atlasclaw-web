@@ -32,6 +32,7 @@ export const siteContent = {
       home: "Home",
       architecture: "Architecture",
       integrations: "Integrations",
+      releases: "Releases",
       docs: "Docs",
       github: "GitHub"
     },
@@ -206,6 +207,395 @@ export const siteContent = {
           }
         ]
       }
+    },
+    releases: {
+      title: "AtlasClaw Release Notes | Enterprise AI Agent Updates",
+      description:
+        "AtlasClaw release notes for enterprise AI agent updates, long-term memory, Markdown Vault Provider, SmartCMP Provider, workflow orchestration, and integrations.",
+      keywords: [
+        "AtlasClaw release notes",
+        "AtlasClaw releases",
+        "enterprise AI agent updates",
+        "enterprise AI agent release notes",
+        "open source AI agent framework releases",
+        "long-term memory AI agent",
+        "Markdown Vault Provider",
+        "SmartCMP Provider",
+        "provider-based integrations",
+        "workflow orchestration",
+        "webhook AI integration",
+        "multi-user AI agent"
+      ],
+      statsLabel: "Release summary",
+      tagsLabel: "Release tags",
+      timelineLabel: "AtlasClaw release timeline",
+      milestonesLabel: "Version milestones",
+      hero: {
+        eyebrow: "Release notes",
+        title: "Platform release notes for technical teams.",
+        description:
+          "This page records AtlasClaw releases as technical product notes: what changed in Core, which Providers gained new capabilities, and why those changes matter for enterprise AI agent deployment."
+      },
+      stats: [
+        {
+          label: "Latest release",
+          value: "v0.9.7",
+          detail: "Long-term memory, stronger permission boundaries, and Markdown Vault knowledge access."
+        },
+        {
+          label: "Release entries",
+          value: "2",
+          detail: "Release notes adapted from the April and May 2026 update materials."
+        },
+        {
+          label: "Coverage",
+          value: "Core + Providers",
+          detail: "Runtime, security, channels, workflows, SmartCMP, Jira, GitHub, and shared skills."
+        }
+      ],
+      index: {
+        eyebrow: "Release archive",
+        title: "Track AtlasClaw's path from framework foundation to enterprise platform.",
+        description:
+          "Each entry keeps the product context, implementation-level capability changes, and provider impact visible in one place.",
+        actionLabel: "Read release details"
+      },
+      cta: {
+        eyebrow: "Source and implementation",
+        title: "Follow the implementation in the open-source repositories.",
+        description:
+          "The release archive explains the product changes. The core and provider repositories show the implementation details, examples, and contribution path.",
+        href: repoLinks.core,
+        label: "Open core repo",
+        secondaryHref: repoLinks.providers,
+        secondaryLabel: "Open providers repo"
+      },
+      items: [
+        {
+          id: "v0-9-7",
+          version: "v0.9.7",
+          dateIso: "2026-05-22",
+          date: "May 22, 2026",
+          title: "Long-term memory and the Markdown Vault knowledge provider",
+          keywords: [
+            "AtlasClaw v0.9.7",
+            "long-term memory AI agent",
+            "Markdown Vault Provider",
+            "SmartCMP Provider",
+            "enterprise AI agent memory",
+            "webhook robot execution profiles",
+            "provider token authentication"
+          ],
+          summary:
+            "This release focuses on persistent enterprise agent usage: user-scoped memory in the core, clearer authorization boundaries, more stable multi-entry sessions, and a new Markdown Vault provider for local knowledge bases.",
+          lede:
+            "AtlasClaw v0.9.7 moves the platform beyond single-turn answers into ongoing enterprise collaboration. The core runtime now supports long-term user memory and stronger ownership checks, while the Provider layer adds Markdown Vault knowledge access and deeper SmartCMP request, approval, and operations support.",
+          tags: ["Memory", "Security", "Webhook", "Markdown Vault", "SmartCMP"],
+          highlights: [
+            {
+              title: "User-scoped long-term memory",
+              description:
+                "Agents can retain work preferences and recurring context under user isolation, giving repeated collaboration a practical memory layer."
+            },
+            {
+              title: "Clearer enterprise permission boundaries",
+              description:
+                "Run ownership, session creation, and memory writes now have stronger checks for multi-user deployments."
+            },
+            {
+              title: "Knowledge from Markdown Vaults",
+              description:
+                "Existing team manuals, operations notes, project docs, and internal wiki exports can become searchable agent knowledge."
+            },
+            {
+              title: "More complete SmartCMP workflows",
+              description:
+                "Resource requests, approvals, follow-up operations, provider-token auth, and webhook robot execution profiles gained broader coverage."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Core runtime",
+              title: "Long-term memory makes repeated agent work continuous",
+              body: [
+                "The core now supports long-term user preferences and usage profiles. When permissions allow it, the agent can remember work habits, preference details, and recurring context so future conversations start with useful context already in place.",
+                "Memory is isolated by user. That isolation is essential for enterprise deployments where multiple employees, teams, and external entrypoints share the same platform."
+              ],
+              points: [
+                "Useful for internal knowledge collaboration, personal assistant workflows, operations Q&A, and ongoing project follow-up.",
+                "Reduces repeated prompting when users return to similar tasks.",
+                "Prevents user profile data from crossing account boundaries."
+              ]
+            },
+            {
+              eyebrow: "Core security",
+              title: "Ownership and write checks make the multi-user boundary easier to reason about",
+              body: [
+                "Enterprise agents need to be useful without becoming over-permissive. This release strengthens agent run ownership checks, session creation validation, memory write validation, and the common authentication provider foundation."
+              ],
+              points: [
+                "Separates user identity, session ownership, memory access, and skill execution rights more clearly.",
+                "Improves the foundation for teams, departments, web users, IM users, and webhook callers using the same deployment.",
+                "Makes authorization behavior easier to audit and explain."
+              ]
+            },
+            {
+              eyebrow: "Sessions and gateway",
+              title: "Sessions are more stable across web, IM, and webhook traffic",
+              body: [
+                "The session and gateway layers now handle session keys, external session identifiers, idempotency caching, and runtime user paths more reliably. These changes are not headline features, but they make real enterprise entrypoints behave more predictably."
+              ],
+              points: [
+                "Web UI, IM channels, and webhook entrypoints can coordinate against cleaner session state.",
+                "Tool selection is more stable during multi-step tasks.",
+                "History replay is cleaner and less likely to include runtime noise."
+              ]
+            },
+            {
+              eyebrow: "Channels",
+              title: "IM and webhook interactions fit real-time enterprise workflows",
+              body: [
+                "When users send requests through enterprise chat channels such as WeCom, Feishu, or DingTalk, AtlasClaw can return immediate acknowledgement that the request was received and is being processed. Webhook integration also gains configurable shared-secret support."
+              ],
+              points: [
+                "Improves perceived responsiveness for alerts, approvals, automation requests, and enterprise robot workflows.",
+                "Strengthens system-to-system invocation with a clearer shared-secret boundary.",
+                "Keeps webhook AI integration suitable for real-time operational scenarios."
+              ]
+            },
+            {
+              eyebrow: "Operations",
+              title: "Administration and deployment are better suited for daily operations",
+              body: [
+                "The frontend management experience received refinements around session history, runtime panels, role-permission display, and deletion confirmations. Deployment assets now cover standardized runtime logs, log rotation, Docker, systemd, and logrotate patterns."
+              ],
+              points: [
+                "Helps long-running deployments with troubleshooting, maintenance, and audit work.",
+                "Makes day-to-day admin panels more predictable for operators.",
+                "Improves the handoff from local evaluation to production operations."
+              ]
+            },
+            {
+              eyebrow: "Provider",
+              title: "Markdown Vault provider turns existing documents into agent-ready knowledge",
+              body: [
+                "The new markdown-vault provider connects AtlasClaw to local Markdown repositories. It supports document parsing, knowledge retrieval, and question answering grounded in local material."
+              ],
+              points: [
+                "Team handbooks, operations knowledge bases, project documents, and internal wiki exports can be reused directly.",
+                "Organizations can make existing document assets conversational and searchable without a heavy system rebuild.",
+                "The capability fits local-first and controlled-knowledge deployments."
+              ]
+            },
+            {
+              eyebrow: "SmartCMP",
+              title: "Resource request, approval, and operations flows gained depth",
+              body: [
+                "SmartCMP provider work expanded the full resource lifecycle: natural-language request capture, approval assistance, resource operations, compliance evidence, and resource views shared across operational skills."
+              ],
+              points: [
+                "Resource requests now support same-type multi-instance requests, schema-driven multi-instance input, and more reliable matching among services, packages, and parameter specifications.",
+                "Approval capabilities include pre-approval support, approval detail lookup, pending-list display, specification-name normalization, and more structured approval output.",
+                "Operations workflows support parameter-free resource changes, resource evidence lookup, and selecting compliance-analysis targets by name or list index."
+              ]
+            },
+            {
+              eyebrow: "Provider ecosystem",
+              title: "Authentication, GitHub, and document skills broadened integration coverage",
+              body: [
+                "The provider repository added stronger SmartCMP provider token authentication and webhook robot execution profiles. It also added a GitHub provider with token-based authentication and expanded shared document-generation skills."
+              ],
+              points: [
+                "Webhook callers can run skills under clearer robot identities and credential boundaries.",
+                "GitHub integration establishes a foundation for issue, pull request, and repository workflows.",
+                "Text generation, XLSX spreadsheet handling, and presentation artifact access bring documents, tables, reports, and slides closer to the agent workflow."
+              ]
+            }
+          ],
+          links: [
+            { label: "Core repository", href: repoLinks.core },
+            { label: "Providers repository", href: repoLinks.providers },
+            { label: "Contact AtlasClaw", href: repoLinks.contact }
+          ]
+        },
+        {
+          id: "v0-9-3-overview",
+          version: "v0.9.3",
+          dateIso: "2026-04-24",
+          date: "April 24, 2026",
+          title: "Platform evolution from v0.6.2 to v0.9.3",
+          keywords: [
+            "AtlasClaw v0.9.3",
+            "AtlasClaw version history",
+            "Thin Core Rich Providers",
+            "SmartCMP integration",
+            "Jira Provider",
+            "GitHub Provider",
+            "LLM-first routing",
+            "enterprise AI workflow engine"
+          ],
+          summary:
+            "An overview of the first 40+ days after the open-source release: 17 versions, 249 commits, and the transition from framework foundation to enterprise-ready agent platform.",
+          lede:
+            "By April 24, 2026, AtlasClaw had moved through 17 versions from v0.6.2 to v0.9.3. The platform established its Thin Core, Rich Providers architecture, expanded SmartCMP and Jira integrations, added GitHub provider work, strengthened enterprise security, and introduced LLM-first routing and workflow orchestration.",
+          tags: ["Architecture", "Providers", "Security", "Workflow", "Channels"],
+          highlights: [
+            {
+              title: "17 versions and 249 commits",
+              description:
+                "The project moved quickly from initial framework setup to enterprise-grade runtime capabilities."
+            },
+            {
+              title: "Thin Core, Rich Providers",
+              description:
+                "Core orchestration stayed focused while provider packages absorbed system-specific auth, workflows, scripts, and audit rules."
+            },
+            {
+              title: "SmartCMP and Jira depth",
+              description:
+                "Cloud management, approvals, issue operations, search, bulk work, field discovery, and time tracking formed concrete enterprise domains."
+            },
+            {
+              title: "Security, routing, and workflow foundations",
+              description:
+                "SSO/RBAC, AES-256-GCM encryption, tenant isolation, LLM-first routing, workflow orchestration, and lifecycle hooks became first-class platform concerns."
+            }
+          ],
+          milestones: [
+            {
+              range: "v0.6.x",
+              focus: "Base framework setup and provider plugin mechanism."
+            },
+            {
+              range: "v0.7.x",
+              focus: "Multi-channel access, embedded deployment, and tool orchestration."
+            },
+            {
+              range: "v0.8.x",
+              focus: "Enterprise security, RBAC permission management, and provider management UI."
+            },
+            {
+              range: "v0.9.x",
+              focus: "LLM intelligent routing, workflow engine, and deeper SmartCMP integration."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Architecture",
+              title: "Thin Core, Rich Providers became the platform boundary",
+              body: [
+                "AtlasClaw keeps the core responsible for routing, lifecycle management, and execution coordination. Business logic lives inside provider packages instead of accumulating in the core runtime."
+              ],
+              points: [
+                "New systems can be connected through provider packages rather than core-code changes.",
+                "Each provider owns its authentication model, exposed skills, execution scripts, and audit conventions.",
+                "Provider-qualified names such as {provider}:{skill} keep capabilities explicit and avoid collisions."
+              ]
+            },
+            {
+              eyebrow: "SmartCMP",
+              title: "The flagship provider covered cloud management operations end to end",
+              body: [
+                "SmartCMP integration grew into 11 skills covering core cloud management scenarios: resource pool lookup, asset management, host lifecycle operations, resource self-service requests, approvals, alert analysis, cost optimization, compliance assessment, and webhook-driven pre-approval review."
+              ],
+              points: [
+                "Users can describe a resource request in natural language and let the agent help structure the platform request.",
+                "The provider connects request creation, approval flow, and operational follow-up instead of stopping at form submission.",
+                "Cost, alerting, and compliance workflows gained a shared provider context."
+              ]
+            },
+            {
+              eyebrow: "Jira",
+              title: "Project management became conversational while staying mapped to controlled skills",
+              body: [
+                "The Jira provider defined five skill areas for project management: issue operations, advanced JQL search, bulk actions, field and agile configuration discovery, and worklog and reporting capabilities."
+              ],
+              points: [
+                "Implemented issue management supports creating, querying, updating, and closing issues.",
+                "Planned advanced operations include saved filters, export, bulk state changes, bulk assignment, and cloning.",
+                "The provider model keeps Jira-specific fields and workflow semantics out of the core."
+              ]
+            },
+            {
+              eyebrow: "GitHub",
+              title: "Engineering workflows entered the AtlasClaw execution model",
+              body: [
+                "The GitHub provider work brought code collaboration systems into the same provider framework. Token-based authentication gives users a path to handle issue creation and management, pull request collaboration and review, and repository information lookup through the agent conversation."
+              ],
+              points: [
+                "Teams can begin moving routine engineering operations into governed agent workflows.",
+                "The provider approach avoids treating repository operations as personal, unbounded tool calls.",
+                "Issue, PR, and repository actions become candidates for permissioned enterprise execution."
+              ]
+            },
+            {
+              eyebrow: "Shared skills",
+              title: "Community skills expanded what the agent can produce",
+              body: [
+                "Beyond provider integrations, the ecosystem added shared skills for generating work products and supporting agent development."
+              ],
+              points: [
+                "Document generation covered Word, PDF, and PowerPoint outputs.",
+                "General skills included GitHub operations, brainstorming, long-text summarization, provider and skill scaffolding, skill quality checks, and output humanization.",
+                "The shared-skill layer makes AtlasClaw useful for both system operations and knowledge-work artifacts."
+              ]
+            },
+            {
+              eyebrow: "Channels",
+              title: "Multiple access patterns made the agent available where employees already work",
+              body: [
+                "AtlasClaw connected enterprise chat channels and embedded iframe surfaces so employees do not need to learn a new tool before reaching the agent."
+              ],
+              points: [
+                "IM access supports familiar workplace channels such as Feishu, DingTalk, and WeCom.",
+                "Embedded iframe layout allows an agent conversation window to live inside existing business systems.",
+                "The same execution layer can serve web, IM, embedded, and webhook entrypoints."
+              ]
+            },
+            {
+              eyebrow: "Security",
+              title: "Enterprise controls became architectural features, not add-ons",
+              body: [
+                "The platform introduced security and governance capabilities required by enterprise deployment rather than treating them as optional wrappers."
+              ],
+              points: [
+                "Authentication supports local auth, OIDC JWT, OIDC login, social login such as Google and GitHub, and enterprise SSO such as Keycloak, Okta, and Azure AD.",
+                "Sensitive data is stored with AES-256-GCM encryption.",
+                "Agent execution inherits real user permissions, tenant isolation uses path prefixes and tool policy filtering, and write operations require user confirmation."
+              ]
+            },
+            {
+              eyebrow: "Intelligence layer",
+              title: "LLM-first routing and workflow orchestration reduced hard-coded behavior",
+              body: [
+                "The v0.9.x line introduced an LLM-first routing model and a workflow engine. Together they make the agent better at deciding which tool or skill to use and how to organize multi-step, cross-system work."
+              ],
+              points: [
+                "LLM-first routing lets the model infer the right tool or skill instead of relying only on hard-coded name matching.",
+                "Workflow orchestration supports multi-step business processes across systems.",
+                "Providers can define their own workflow patterns while the core keeps one execution model."
+              ]
+            },
+            {
+              eyebrow: "Runtime hooks and deployment",
+              title: "Lifecycle hooks and deployment options made customization practical",
+          body: [
+            "The hook system grew to cover 17+ phases of the agent lifecycle, while deployment options covered embedded and standalone use cases."
+              ],
+              points: [
+                "Hooks support configuration-driven script handlers, typed runtime events, per-user state persistence, and script fault isolation.",
+                "Deployment supports embedded mode inside existing products and standalone mode as a unified enterprise AI entrypoint.",
+                "Container, database, and model choices include Docker/docker-compose, SQLite for development, MySQL via Alembic migrations for production, public model providers, and private Ollama deployments."
+              ]
+            }
+          ],
+          links: [
+            { label: "Core repository", href: repoLinks.core },
+            { label: "Providers repository", href: repoLinks.providers },
+            { label: "Website repository", href: repoLinks.website }
+          ]
+        }
+      ]
     },
     architecture: {
       title: "Enterprise AI Agent Architecture | AtlasClaw",
@@ -589,6 +979,7 @@ export const siteContent = {
       home: "首页",
       architecture: "架构",
       integrations: "集成",
+      releases: "发布",
       docs: "文档",
       github: "GitHub"
     },
@@ -760,6 +1151,395 @@ export const siteContent = {
           }
         ]
       }
+    },
+    releases: {
+      title: "AtlasClaw 发布记录 | 企业级 AI Agent 更新",
+      description:
+        "AtlasClaw 发布记录，覆盖企业级 AI Agent、长期记忆、Markdown Vault Provider、SmartCMP Provider、工作流编排和 Provider 集成更新。",
+      keywords: [
+        "AtlasClaw 发布记录",
+        "AtlasClaw 版本更新",
+        "企业级 AI Agent 更新",
+        "企业级 AI Agent 发布说明",
+        "开源 AI Agent 框架发布记录",
+        "长期记忆 AI Agent",
+        "Markdown Vault Provider",
+        "SmartCMP Provider",
+        "Provider 集成",
+        "工作流编排",
+        "Webhook AI 集成",
+        "多用户 AI Agent"
+      ],
+      statsLabel: "发布摘要",
+      tagsLabel: "发布标签",
+      timelineLabel: "AtlasClaw 发布时间线",
+      milestonesLabel: "版本阶段",
+      hero: {
+        eyebrow: "发布记录",
+        title: "面向技术团队的产品发布记录。",
+        description:
+          "本页以技术产品发布说明的形式记录 AtlasClaw 的版本演进：Core 运行时发生了什么变化，Provider 新增了哪些能力，以及这些变化为什么会影响企业级 AI Agent 的部署与落地。"
+      },
+      stats: [
+        {
+          label: "最新版本",
+          value: "v0.9.7",
+          detail: "长期记忆、权限边界强化，以及 Markdown Vault 知识库接入。"
+        },
+        {
+          label: "发布条目",
+          value: "2",
+          detail: "整理自 2026 年 4 月和 5 月的版本更新资料，并改写为中英文官网内容。"
+        },
+        {
+          label: "覆盖范围",
+          value: "Core + Providers",
+          detail: "运行时、安全、通道、工作流、SmartCMP、Jira、GitHub 与共享技能。"
+        }
+      ],
+      index: {
+        eyebrow: "发布归档",
+        title: "从框架底座到企业级平台，持续追踪 AtlasClaw 的演进。",
+        description:
+          "每个条目都呈现产品背景、实现层能力变化和 Provider 影响，方便技术团队理解版本价值。",
+        actionLabel: "查看版本详情"
+      },
+      cta: {
+        eyebrow: "源码与实现",
+        title: "继续在开源仓库中跟进实现细节。",
+        description:
+          "发布记录说明产品层变化；Core 和 Providers 仓库保留实现细节、参考示例和贡献入口。",
+        href: repoLinks.core,
+        label: "打开 Core 仓库",
+        secondaryHref: repoLinks.providers,
+        secondaryLabel: "打开 Providers 仓库"
+      },
+      items: [
+        {
+          id: "v0-9-7",
+          version: "v0.9.7",
+          dateIso: "2026-05-22",
+          date: "2026 年 5 月 22 日",
+          title: "长期记忆与 Markdown Vault 知识库 Provider",
+          keywords: [
+            "AtlasClaw v0.9.7",
+            "长期记忆 AI Agent",
+            "Markdown Vault Provider",
+            "SmartCMP Provider",
+            "企业级 AI Agent 记忆",
+            "Webhook Robot Execution Profiles",
+            "Provider Token Auth"
+          ],
+          summary:
+            "本次更新面向长期使用场景：Core 侧新增用户隔离的长期记忆能力，强化多用户权限边界和多入口会话稳定性；Provider 侧新增 Markdown Vault 知识库，并继续深化 SmartCMP 的申请、审批与运维能力。",
+          lede:
+            "AtlasClaw v0.9.7 让企业 Agent 从一次性问答走向持续协作。Core 运行时新增长期用户记忆和更清晰的所有权校验，Provider 层新增 Markdown Vault 知识接入，并增强 SmartCMP 在资源申请、审批、运维和 Webhook 自动化中的能力覆盖。",
+          tags: ["长期记忆", "权限边界", "Webhook", "Markdown Vault", "SmartCMP"],
+          highlights: [
+            {
+              title: "用户隔离的长期记忆",
+              description:
+                "Agent 可以在权限允许的前提下记录用户偏好、工作习惯和常用上下文，让后续协作更自然。"
+            },
+            {
+              title: "企业多用户边界更清晰",
+              description:
+                "Agent Run 归属、Session 创建和 Memory 写入等关键路径增加校验，更适合团队共享部署。"
+            },
+            {
+              title: "Markdown Vault 知识库",
+              description:
+                "团队手册、运维知识库、项目文档和内部 Wiki 导出可以成为可检索、可问答的 Agent 知识来源。"
+            },
+            {
+              title: "SmartCMP 工作流更完整",
+              description:
+                "资源申请、审批处理、后续运维、Provider Token Auth 与 Webhook Robot Execution Profiles 都扩展了覆盖范围。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Core 运行时",
+              title: "长期记忆让 Agent 具备持续上下文",
+              body: [
+                "Core 新增长期用户偏好与使用画像记录能力。在权限允许的前提下，Agent 可以记住用户的工作习惯、偏好信息和常用上下文，让下一次协作减少重复说明。",
+                "记忆能力按用户隔离。这一点对企业部署尤其关键，因为多个员工、团队和外部入口会共享同一个 AtlasClaw 平台。"
+              ],
+              points: [
+                "适合企业内部知识协作、个人助理、运维问答和持续项目跟进等场景。",
+                "降低用户在重复任务中反复补充背景的成本。",
+                "避免不同用户之间的使用画像和上下文信息串扰。"
+              ]
+            },
+            {
+              eyebrow: "Core 安全",
+              title: "所有权和写入校验让多用户边界更清晰",
+              body: [
+                "企业级 Agent 不只要能完成任务，更要在权限上可解释、可治理。本次更新增强了 Agent Run 所有权校验、Session 创建校验、Memory 写入校验，并统一认证 Provider 的基础逻辑。"
+              ],
+              points: [
+                "更清晰地区分用户身份、会话归属、记忆访问和 Skill 执行权限。",
+                "为团队、部门、Web 用户、IM 用户和 Webhook 调用方并行使用同一部署打下更可靠的安全基础。",
+                "让授权行为更容易被排查、解释和审计。"
+              ]
+            },
+            {
+              eyebrow: "会话与网关",
+              title: "Web、IM 与 Webhook 多入口会话更稳定",
+              body: [
+                "围绕 Session Key、外部会话标识、幂等缓存和运行时用户路径，AtlasClaw 修复并增强了一批底层稳定性能力。这些变化不是最显眼的功能，但会直接影响真实企业入口的可靠性。"
+              ],
+              points: [
+                "Web UI、IM 通道和 Webhook 入口可以在更干净的会话状态上协同工作。",
+                "多步任务中的工具选择更加稳定。",
+                "历史回放更清晰，减少运行时噪声对用户理解的干扰。"
+              ]
+            },
+            {
+              eyebrow: "访问通道",
+              title: "IM 与 Webhook 更适合接入实时企业工作流",
+              body: [
+                "当用户通过企业微信、飞书、钉钉等 IM 入口发起请求后，AtlasClaw 可以更快返回“已接收、正在处理”的即时反馈。Webhook 侧也支持配置化 Shared Secret。"
+              ],
+              points: [
+                "改善告警、审批、自动化工单和企业机器人等场景中的响应体验。",
+                "通过更清晰的共享密钥边界增强系统到系统调用的安全性。",
+                "让 Webhook AI 集成更适合实时运维和自动化联动。"
+              ]
+            },
+            {
+              eyebrow: "运营与部署",
+              title: "管理与部署体验更适合长期运营",
+              body: [
+                "前端管理体验继续打磨，覆盖会话历史、Runtime 面板、角色权限展示、删除确认等细节。部署侧标准化运行日志输出与日志轮转配置，并补充 Docker、systemd、logrotate 等生产运行文件。"
+              ],
+              points: [
+                "便于企业长期部署后的排障、维护和审计。",
+                "让管理员日常使用的面板状态更清楚、更可预期。",
+                "降低从本地评估走向生产运行时的交接成本。"
+              ]
+            },
+            {
+              eyebrow: "Provider",
+              title: "Markdown Vault Provider 把已有文档资产转化为 Agent 知识",
+              body: [
+                "新增 markdown-vault Provider，可直接接入本地 Markdown 文档库，支持文档解析、知识检索和基于本地资料的问答。"
+              ],
+              points: [
+                "团队手册、运维知识库、项目文档、内部 Wiki 都可以复用为知识来源。",
+                "无需复杂系统改造，就能把已有文档资产变成可对话、可检索的能力。",
+                "适合本地优先和受控知识边界要求较高的部署。"
+              ]
+            },
+            {
+              eyebrow: "SmartCMP",
+              title: "资源申请、审批与运维链路持续增强",
+              body: [
+                "SmartCMP Provider 继续扩展完整资源生命周期能力：自然语言申请、审批辅助、资源运维、合规证据查看，以及多个运维技能共享资源视图。"
+              ],
+              points: [
+                "资源申请支持同类型多实例、多实例 Schema 驱动，以及服务、资源包、参数规格之间更可靠的匹配。",
+                "审批能力包括预审批支持、审批详情查询、待办列表展示、规格名称标准化和更结构化的审批输出。",
+                "资源运维支持无需额外参数的资源变更、资源证据查看，以及按名称或列表序号选择合规分析对象。"
+              ]
+            },
+            {
+              eyebrow: "Provider 生态",
+              title: "认证、GitHub 与通用文档能力扩展了 Provider 生态",
+              body: [
+                "Provider 仓库增强 SmartCMP Provider Token Auth，并支持 Webhook Robot Execution Profiles。同时新增 GitHub Provider 的 Token 认证方式，并补充通用文档与工作产物技能。"
+              ],
+              points: [
+                "Webhook 调用方可以在更清晰的机器人身份和凭证边界下执行技能。",
+                "GitHub Provider 为 Issue、Pull Request 和仓库操作接入 Agent 工作流建立基础。",
+                "文本生成、XLSX 表格处理和演示文稿产物访问，让文本、表格、报告和幻灯片逐步进入 Agent 工作流。"
+              ]
+            }
+          ],
+          links: [
+            { label: "Core 仓库", href: repoLinks.core },
+            { label: "Providers 仓库", href: repoLinks.providers },
+            { label: "联系 AtlasClaw", href: repoLinks.contact }
+          ]
+        },
+        {
+          id: "v0-9-3-overview",
+          version: "v0.9.3",
+          dateIso: "2026-04-24",
+          date: "2026 年 4 月 24 日",
+          title: "从 v0.6.2 到 v0.9.3 的平台演进总览",
+          keywords: [
+            "AtlasClaw v0.9.3",
+            "AtlasClaw 版本历史",
+            "Thin Core Rich Providers",
+            "SmartCMP 集成",
+            "Jira Provider",
+            "GitHub Provider",
+            "LLM-First 路由",
+            "企业级 AI 工作流引擎"
+          ],
+          summary:
+            "开源发布后 40+ 天的阶段性总览：17 个版本、249 次提交，AtlasClaw 从框架底座演进为具备企业级核心能力的 AI Agent 平台。",
+          lede:
+            "截至 2026 年 4 月 24 日，AtlasClaw 已从 v0.6.2 迭代到 v0.9.3，共经历 17 个版本。平台完成了 Thin Core, Rich Providers 架构成型，扩展 SmartCMP 与 Jira 集成，引入 GitHub Provider，强化企业安全，并引入 LLM-First 路由与工作流编排能力。",
+          tags: ["架构", "Providers", "安全", "工作流", "多通道"],
+          highlights: [
+            {
+              title: "17 个版本，249 次提交",
+              description:
+                "项目从基础框架快速演进到具备企业级运行能力的平台形态。"
+            },
+            {
+              title: "Thin Core, Rich Providers",
+              description:
+                "核心保持路由、生命周期与编排职责，Provider 承接系统鉴权、工作流、脚本和审计规则。"
+            },
+            {
+              title: "SmartCMP 与 Jira 深度展开",
+              description:
+                "云管、审批、Issue 操作、高级搜索、批量处理、字段发现和工时管理形成明确企业域。"
+            },
+            {
+              title: "安全、路由和工作流成为平台能力",
+              description:
+                "SSO/RBAC、AES-256-GCM 加密、租户隔离、LLM-First 路由、工作流编排和生命周期 Hooks 进入核心设计。"
+            }
+          ],
+          milestones: [
+            {
+              range: "v0.6.x",
+              focus: "基础框架搭建，Provider 插件机制建立。"
+            },
+            {
+              range: "v0.7.x",
+              focus: "多渠道接入、嵌入式部署和工具编排体系成型。"
+            },
+            {
+              range: "v0.8.x",
+              focus: "企业级安全体系、RBAC 权限管理和 Provider 管理 UI 完善。"
+            },
+            {
+              range: "v0.9.x",
+              focus: "LLM 智能路由、工作流引擎和 SmartCMP 深度集成。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "架构",
+              title: "Thin Core, Rich Providers 形成平台边界",
+              body: [
+                "AtlasClaw 坚持核心框架只负责路由、生命周期管理和执行协调，业务逻辑封装在独立 Provider 插件中，而不是不断堆进 Core。"
+              ],
+              points: [
+                "接入新系统时优先开发 Provider 包，而不是修改核心代码。",
+                "每个 Provider 独立承接认证方式、开放能力、执行脚本和审计约定。",
+                "通过 {provider}:{skill} 的命名空间机制，不同系统能力互不冲突。"
+              ]
+            },
+            {
+              eyebrow: "SmartCMP",
+              title: "旗舰 Provider 覆盖云管核心场景",
+              body: [
+                "SmartCMP 云管平台集成发展出 11 项技能，覆盖资源池查询、资产管理、主机启停、自然语言资源自助申请、审批流转、告警分析、成本优化、合规评估和 Webhook 预审批等核心场景。"
+              ],
+              points: [
+                "用户可以用自然语言描述资源需求，由 Agent 辅助拆解并生成平台请求。",
+                "Provider 把资源申请、审批流转和后续运维串联起来，而不是停留在表单提交。",
+                "成本、告警和合规技能共享更完整的云管上下文。"
+              ]
+            },
+            {
+              eyebrow: "Jira",
+              title: "项目管理能力被组织成可控 Skills",
+              body: [
+                "Jira Provider 定义了 5 项技能方向：Issue 管理、高级 JQL 搜索、批量操作、字段与敏捷配置发现，以及工时记录和时间报表。"
+              ],
+              points: [
+                "已实现的 Issue 管理支持创建、查询、更新和关闭工单。",
+                "规划中的高级能力包括保存筛选器、导出、批量状态变更、批量分配和克隆。",
+                "Provider 模型让 Jira 字段、工作流语义和配置细节留在集成边界内。"
+              ]
+            },
+            {
+              eyebrow: "GitHub",
+              title: "研发协作平台进入 AtlasClaw 执行框架",
+              body: [
+                "GitHub Provider 将代码协作系统纳入统一 Provider 框架，支持用户级 Token 认证，为通过对话完成 Issue 创建与管理、Pull Request 协作与审查、仓库信息查询等操作建立基础。"
+              ],
+              points: [
+                "团队可以逐步把常规研发操作纳入受控 Agent 工作流。",
+                "Provider 方式避免把代码仓库操作变成个人化、无边界的工具调用。",
+                "Issue、PR 和仓库动作都可以进一步纳入权限控制和审计。"
+              ]
+            },
+            {
+              eyebrow: "共享技能",
+              title: "社区技能让 Agent 能产出更多工作成果",
+              body: [
+                "除系统集成 Provider 外，生态中也出现了面向工作产物和 Agent 开发流程的共享技能。"
+              ],
+              points: [
+                "文档生成覆盖 Word、PDF 和 PowerPoint 输出。",
+                "通用技能包括 GitHub 操作、头脑风暴、长文本摘要、Provider/Skill 脚手架、技能质检和内容人性化。",
+                "共享技能层让 AtlasClaw 同时服务系统操作和知识工作产出。"
+              ]
+            },
+            {
+              eyebrow: "多通道",
+              title: "四类入口让员工在熟悉场景中使用 Agent",
+              body: [
+                "AtlasClaw 打通企业 IM 和嵌入式 iframe 使用方式，让员工不需要先学习新工具，也能在已有工作入口中访问 Agent。"
+              ],
+              points: [
+                "IM 入口覆盖飞书、钉钉、企业微信等熟悉工作界面。",
+                "嵌入式 iframe 布局可以把 Agent 对话窗口放进已有业务系统页面。",
+                "同一执行层可以同时服务 Web、IM、嵌入式和 Webhook 入口。"
+              ]
+            },
+            {
+              eyebrow: "安全",
+              title: "企业级控制成为架构能力，而不是附加功能",
+              body: [
+                "平台将企业部署所需的安全和治理能力放进架构设计，而不是作为可选包装。"
+              ],
+              points: [
+                "认证支持本地认证、OIDC JWT、OIDC 登录、Google/GitHub 社交登录，以及 Keycloak、Okta、Azure AD 等企业 SSO。",
+                "敏感数据采用 AES-256-GCM 加密存储。",
+                "Agent 执行继承真实用户权限，租户隔离通过路径前缀和工具策略过滤实现，写操作需要用户确认。"
+              ]
+            },
+            {
+              eyebrow: "智能层",
+              title: "LLM-First 路由和工作流编排减少硬编码行为",
+              body: [
+                "v0.9.x 引入 LLM-First 路由和工作流引擎，让 Agent 更自然地判断该调用哪个工具或 Skill，并组织多步骤、跨系统的业务流程。"
+              ],
+              points: [
+                "LLM-First 路由由模型判断目标工具或 Skill，不再只依赖硬编码能力名称匹配。",
+                "工作流编排支持多步骤、跨系统的复杂业务流程。",
+                "Provider 可以定义各自的工作流模式，同时 Core 保持统一执行模型。"
+              ]
+            },
+            {
+              eyebrow: "Hooks 与部署",
+              title: "生命周期 Hooks 和部署选项让定制化更可行",
+              body: [
+                "Hook 系统覆盖 Agent 运行全生命周期的 17+ 个阶段，部署形态则同时覆盖嵌入式和独立式场景。"
+              ],
+              points: [
+                "Hooks 支持配置驱动脚本处理器、类型化运行时事件、每用户独立状态持久化，以及脚本故障沙箱隔离。",
+                "部署支持嵌入模式和独立模式，分别适合已有产品内置 AI 模块和企业统一 AI 入口。",
+                "容器、数据库和模型选择覆盖 Docker/docker-compose、开发 SQLite、生产 MySQL + Alembic、公有云模型以及 Ollama 私有部署。"
+              ]
+            }
+          ],
+          links: [
+            { label: "Core 仓库", href: repoLinks.core },
+            { label: "Providers 仓库", href: repoLinks.providers },
+            { label: "官网仓库", href: repoLinks.website }
+          ]
+        }
+      ]
     },
     architecture: {
       title: "企业级 AI Agent 架构 | AtlasClaw",

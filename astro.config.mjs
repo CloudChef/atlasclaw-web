@@ -18,11 +18,12 @@ export default defineConfig({
       serialize(item) {
         const isHome = item.url.endsWith("/en/") || item.url.endsWith("/zh/");
         const isDocs = item.url.includes("/docs/");
+        const isReleases = item.url.includes("/releases/");
 
         return {
           ...item,
-          changefreq: isHome ? "weekly" : "monthly",
-          priority: isHome ? 1 : isDocs ? 0.7 : 0.8
+          changefreq: isHome || isReleases ? "weekly" : "monthly",
+          priority: isHome ? 1 : isReleases ? 0.9 : isDocs ? 0.7 : 0.8
         };
       }
     })

@@ -10,19 +10,30 @@ import {
 } from "../lib/seo.js";
 import "../styles/global.css";
 
-const { lang, title, description, pathname, theme = "light" } = Astro.props;
+const {
+  lang,
+  title,
+  description,
+  pathname,
+  theme = "light",
+  keywords,
+  structuredArticles = []
+} = Astro.props;
 const content = siteContent[lang];
 const pageTitle = title ?? content.meta.defaultTitle;
 const pageDescription = description ?? content.meta.defaultDescription;
 const { canonicalUrl, alternates, xDefaultUrl } = buildLocalizedSeoUrls(pathname, lang);
 const localeSeo = getLocaleSeoMetadata(lang);
+const pageKeywords = keywords ?? localeSeo.keywords;
 const socialImage = socialImageUrl();
 const structuredData = buildStructuredData({
   lang,
   pathname,
   title: pageTitle,
   description: pageDescription,
-  content
+  content,
+  keywords: pageKeywords,
+  articles: structuredArticles
 });
 ---
 
@@ -33,6 +44,7 @@ const structuredData = buildStructuredData({
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={pageKeywords.join(", ")} />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="theme-color" content={theme === "light" ? "#fbfaf6" : "#343539"} />
     <link rel="icon" type="image/png" href="/images/brand/atlasclaw-icon.png" />
