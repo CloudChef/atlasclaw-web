@@ -211,16 +211,21 @@ export const siteContent = {
     releases: {
       title: "AtlasClaw Release Notes | Enterprise AI Agent Updates",
       description:
-        "AtlasClaw release notes for enterprise AI agent updates, long-term memory, Markdown Vault Provider, SmartCMP Provider, workflow orchestration, and integrations.",
+        "AtlasClaw release notes for enterprise AI agent updates, Provider instance routing, Markdown Vault runtime retrieval, SmartCMP Provider, workflow orchestration, and integrations.",
       keywords: [
         "AtlasClaw release notes",
         "AtlasClaw releases",
+        "AtlasClaw v0.9.11",
         "enterprise AI agent updates",
         "enterprise AI agent release notes",
         "open source AI agent framework releases",
+        "Provider instance routing",
+        "multi-instance Provider integration",
+        "Markdown Vault runtime retrieval",
         "long-term memory AI agent",
         "Markdown Vault Provider",
         "SmartCMP Provider",
+        "SmartCMP request field contract",
         "provider-based integrations",
         "workflow orchestration",
         "webhook AI integration",
@@ -239,18 +244,18 @@ export const siteContent = {
       stats: [
         {
           label: "Latest release",
-          value: "v0.9.7",
-          detail: "Long-term memory, stronger permission boundaries, and Markdown Vault knowledge access."
+          value: "v0.9.11",
+          detail: "Provider instance routing, runtime Markdown retrieval, and production runtime hardening."
         },
         {
           label: "Release entries",
-          value: "2",
-          detail: "Release notes adapted from the April and May 2026 update materials."
+          value: "3",
+          detail: "Release notes adapted from the April, May, and June 2026 update materials."
         },
         {
           label: "Coverage",
           value: "Core + Providers",
-          detail: "Runtime, security, channels, workflows, SmartCMP, Jira, GitHub, and shared skills."
+          detail: "Runtime, routing, provider instances, knowledge retrieval, SmartCMP, deployment, and local model compatibility."
         }
       ],
       index: {
@@ -271,6 +276,143 @@ export const siteContent = {
         secondaryLabel: "Open providers repo"
       },
       items: [
+        {
+          id: "v0-9-11",
+          version: "v0.9.11",
+          dateIso: "2026-06-04",
+          date: "June 4, 2026",
+          title: "Provider instance routing and runtime Markdown Vault retrieval",
+          keywords: [
+            "AtlasClaw v0.9.11",
+            "Provider instance routing",
+            "multi-instance Provider integration",
+            "Markdown Vault runtime retrieval",
+            "Markdown knowledge base AI agent",
+            "SmartCMP request field contract",
+            "workflow continuation routing",
+            "Qwen vLLM compatibility",
+            "enterprise AI agent operations"
+          ],
+          summary:
+            "This release tightens the runtime boundary for multi-system enterprise deployments: provider skills can route to specific provider instances, workflow continuations use model and evidence context, Markdown Vault reads files at runtime, and SmartCMP request contracts are clearer.",
+          lede:
+            "AtlasClaw v0.9.11 focuses on the situations enterprise teams hit once a single integration type maps to several real systems. A SmartCMP Provider can represent development, test, and production CMP instances; a Markdown Vault Provider can represent separate product, operations, and project knowledge bases. The release makes those instance boundaries visible to skill selection, tool projection, and script execution while improving evidence-grounded knowledge retrieval and production operations settings.",
+          tags: ["Provider Routing", "Markdown Vault", "SmartCMP", "Operations", "Local Models"],
+          highlights: [
+            {
+              title: "Instance-scoped Provider Skills",
+              description:
+                "Slash Commands and webhook preselection now preserve both the selected Provider instance and the selected Skill."
+            },
+            {
+              title: "Workflow continuation by context",
+              description:
+                "The runtime can use conversation state, active capability, and tool evidence to decide whether to continue a flow, switch capability, or answer directly."
+            },
+            {
+              title: "Markdown Vault runtime retrieval",
+              description:
+                "Markdown Vault no longer depends on database index maintenance. Vault paths, include/exclude rules, and context budgets define runtime retrieval."
+            },
+            {
+              title: "Production runtime hardening",
+              description:
+                "Log rotation, systemd/logrotate templates, MySQL pre-ping, and OpenAI-compatible system prompt handling reduce operational friction."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Core routing",
+              title: "Provider instance boundaries are explicit during selection and execution",
+              body: [
+                "The core now separates Provider type from Provider instance. The type describes an integration capability, while the instance identifies a concrete system or data source.",
+                "That distinction matters when one AtlasClaw deployment connects to several systems of the same kind. A team can configure development CMP, test CMP, and production CMP as separate SmartCMP instances, or connect multiple Markdown Vault instances for product docs, operations runbooks, and project delivery material."
+              ],
+              points: [
+                "Capability selection, tool projection, and execution keep the chosen Provider instance in scope.",
+                "Provider scripts receive only the active instance configuration, which avoids leaking unrelated instance settings into the script environment.",
+                "User-facing capability lists hide internal Skill snapshots and expose a cleaner set of selectable capabilities."
+              ]
+            },
+            {
+              eyebrow: "Workflow routing",
+              title: "Multi-step flows rely less on fixed confirmation phrases",
+              body: [
+                "Earlier workflow continuations could depend on fixed confirmation wording. v0.9.11 moves that decision closer to the model and the available runtime evidence."
+              ],
+              points: [
+                "An activated Provider Skill can stay active across follow-up turns when the conversation still belongs to the same flow.",
+                "When a question does not need another tool call, AtlasClaw can keep a direct answer path grounded in existing evidence.",
+                "Generated files and intermediate artifacts stay inside the user workspace so they remain traceable."
+              ]
+            },
+            {
+              eyebrow: "History and models",
+              title: "Conversation replay and private model compatibility are cleaner",
+              body: [
+                "This release fixes several details in history handling and model adaptation, including preserving the user's original wording, keeping runtime system prompts out of replayed history, and normalizing system prompts for OpenAI Chat API-compatible models."
+              ],
+              points: [
+                "Multi-turn conversations are less likely to be affected by stale runtime instructions.",
+                "Original user wording is preserved more completely during error recovery and evidence tracing.",
+                "vLLM, Qwen, and other local or privately deployed models receive system prompts in a more compatible form."
+              ]
+            },
+            {
+              eyebrow: "Operations",
+              title: "Long-running deployments get more runtime controls",
+              body: [
+                "The production configuration set continues to grow. v0.9.11 adds practical operational pieces for container logging, VM service management, and database connection health."
+              ],
+              points: [
+                "Container logs can follow standard rotation policies, reducing unbounded log growth in long-running deployments.",
+                "VM deployments can use the systemd and logrotate templates as a starting point for service management and log retention.",
+                "MySQL connection pool pre-ping can be configured for environments where network behavior or database timeouts require explicit connection checks."
+              ]
+            },
+            {
+              eyebrow: "Markdown Vault",
+              title: "Multiple Markdown knowledge bases can be queried directly at runtime",
+              body: [
+                "Markdown Vault moves from database-indexed retrieval to runtime Markdown file scanning. After configuring the vault path, include and exclude rules, and context budget, teams can expose internal documents, runbooks, design notes, or Obsidian notes as read-only AtlasClaw knowledge sources."
+              ],
+              points: [
+                "SQLite or MySQL index tables are no longer required for Markdown Vault retrieval.",
+                "A single AtlasClaw deployment can keep product documentation, operations runbooks, and customer project material in separate vault instances.",
+                "Search and get outputs are treated as internal evidence; the agent generates conclusions, rationale, and references from that evidence instead of returning raw retrieval blocks."
+              ]
+            },
+            {
+              eyebrow: "SmartCMP",
+              title: "Request field contracts reduce cloud automation failures",
+              body: [
+                "The SmartCMP Provider now carries clearer Compute and VM request field rules. For example, `systemDisk` must be submitted as an object, such as a JSON object containing the disk size. It should not be reduced to a number or string, and it should not be moved under `params`."
+              ],
+              points: [
+                "System disk, flavor, image, network, and security group fields now map more closely to the SmartCMP API contract.",
+                "Field names declared in generated Markdown should be preserved exactly, which reduces failures caused by rewriting request parameters.",
+                "The contract improves resource request, approval, and automated delivery success rates."
+              ]
+            },
+            {
+              eyebrow: "Provider boundary",
+              title: "Core stays neutral while Providers own system-specific rules",
+              body: [
+                "The release keeps the Core and Provider boundary strict. Core owns runtime selection, orchestration, and permission framing; Providers own authentication details, field structures, business semantics, and retrieval behavior for each target system."
+              ],
+              points: [
+                "Markdown Vault remains a read-only knowledge boundary and does not automate document writing or Obsidian operations.",
+                "Provider metadata stays runtime-neutral instead of encoding concrete business systems into Core rules.",
+                "New enterprise systems can reuse the Provider package structure and Skill constraints without pushing system assumptions into the Core."
+              ]
+            }
+          ],
+          links: [
+            { label: "Core repository", href: repoLinks.core },
+            { label: "Providers repository", href: repoLinks.providers },
+            { label: "Contact AtlasClaw", href: repoLinks.contact }
+          ]
+        },
         {
           id: "v0-9-7",
           version: "v0.9.7",
@@ -1155,16 +1297,21 @@ export const siteContent = {
     releases: {
       title: "AtlasClaw 发布记录 | 企业级 AI Agent 更新",
       description:
-        "AtlasClaw 发布记录，覆盖企业级 AI Agent、长期记忆、Markdown Vault Provider、SmartCMP Provider、工作流编排和 Provider 集成更新。",
+        "AtlasClaw 发布记录，覆盖企业级 AI Agent、Provider 实例路由、Markdown Vault 运行时检索、SmartCMP Provider、工作流编排和 Provider 集成更新。",
       keywords: [
         "AtlasClaw 发布记录",
         "AtlasClaw 版本更新",
+        "AtlasClaw v0.9.11",
         "企业级 AI Agent 更新",
         "企业级 AI Agent 发布说明",
         "开源 AI Agent 框架发布记录",
+        "Provider 实例路由",
+        "多实例 Provider 集成",
+        "Markdown Vault 运行时检索",
         "长期记忆 AI Agent",
         "Markdown Vault Provider",
         "SmartCMP Provider",
+        "SmartCMP 请求字段契约",
         "Provider 集成",
         "工作流编排",
         "Webhook AI 集成",
@@ -1183,18 +1330,18 @@ export const siteContent = {
       stats: [
         {
           label: "最新版本",
-          value: "v0.9.7",
-          detail: "长期记忆、权限边界强化，以及 Markdown Vault 知识库接入。"
+          value: "v0.9.11",
+          detail: "Provider 实例路由、Markdown 运行时检索和生产运行配置完善。"
         },
         {
           label: "发布条目",
-          value: "2",
-          detail: "整理自 2026 年 4 月和 5 月的版本更新资料，并改写为中英文官网内容。"
+          value: "3",
+          detail: "整理自 2026 年 4 月、5 月和 6 月的版本更新资料，并改写为中英文官网内容。"
         },
         {
           label: "覆盖范围",
           value: "Core + Providers",
-          detail: "运行时、安全、通道、工作流、SmartCMP、Jira、GitHub 与共享技能。"
+          detail: "运行时、路由、Provider 实例、知识库检索、SmartCMP、部署和本地模型兼容。"
         }
       ],
       index: {
@@ -1215,6 +1362,143 @@ export const siteContent = {
         secondaryLabel: "打开 Providers 仓库"
       },
       items: [
+        {
+          id: "v0-9-11",
+          version: "v0.9.11",
+          dateIso: "2026-06-04",
+          date: "2026 年 6 月 4 日",
+          title: "Provider 实例路由与 Markdown Vault 运行时检索",
+          keywords: [
+            "AtlasClaw v0.9.11",
+            "Provider 实例路由",
+            "多实例 Provider 集成",
+            "Markdown Vault 运行时检索",
+            "Markdown 知识库 AI Agent",
+            "SmartCMP 请求字段契约",
+            "工作流继续路由",
+            "Qwen vLLM 兼容",
+            "企业级 AI Agent 运维"
+          ],
+          summary:
+            "本次更新收紧多系统企业部署中的运行边界：Provider Skill 可以路由到具体 Provider 实例，多步流程由模型结合上下文和证据判断是否继续，Markdown Vault 改为运行时直接检索文件，SmartCMP 请求字段契约更明确。",
+          lede:
+            "AtlasClaw v0.9.11 处理的是企业接入后很快会遇到的问题：同一种 Provider 类型往往对应多个真实系统。SmartCMP Provider 可能同时连接开发、测试、生产 CMP；Markdown Vault Provider 可能连接产品文档、运维 Runbook 和项目资料。这个版本把实例边界带入能力选择、工具投影和脚本执行，同时强化基于证据的知识库回答和生产运行配置。",
+          tags: ["Provider 路由", "Markdown Vault", "SmartCMP", "生产运维", "本地模型"],
+          highlights: [
+            {
+              title: "按实例限定的 Provider Skill",
+              description:
+                "Slash Command 和 Webhook 预选能力时，运行时会同时保留选中的 Provider 实例和 Skill。"
+            },
+            {
+              title: "多步流程按上下文继续",
+              description:
+                "系统可以结合对话状态、当前能力和工具证据，判断继续当前流程、切换能力，或直接基于证据回答。"
+            },
+            {
+              title: "Markdown Vault 运行时检索",
+              description:
+                "Markdown Vault 不再依赖数据库索引维护，通过 vault 路径、包含/排除规则和上下文预算控制检索范围。"
+            },
+            {
+              title: "生产运行配置继续补齐",
+              description:
+                "日志轮转、systemd/logrotate 模板、MySQL pre-ping 和 OpenAI 兼容系统提示处理降低长期运行成本。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Core 路由",
+              title: "能力选择和执行阶段都保留 Provider 实例边界",
+              body: [
+                "Core 现在明确区分 Provider 类型和 Provider 实例。Provider 类型表示一种集成能力，Provider 实例表示一个具体系统或数据源。",
+                "这个区分解决了多系统接入时的目标选择问题。团队可以把开发 CMP、测试 CMP、生产 CMP 配置为不同 SmartCMP 实例，也可以把产品文档、运维 Runbook、项目交付资料配置为不同 Markdown Vault 实例。"
+              ],
+              points: [
+                "能力选择、工具投影和执行阶段会持续保留当前选中的 Provider 实例。",
+                "Provider 脚本只接收当前实例配置，避免无关实例配置进入脚本运行环境。",
+                "面向用户和自动化入口的能力列表隐藏内部 Skill 快照，只展示整理后的可选能力。"
+              ]
+            },
+            {
+              eyebrow: "流程路由",
+              title: "多步流程减少对固定确认短语的依赖",
+              body: [
+                "此前部分流程依赖固定确认短语判断是否继续执行。v0.9.11 把这个判断交给模型和运行时证据，由系统结合对话、已选能力和工具结果决定下一步。"
+              ],
+              points: [
+                "已激活的 Provider Skill 可以在后续对话中继续作为当前能力使用，减少重复选择。",
+                "当前问题不需要工具调用时，AtlasClaw 可以保留基于已有证据的直接回答路径。",
+                "生成文件和中间产物仍限定在用户工作区内，便于追踪和治理。"
+              ]
+            },
+            {
+              eyebrow: "历史与模型",
+              title: "历史回放和私有模型兼容更干净",
+              body: [
+                "本次更新修正了历史上下文和模型适配中的细节，包括保留用户原始表达、避免运行时系统提示重复进入历史，以及归一化 OpenAI Chat API 兼容模型的系统提示。"
+              ],
+              points: [
+                "多轮对话更少受到旧运行提示干扰。",
+                "错误恢复和证据追踪时，用户原始表达保留更完整。",
+                "vLLM、Qwen 等本地或私有化模型的系统提示兼容性更稳定。"
+              ]
+            },
+            {
+              eyebrow: "生产运维",
+              title: "长期运行部署获得更多基础配置",
+              body: [
+                "生产运行相关配置继续补充。v0.9.11 覆盖容器日志、VM 服务管理和数据库连接健康检查这些日常运维问题。"
+              ],
+              points: [
+                "容器日志可以按标准策略轮转，降低长期运行时日志无限增长的风险。",
+                "VM 部署可参考 systemd 和 logrotate 模板进行服务管理和日志保留。",
+                "MySQL 连接池 pre-ping 可配置，便于适配不同网络和数据库超时环境。"
+              ]
+            },
+            {
+              eyebrow: "Markdown Vault",
+              title: "多个 Markdown 知识库可以在运行时直接检索",
+              body: [
+                "Markdown Vault Provider 从数据库索引模式切换为运行时扫描 Markdown 文件。配置 vault 路径、包含/排除规则和上下文预算后，内部文档、Runbook、设计记录或 Obsidian 笔记都可以作为只读知识库接入 AtlasClaw。"
+              ],
+              points: [
+                "Markdown Vault 检索不再需要 SQLite 或 MySQL 索引表，也不需要单独执行索引刷新。",
+                "同一个 AtlasClaw 环境可以把产品文档、运维知识库、客户项目资料放在不同 vault 实例中。",
+                "Search/Get 输出作为内部证据使用，Agent 基于证据生成结论、依据和引用，而不是直接返回检索块。"
+              ]
+            },
+            {
+              eyebrow: "SmartCMP",
+              title: "请求字段契约降低云资源自动化失败率",
+              body: [
+                "SmartCMP Provider 补充了 Compute/VM 申请字段规则。以 `systemDisk` 为例，该字段必须按对象提交，例如包含磁盘大小的 JSON 对象；不能写成数字或字符串，也不能移动到 `params` 下。"
+              ],
+              points: [
+                "系统盘、规格、镜像、网络、安全组等字段更贴近 SmartCMP 接口要求。",
+                "生成 Markdown 中声明的字段名需要原样保留，减少字段改写导致的请求失败。",
+                "这些字段契约会影响资源申请、审批和自动化交付流程的成功率。"
+              ]
+            },
+            {
+              eyebrow: "Provider 边界",
+              title: "Core 保持中立，具体系统规则留在 Provider 包中",
+              body: [
+                "Core 继续负责统一的运行、选择、编排和权限框架；具体系统的认证方式、字段结构、业务语义和检索逻辑保留在 Provider 包中。"
+              ],
+              points: [
+                "Markdown Vault 保持只读边界，不处理文档写入或 Obsidian 自动化。",
+                "Provider metadata 保持运行中立，避免将具体业务系统写入 Core 规则。",
+                "新增系统接入时，可以复用 Provider 包结构和 Skill 约束，而不把系统假设推入 Core。"
+              ]
+            }
+          ],
+          links: [
+            { label: "Core 仓库", href: repoLinks.core },
+            { label: "Providers 仓库", href: repoLinks.providers },
+            { label: "联系 AtlasClaw", href: repoLinks.contact }
+          ]
+        },
         {
           id: "v0-9-7",
           version: "v0.9.7",
