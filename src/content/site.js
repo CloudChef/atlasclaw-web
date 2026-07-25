@@ -7,6 +7,8 @@ export const repoLinks = {
     "https://github.com/CloudChef/atlasclaw/blob/main/README.md",
   providerGuide:
     "https://github.com/CloudChef/atlasclaw-providers/blob/main/README.md",
+  embedGuide:
+    "https://github.com/CloudChef/atlasclaw/blob/main/docs/EMBED-INTEGRATION.md",
   smartCmp:
     "https://github.com/CloudChef/atlasclaw-providers/tree/main/providers/SmartCMP-Provider",
   jira:
@@ -32,6 +34,7 @@ export const siteContent = {
       home: "Home",
       architecture: "Architecture",
       integrations: "Integrations",
+      embedded: "Embedded Mode",
       releases: "Releases",
       docs: "Docs",
       github: "GitHub"
@@ -131,8 +134,13 @@ export const siteContent = {
         eyebrow: "Enterprise application focus",
         title: "The core enterprise requirements are built in from the start.",
         description:
-          "AtlasClaw is designed for organizations that want enterprise AI agent capabilities to live inside actual products, workflows, permissions, and system boundaries.",
+          "AtlasClaw is designed for organizations that want enterprise AI agent capabilities to live inside actual products, page context, workflows, permissions, and system boundaries.",
         items: [
+          {
+            title: "Embedded Agent with live Context",
+            description:
+              "Embed AtlasClaw into an enterprise application so the system gains an AI assistant through independent menu access or a compact floating interface."
+          },
           {
             title: "Multi-user AI agent deployment",
             description:
@@ -162,7 +170,7 @@ export const siteContent = {
           {
             title: "Embedded Agent Mode",
             description:
-              "Embed AtlasClaw inside an enterprise application and reuse the host system's identity, context, and UI."
+              "Bring the same AtlasClaw assistant into an Enterprise System through an independent menu entry or a floating interface. Both reuse the enterprise-system Cookie identity; the floating interface can follow page changes through dynamic Context matching."
           },
           {
             title: "Standalone Agent Mode",
@@ -204,6 +212,12 @@ export const siteContent = {
             description:
               "See what exists today, what serves as reference architecture, and where the ecosystem is going.",
             href: "/en/integrations/"
+          },
+          {
+            title: "Embed AtlasClaw in an enterprise application",
+            description:
+              "See the two Embedded surfaces, Cookie identity, dynamic Context matching, and the small enterprise-system bridge behind deep interaction.",
+            href: "/en/embedded-agent/"
           }
         ]
       }
@@ -211,11 +225,14 @@ export const siteContent = {
     releases: {
       title: "AtlasClaw Release Notes | Enterprise AI Agent Updates",
       description:
-        "AtlasClaw release notes for enterprise AI agent updates, Provider instance routing, Markdown Vault runtime retrieval, SmartCMP Provider, workflow orchestration, and integrations.",
+        "AtlasClaw release notes for embedded AI assistants, dynamic Context matching, object actions, SmartCMP resource analysis, Provider routing, workflow orchestration, and integrations.",
       keywords: [
         "AtlasClaw release notes",
         "AtlasClaw releases",
-        "AtlasClaw v0.9.11",
+        "AtlasClaw v0.9.14",
+        "embedded AI assistant",
+        "dynamic Context matching",
+        "object actions",
         "enterprise AI agent updates",
         "enterprise AI agent release notes",
         "open source AI agent framework releases",
@@ -244,18 +261,18 @@ export const siteContent = {
       stats: [
         {
           label: "Latest release",
-          value: "v0.9.11",
-          detail: "Provider instance routing, runtime Markdown retrieval, and production runtime hardening."
+          value: "v0.9.14",
+          detail: "Embedded Context, object actions, compact floating UI, and Provider-driven resource analysis."
         },
         {
           label: "Release entries",
-          value: "3",
-          detail: "Release notes adapted from the April, May, and June 2026 update materials."
+          value: "6",
+          detail: "Six curated release entries spanning April through July 2026."
         },
         {
           label: "Coverage",
           value: "Core + Providers",
-          detail: "Runtime, routing, provider instances, knowledge retrieval, SmartCMP, deployment, and local model compatibility."
+          detail: "Embedded UX, Context routing, governed actions, resource intelligence, runtime, Providers, and deployment."
         }
       ],
       index: {
@@ -276,6 +293,250 @@ export const siteContent = {
         secondaryLabel: "Open providers repo"
       },
       items: [
+        {
+          id: "v0-9-14",
+          version: "v0.9.14",
+          dateIso: "2026-07-24",
+          date: "July 24, 2026",
+          title: "Embedded Context, object actions, and resource intelligence",
+          keywords: [
+            "AtlasClaw v0.9.14",
+            "embedded AI assistant",
+            "floating AI assistant",
+            "dynamic Context matching",
+            "Provider object actions",
+            "SmartCMP resource analysis"
+          ],
+          summary:
+            "AtlasClaw can now follow an Enterprise System page, resolve Provider-owned Context, and surface governed actions inside a compact floating assistant. SmartCMP adds page-aware alarm, cost, request, approval, and resource workflows.",
+          lede:
+            "v0.9.14 turns Embedded Mode into a deeply interactive product experience. An Enterprise System can provide independent menu access to AtlasClaw and add a compact floating assistant that follows page navigation. Both reach the same Agent runtime. Core matches the page deterministically, a Provider resolves the current domain object and actions, and the ordinary Agent permission and confirmation pipeline remains responsible for execution.",
+          tags: ["Embedded", "Dynamic Context", "Object Actions", "Floating UI", "SmartCMP"],
+          highlights: [
+            {
+              title: "Provider-scoped page Context",
+              description:
+                "Configured HostApp Provider routes map page paths to one resolver, which returns the current object and its available actions."
+            },
+            {
+              title: "Compact floating assistant",
+              description:
+                "The Embedded floating surface now keeps Context and object actions visible without taking over the Enterprise System page."
+            },
+            {
+              title: "Governed object actions",
+              description:
+                "Provider-authored prompt actions enter the normal Chat, Skill, Tool, RBAC, and confirmation path instead of bypassing the Agent runtime."
+            },
+            {
+              title: "Resource-level intelligence",
+              description:
+                "SmartCMP adds health, cost, compliance, and comprehensive analysis grounded in the current resource and available evidence."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Embedded runtime",
+              title: "A floating assistant can follow the active Enterprise System page",
+              body: [
+                "The Enterprise System sends a normalized router path, nonce, and generation through a strict cross-window message contract. Core rejects stale updates and refreshes Context only for the current page.",
+                "Independent menu access does not require page Context. Both access surfaces reach the same Agent runtime under the signed-in browser identity."
+              ],
+              points: [
+                "Menu and floating surfaces can be adopted independently.",
+                "Enterprise System messages do not carry AtlasClaw session keys, Provider configuration, or business DTOs.",
+                "Unsupported pages keep ordinary Chat available without page Context; unavailable Context remains closed without falling back to unrelated capabilities."
+              ]
+            },
+            {
+              eyebrow: "Context and actions",
+              title: "Providers own domain meaning while Core owns the protocol",
+              body: [
+                "A single configured Embedded integration fixes the HostApp Provider binding. Its resolver turns deterministically matched route parameters into a domain object and an ordered set of actions."
+              ],
+              points: [
+                "Core owns route matching, generation handling, snapshots, and permission revalidation.",
+                "Providers own object resolution, labels, safe navigation targets, and state-aware action builders in Domain Skills.",
+                "Prompted operations are rechecked at execution time and remain subject to runtime confirmation rules."
+              ]
+            },
+            {
+              eyebrow: "SmartCMP Provider",
+              title: "Current-page intelligence now spans key cloud operations",
+              body: [
+                "SmartCMP uses the Context contract across alarm details, cost recommendations, approvals, service catalog requests, applications, cloud resources, and VM details."
+              ],
+              points: [
+                "Alarm and cost Context can expose analysis and remediation actions.",
+                "Comprehensive resource analysis keeps alert evidence separate from component-model-driven Prometheus health analysis.",
+                "Resource cost, compliance, and comprehensive analysis use explicit evidence states and Provider-owned workflows."
+              ]
+            },
+            {
+              eyebrow: "Agent routing",
+              title: "Capability selection and follow-up continuity are more direct",
+              body: [
+                "The release also streamlines capability routing so the active Provider capability and its evidence stay coherent across follow-up turns."
+              ],
+              points: [
+                "Capability projection is clearer for the model and user.",
+                "Follow-up questions can continue the active workflow when the evidence still applies.",
+                "Tool execution retains the selected Provider and permission boundary."
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v0.9.14 release",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v0.9.14"
+            },
+            {
+              label: "Providers v0.9.14 release",
+              href: "https://github.com/CloudChef/atlasclaw-providers/releases/tag/v0.9.14"
+            },
+            { label: "Explore Embedded Agent", href: "/en/embedded-agent/" }
+          ]
+        },
+        {
+          id: "v0-9-13",
+          version: "v0.9.13",
+          dateIso: "2026-07-10",
+          date: "July 10, 2026",
+          title: "Timezone-safe Skill execution and stronger form design",
+          keywords: [
+            "AtlasClaw v0.9.13",
+            "Skill timezone context",
+            "cost optimization timezone",
+            "form designer validation",
+            "Provider workflow reliability"
+          ],
+          summary:
+            "Skill scripts now receive the request timezone without leaking timezone state between runs. SmartCMP cost workflows and the form designer gain safer defaults, validation, and value handling.",
+          lede:
+            "v0.9.13 focuses on execution correctness at two external boundaries: time-sensitive Skill scripts and generated form logic. Core isolates the timezone for each request, while Providers use that context in cost workflows and validate generated JavaScript before form definitions move forward.",
+          tags: ["Timezone", "Skills", "Cost Optimization", "Form Designer"],
+          highlights: [
+            {
+              title: "Request timezone reaches Skills",
+              description:
+                "Scripts can interpret dates and cost periods in the user's request timezone instead of relying on process-wide defaults."
+            },
+            {
+              title: "Timezone context stays isolated",
+              description:
+                "One execution cannot leave timezone state behind for a later user or workflow."
+            },
+            {
+              title: "Generated forms fail earlier",
+              description:
+                "SmartCMP validates generated JavaScript syntax and improves catalog context and field value handling."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Core execution",
+              title: "Timezone becomes request-scoped runtime context",
+              body: [
+                "Core passes the request timezone into Skill scripts and restores the surrounding process state after execution. This matters for shared multi-user deployments where concurrent tasks may use different locales."
+              ],
+              points: [
+                "Date calculations can follow the user's request context.",
+                "Timezone state does not leak between script executions.",
+                "Invalid or absent controls can fall back without corrupting later runs."
+              ]
+            },
+            {
+              eyebrow: "SmartCMP Provider",
+              title: "Cost and form workflows handle generated inputs more safely",
+              body: [
+                "Cost optimization uses the request timezone and current defaults more consistently. The form designer checks generated JavaScript syntax and improves how catalog context and values are carried into the design flow."
+              ],
+              points: [
+                "Cost windows stay aligned with the requesting user's time context.",
+                "Invalid timezone controls use a defined fallback path.",
+                "Form logic errors are detected before they become harder-to-debug runtime failures."
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v0.9.13 release",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v0.9.13"
+            },
+            {
+              label: "Providers v0.9.13 release",
+              href: "https://github.com/CloudChef/atlasclaw-providers/releases/tag/v0.9.13"
+            }
+          ]
+        },
+        {
+          id: "v0-9-12",
+          version: "v0.9.12",
+          dateIso: "2026-06-24",
+          date: "June 24, 2026",
+          title: "Object action controls and safer response handling",
+          keywords: [
+            "AtlasClaw v0.9.12",
+            "object action buttons",
+            "Agent confirmation",
+            "Provider response handling",
+            "Minimax compatibility"
+          ],
+          summary:
+            "Provider responses can expose structured object actions as clear UI controls, while confirmation handling, response parsing, and model compatibility become more reliable.",
+          lede:
+            "v0.9.12 makes Provider-defined actions easier to discover and safer to execute. AtlasClaw renders structured actions as buttons, preserves confirmation boundaries, and avoids treating ordinary schema output as an authentication failure.",
+          tags: ["Object Actions", "Confirmation", "Chat UI", "Compatibility"],
+          highlights: [
+            {
+              title: "Provider actions become visible controls",
+              description:
+                "Structured object actions can appear as buttons instead of requiring users to infer the next operation from raw output."
+            },
+            {
+              title: "Confirmation remains explicit",
+              description:
+                "Action prompts and confirmation metadata stay attached to the selected operation before execution proceeds."
+            },
+            {
+              title: "Response handling distinguishes schema from auth errors",
+              description:
+                "Ordinary JSON schema output is no longer rewritten as a Provider credential failure."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Agent interaction",
+              title: "Object actions connect Provider results to the next safe step",
+              body: [
+                "The runtime normalizes Provider-authored object actions and renders them in Chat while preserving the ordinary Agent, Skill, Tool, permission, and confirmation path."
+              ],
+              points: [
+                "Navigation and prompt actions have a consistent UI contract.",
+                "Confirmation-required operations stay visibly distinct.",
+                "Message layout keeps action controls aligned with the related result."
+              ]
+            },
+            {
+              eyebrow: "Runtime reliability",
+              title: "Model and Provider responses are interpreted more precisely",
+              body: [
+                "The release narrows authentication-failure detection and improves model-message compatibility so valid structured output remains available to the conversation."
+              ],
+              points: [
+                "Schema output is not mistaken for a missing credential.",
+                "Minimax-compatible requests merge system messages correctly.",
+                "Streaming and stored messages retain action metadata."
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v0.9.12 release",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v0.9.12"
+            }
+          ]
+        },
         {
           id: "v0-9-11",
           version: "v0.9.11",
@@ -803,7 +1064,7 @@ export const siteContent = {
         eyebrow: "Integrations",
         title: "An integration architecture for enterprise systems, not just tool connectors.",
         description:
-          "AtlasClaw turns integrations into provider contracts so IM, web, embedded apps, and webhook AI integration calls can reach one multi-user AI agent layer, execute Skills, and interact with governed enterprise systems."
+          "AtlasClaw turns integrations into provider contracts so IM, web, embedded apps, and webhook AI integration calls can reach one multi-user AI agent layer. Configured Providers can also map Enterprise System pages to live business objects and governed actions."
       },
       architecture: {
         eyebrow: "Why this architecture",
@@ -830,6 +1091,11 @@ export const siteContent = {
             title: "Existing systems gain AI without being rebuilt",
             description:
               "Traditional products can call AtlasClaw as a webhook AI integration layer instead of implementing their own agent stack from scratch."
+          },
+          {
+            title: "Providers define page Context",
+            description:
+              "Deterministic routes map an Enterprise System page to its current domain object, available actions, and the Provider capability that understands it."
           }
         ]
       },
@@ -839,7 +1105,7 @@ export const siteContent = {
         description:
           "The integration model stays readable because every hop has a clear responsibility boundary.",
         items: [
-          "Users or systems reach AtlasClaw through IM, web UI, embedded panels, or webhook entrypoints.",
+          "Users or systems reach AtlasClaw through IM, web UI, embedded panels, or webhook entrypoints; an Enterprise System can also publish normalized page changes for a floating assistant.",
           "The agent engine selects provider-qualified skills and builds the execution plan.",
           "Providers translate intent into target-system operations with the right auth and data boundaries.",
           "Enterprise systems remain the operational source of truth for permissions, workflow state, and audit."
@@ -918,6 +1184,205 @@ export const siteContent = {
         href: "/en/docs/providers/",
         secondaryHref: repoLinks.providers,
         secondaryLabel: "Contribute integrations on GitHub"
+      }
+    },
+    embedded: {
+      title: "Transform Existing Systems with an Embedded AI Agent | AtlasClaw",
+      description:
+        "Without rebuilding existing systems, embed an AtlasClaw Agent with minimal effort to extend their capabilities and accelerate AI transformation.",
+      keywords: [
+        "AtlasClaw Embedded Agent",
+        "embedded AI agent",
+        "floating AI assistant",
+        "enterprise system AI integration",
+        "dynamic Context matching",
+        "object actions",
+        "Cookie authentication",
+        "enterprise AI assistant"
+      ],
+      hero: {
+        eyebrow: "Embedded Mode",
+        title: "Transform your existing systems with an embedded AI Agent.",
+        description:
+          "Without rebuilding your existing systems, embed an AtlasClaw Agent with minimal effort to extend their capabilities and accelerate AI transformation.",
+        primaryLabel: "See the architecture",
+        secondaryLabel: "Explore access modes",
+        guideLabel: "Read integration guide",
+        status: "Available in v0.9.14"
+      },
+      surfaces: {
+        eyebrow: "Two access modes",
+        title: "One AtlasClaw Agent, available through two access points.",
+        description:
+          "Independent menu access and the floating interface are two ways to reach the same AtlasClaw Agent. An enterprise system can use either one or both without duplicating the AtlasClaw integration.",
+        items: [
+          {
+            number: "01",
+            title: "Independent menu access",
+            subtitle: "Full-page access to the same AtlasClaw Agent",
+            description:
+              "Add an independent menu entry that opens AtlasClaw as a full conversational workspace. It is another access point to the same AtlasClaw Agent, not a separate AtlasClaw implementation.",
+            points: [
+              "Full chat and workspace experience",
+              "No page Context bridge required",
+              "Ideal for cross-system work"
+            ]
+          },
+          {
+            number: "02",
+            title: "Floating Assistant",
+            subtitle: "Help that follows the current page",
+            description:
+              "Open a compact assistant above the current system page. A small message bridge publishes normalized page changes so AtlasClaw can refresh Context without exposing internal session or business payloads.",
+            points: [
+              "Compact launcher and overlay lifecycle",
+              "Dynamic page Context and object actions",
+              "Ideal for in-place analysis and operations"
+            ]
+          }
+        ]
+      },
+      architecture: {
+        eyebrow: "Fusion core",
+        title: "AtlasClaw understands and acts within your existing system.",
+        description:
+          "Configured through embed_integration, the HostApp Provider maps pages to business objects, Domain Skills, and state-aware actions. AtlasClaw can then respond to the current Context and act through existing APIs, identity, permissions, workflows, and audit—without adding a new service or rebuilding the backend.",
+        caption:
+          "The enterprise system adds access surfaces and a lightweight page bridge. Its existing APIs, identity, permissions, workflows, and audit remain in place.",
+        signals: [
+          {
+            label: "Runs with AtlasClaw",
+            value: "Provider package, not a new enterprise-system service"
+          },
+          {
+            label: "Understands your system",
+            value: "Routes, objects, Domain Skills, and object actions"
+          },
+          {
+            label: "Reuses what exists",
+            value: "Current APIs, Cookie identity, RBAC, workflows, and audit"
+          }
+        ]
+      },
+      showcase: {
+        eyebrow: "SmartCMP reference",
+        title: "AtlasClaw understands the current page, its business object, and available actions.",
+        description:
+          "SmartCMP keeps its existing architecture. Its AtlasClaw Provider matches each route, resolves the visible object through existing APIs, and reuses Domain Skill action builders for both floating Context and normal Chat.",
+        primaryCaption:
+          "A VM detail route resolves to virtual_machine and smartcmp:resource. The resource Domain Skill exposes Open, Analyze, and Operations without requiring SmartCMP to send a resource DTO.",
+        secondaryCaption:
+          "An alert detail route resolves to alarm_alert and smartcmp:alarm. The alarm Domain Skill offers Analyze plus status-valid Mute, Resolve, or Reopen actions.",
+        routes: [
+          {
+            label: "Virtual machine",
+            path: "/main/virtual-machines/{resource_id}/details",
+            object: "virtual_machine",
+            skill: "smartcmp:resource",
+            actions: "Open · Analyze · Operations"
+          },
+          {
+            label: "Alarm alert",
+            path: "/main/alarm-activity-management/alarm-triggered/edit/{alert_id}",
+            object: "alarm_alert",
+            skill: "smartcmp:alarm",
+            actions: "Analyze · Mute · Resolve · Reopen"
+          },
+          {
+            label: "Approval request",
+            path: "/main/new-application/pendingApproval/{approval_type}/{approval_id}",
+            object: "approval_request",
+            skill: "smartcmp:approval",
+            actions: "Analyze · Approve · Reject"
+          }
+        ]
+      },
+      contextFlow: {
+        eyebrow: "Dynamic Context",
+        title: "From a page change to a governed action.",
+        description:
+          "The enterprise system publishes navigation state. AtlasClaw and its configured HostApp Provider own the meaning, data resolution, and execution path.",
+        steps: [
+          {
+            label: "Enterprise System",
+            title: "Publish the page",
+            description:
+              "Send the normalized router path with a monotonically increasing generation."
+          },
+          {
+            label: "Core",
+            title: "Use the fixed Provider",
+            description:
+              "Select the embed_integration HostApp Provider, match one Context route, and reject stale generations."
+          },
+          {
+            label: "HostApp Provider",
+            title: "Resolve meaning and actions",
+            description:
+              "Read the object through existing system APIs and reuse its Domain Skill action builder."
+          },
+          {
+            label: "AtlasClaw Agent",
+            title: "Reason and execute",
+            description:
+              "Continue through ordinary Chat, Skill, Tool, RBAC, confirmation, and audit boundaries."
+          }
+        ]
+      },
+      hostApp: {
+        eyebrow: "Enterprise system integration",
+        title: "Add a light integration without rebuilding your enterprise system.",
+        description:
+          "Your enterprise system only adds access points and page lifecycle events. AtlasClaw and its configured Provider supply the intelligence while the existing architecture remains in place.",
+        common: {
+          title: "For both surfaces",
+          points: [
+            "Embed AtlasClaw in the enterprise system's signed-in browser session.",
+            "Share the enterprise system Cookie so Provider calls use the same user identity and upstream permissions.",
+            "Keep AtlasClaw session keys, Provider configuration, and business DTOs out of cross-window messages."
+          ]
+        },
+        menu: {
+          title: "Independent menu access",
+          points: [
+            "Add an independent AtlasClaw entry in the enterprise system navigation.",
+            "Load the full AtlasClaw interface through that menu route.",
+            "No page event protocol is required."
+          ]
+        },
+        floating: {
+          title: "Floating additionally",
+          points: [
+            "Manage launcher, iframe, ready, and close lifecycle.",
+            "Provide exact host origin and a per-frame nonce.",
+            "Send validated page changes with strict message type, nonce, and generation."
+          ]
+        }
+      },
+      identity: {
+        eyebrow: "Identity and continuity",
+        title: "AtlasClaw acts as the same signed-in user.",
+        description:
+          "Embedded authentication is Cookie-based, so Provider access shares the enterprise system's browser session and remains subject to the signed-in user's real permissions. Menu and floating surfaces can also share the active AtlasClaw Chat session; the embedding page never receives the internal session key.",
+        signals: [
+          "Enterprise system Cookie identity",
+          "Provider-side user permissions",
+          "Shared active Chat session",
+          "No session key in embedding messages"
+        ]
+      },
+      boundary: {
+        eyebrow: "Clear ownership",
+        title: "The enterprise system reports the route. AtlasClaw supplies the business meaning.",
+        description:
+          "Enterprise system code does not select a Provider, send business DTOs, or decide which Skills and operations apply. AtlasClaw matches Context through the configured HostApp Provider; Domain Skills define actions, and the ordinary permission and confirmation pipeline governs execution."
+      },
+      cta: {
+        title: "Bring AtlasClaw into your enterprise application",
+        description:
+          "Start with the Embedded integration contract, then add Provider Context routes for the pages where users need analysis and action.",
+        primaryLabel: "Read Embedded integration",
+        secondaryLabel: "Explore Providers"
       }
     },
     docs: {
@@ -1065,14 +1530,14 @@ export const siteContent = {
     deployment: {
       title: "AtlasClaw Deployment | Multi-User Enterprise AI Agent",
       description:
-        "AtlasClaw deployment modes, SSO/RBAC configuration basics, provider runtime wiring, and enterprise AI agent runtime considerations.",
+        "AtlasClaw deployment modes, independent menu access, floating AI assistance, Cookie identity, dynamic Context, SSO/RBAC configuration, and Provider runtime wiring.",
       intro:
-        "AtlasClaw supports two practical shapes: embedding into an existing product, or running as a standalone multi-user AI agent layer above multiple enterprise systems.",
+        "AtlasClaw supports two practical shapes: embedding access to one AI assistant into an Enterprise System, or running as a standalone multi-user AI agent layer above multiple enterprise systems.",
       modes: [
         {
           title: "Embedded deployment",
           description:
-            "Best when an existing enterprise application wants to add AI capability without moving users into a separate product surface."
+            "Expose the same Agent through an independent menu entry and an optional Context-aware floating assistant. Both share the enterprise-system Cookie identity; only the floating interface needs the strict page-change bridge."
         },
         {
           title: "Standalone deployment",
@@ -1100,10 +1565,14 @@ export const siteContent = {
       notes: [
         "Use `providers_root` to load provider folders from the external providers repository.",
         "Keep secrets in environment variables, not committed JSON.",
+        "Embedded access uses the enterprise-system Cookie identity. Independent menu access only needs an Enterprise System route; the floating interface additionally sends normalized path, nonce, and generation.",
+        "Keep Context resolution and object actions inside AtlasClaw and Providers rather than sending business DTOs or calling Agent and Tool APIs from Enterprise System code.",
         "Use webhook mode for fire-and-forget system-to-system invocation with constrained Skills.",
         "Keep target-platform auth and audit in the provider and the downstream platform."
       ],
       references: [
+        { label: "Embedded Agent overview", href: "/en/embedded-agent/" },
+        { label: "Embedded integration guide", href: repoLinks.embedGuide },
         { label: "Core repo README", href: repoLinks.architecture },
         { label: "Providers repo README", href: repoLinks.providerGuide }
       ]
@@ -1121,6 +1590,7 @@ export const siteContent = {
       home: "首页",
       architecture: "架构",
       integrations: "集成",
+      embedded: "内嵌模式",
       releases: "发布",
       docs: "文档",
       github: "GitHub"
@@ -1220,8 +1690,13 @@ export const siteContent = {
         eyebrow: "企业应用重点",
         title: "AtlasClaw 从一开始就围绕企业核心诉求设计。",
         description:
-          "它不是给单个用户堆工具，而是为了让企业级 AI Agent 应用真正落到系统、流程、权限治理和受控执行边界之内。",
+          "它不是给单个用户堆工具，而是为了让企业级 AI Agent 应用真正落到产品页面、动态 Context、流程、权限治理和受控执行边界之内。",
         items: [
+          {
+            title: "带实时 Context 的内嵌 Agent",
+            description:
+              "把 AtlasClaw 内嵌到现有业务系统，让用户可以通过独立菜单入口或紧凑悬浮界面访问同一个 AI 助手。"
+          },
           {
             title: "多用户 AI Agent 部署",
             description:
@@ -1251,7 +1726,7 @@ export const siteContent = {
           {
             title: "嵌入式 Agent 模式",
             description:
-              "把 AtlasClaw 作为现有企业系统中的 AI 模块接入，复用宿主系统的身份、上下文和界面。"
+              "把同一个 AtlasClaw 助手通过独立菜单入口或悬浮界面带入企业系统。两者复用企业系统 Cookie 身份；悬浮界面可随页面变化进行动态 Context 匹配。"
           },
           {
             title: "独立 Agent 平台模式",
@@ -1290,6 +1765,12 @@ export const siteContent = {
             title: "查看集成生态",
             description: "区分当前能力、参考架构与未来生态方向，不混淆真实状态。",
             href: "/zh/integrations/"
+          },
+          {
+            title: "把 AtlasClaw 内嵌到业务系统",
+            description:
+              "了解两种 Embedded 界面、Cookie 身份、动态 Context 匹配，以及实现深度互动所需的轻量企业系统桥接。",
+            href: "/zh/embedded-agent/"
           }
         ]
       }
@@ -1297,11 +1778,14 @@ export const siteContent = {
     releases: {
       title: "AtlasClaw 发布记录 | 企业级 AI Agent 更新",
       description:
-        "AtlasClaw 发布记录，覆盖企业级 AI Agent、Provider 实例路由、Markdown Vault 运行时检索、SmartCMP Provider、工作流编排和 Provider 集成更新。",
+        "AtlasClaw 发布记录，覆盖悬浮 AI 助手、动态 Context 匹配、对象操作、SmartCMP 资源分析、Provider 路由、工作流编排和集成更新。",
       keywords: [
         "AtlasClaw 发布记录",
         "AtlasClaw 版本更新",
-        "AtlasClaw v0.9.11",
+        "AtlasClaw v0.9.14",
+        "悬浮 AI 助手",
+        "动态 Context 匹配",
+        "对象操作",
         "企业级 AI Agent 更新",
         "企业级 AI Agent 发布说明",
         "开源 AI Agent 框架发布记录",
@@ -1330,18 +1814,18 @@ export const siteContent = {
       stats: [
         {
           label: "最新版本",
-          value: "v0.9.11",
-          detail: "Provider 实例路由、Markdown 运行时检索和生产运行配置完善。"
+          value: "v0.9.14",
+          detail: "Embedded Context、对象操作、紧凑悬浮界面与 Provider 资源分析。"
         },
         {
           label: "发布条目",
-          value: "3",
-          detail: "整理自 2026 年 4 月、5 月和 6 月的版本更新资料，并改写为中英文官网内容。"
+          value: "6",
+          detail: "整理 2026 年 4 月至 7 月的六个代表性版本，并改写为中英文官网内容。"
         },
         {
           label: "覆盖范围",
           value: "Core + Providers",
-          detail: "运行时、路由、Provider 实例、知识库检索、SmartCMP、部署和本地模型兼容。"
+          detail: "Embedded 体验、Context 路由、受控操作、资源智能、运行时、Providers 与部署。"
         }
       ],
       index: {
@@ -1362,6 +1846,250 @@ export const siteContent = {
         secondaryLabel: "打开 Providers 仓库"
       },
       items: [
+        {
+          id: "v0-9-14",
+          version: "v0.9.14",
+          dateIso: "2026-07-24",
+          date: "2026 年 7 月 24 日",
+          title: "Embedded Context、对象操作与资源智能",
+          keywords: [
+            "AtlasClaw v0.9.14",
+            "嵌入式 AI 助手",
+            "悬浮 AI 助手",
+            "动态 Context 匹配",
+            "Provider 对象操作",
+            "SmartCMP 资源分析"
+          ],
+          summary:
+            "AtlasClaw 现在可以跟随企业系统页面，解析 Provider 定义的 Context，并在紧凑悬浮助手中呈现受控操作。SmartCMP 同步增加面向告警、成本、请求、审批与资源页面的上下文工作流。",
+          lede:
+            "v0.9.14 让 Embedded 模式从简单嵌入升级为与企业系统深度互动的体验。企业系统可以提供独立菜单入口访问 AtlasClaw，并增加跟随页面导航的紧凑悬浮助手；两者访问同一个 Agent 运行时。Core 确定性匹配当前页面，Provider 解析业务对象与操作，普通 Agent 权限和确认流程继续负责治理执行。",
+          tags: ["Embedded", "动态 Context", "对象操作", "悬浮界面", "SmartCMP"],
+          highlights: [
+            {
+              title: "Provider 作用域页面 Context",
+              description:
+                "HostApp Provider 的配置路由把页面路径映射到唯一 resolver，再返回当前对象与可用操作。"
+            },
+            {
+              title: "紧凑悬浮助手",
+              description:
+                "Embedded 悬浮界面可以持续显示 Context 与对象操作，同时不遮蔽整个企业系统页面。"
+            },
+            {
+              title: "受控对象操作",
+              description:
+                "Provider 定义的 Prompt 操作进入普通 Chat、Skill、Tool、RBAC 与确认路径，不绕过 Agent 运行时。"
+            },
+            {
+              title: "资源级智能分析",
+              description:
+                "SmartCMP 增加基于当前资源与实际证据的健康、成本、合规和综合分析。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Embedded 运行时",
+              title: "悬浮助手可以跟随当前企业系统页面",
+              body: [
+                "企业系统通过严格的跨窗口消息合同发送规范化 router path、nonce 和 generation。Core 拒绝过期更新，只为当前页面刷新 Context。",
+                "独立菜单访问不要求页面 Context。两种访问界面都在当前浏览器登录身份下进入同一个 Agent 运行时。"
+              ],
+              points: [
+                "菜单与悬浮界面可以独立采用。",
+                "企业系统消息不携带 AtlasClaw session key、Provider 配置或业务 DTO。",
+                "页面不受支持时可继续不带页面 Context 的普通 Chat；Context 暂时不可用时保持关闭，不回退到无关能力。"
+              ]
+            },
+            {
+              eyebrow: "Context 与操作",
+              title: "Provider 负责业务含义，Core 负责协议与生命周期",
+              body: [
+                "唯一配置的 Embedded 集成固定绑定 HostApp Provider，其 resolver 把确定性匹配的路由参数转换为业务对象和有序操作集合。"
+              ],
+              points: [
+                "Core 负责路由匹配、generation、快照和权限重新校验。",
+                "Provider 负责对象解析、标签、安全导航目标，以及 Domain Skills 中的状态相关操作构建器。",
+                "Prompt 操作在执行时重新检查，并继续服从运行时确认规则。"
+              ]
+            },
+            {
+              eyebrow: "SmartCMP Provider",
+              title: "当前页面智能覆盖主要云管理场景",
+              body: [
+                "SmartCMP 在告警详情、成本建议、审批、服务目录请求、我的申请、云资源和 VM 详情中使用统一 Context 合同。"
+              ],
+              points: [
+                "告警与成本 Context 可以提供分析和修复操作。",
+                "综合资源分析将告警证据与基于组件模型和 Prometheus 的健康分析保持为两个独立维度。",
+                "资源成本、合规与综合分析使用明确的证据状态和 Provider 工作流。"
+              ]
+            },
+            {
+              eyebrow: "Agent 路由",
+              title: "能力选择和后续流程连续性更加直接",
+              body: [
+                "本次发布还精简了能力路由，使当前 Provider 能力与相关证据在后续对话中保持一致。"
+              ],
+              points: [
+                "模型与用户看到的能力投影更清晰。",
+                "证据仍然适用时，追问可以继续当前工作流。",
+                "工具执行持续保留选中的 Provider 与权限边界。"
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v0.9.14 发布",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v0.9.14"
+            },
+            {
+              label: "Providers v0.9.14 发布",
+              href: "https://github.com/CloudChef/atlasclaw-providers/releases/tag/v0.9.14"
+            },
+            { label: "查看内嵌 Agent", href: "/zh/embedded-agent/" }
+          ]
+        },
+        {
+          id: "v0-9-13",
+          version: "v0.9.13",
+          dateIso: "2026-07-10",
+          date: "2026 年 7 月 10 日",
+          title: "时区安全的 Skill 执行与更可靠的表单设计",
+          keywords: [
+            "AtlasClaw v0.9.13",
+            "Skill 时区上下文",
+            "成本优化时区",
+            "表单设计器校验",
+            "Provider 工作流可靠性"
+          ],
+          summary:
+            "Skill 脚本现在接收请求时区，同时避免时区状态在不同执行之间泄漏。SmartCMP 成本工作流和表单设计器获得更安全的默认值、校验与字段值处理。",
+          lede:
+            "v0.9.13 重点解决两个外部边界的执行正确性：对时间敏感的 Skill 脚本，以及生成式表单逻辑。Core 为每个请求隔离时区，Provider 在成本流程中使用该上下文，并在表单定义继续流转前校验生成的 JavaScript。",
+          tags: ["时区", "Skills", "成本优化", "表单设计器"],
+          highlights: [
+            {
+              title: "请求时区进入 Skills",
+              description:
+                "脚本可以按用户请求时区解释日期与成本周期，不再依赖进程级默认值。"
+            },
+            {
+              title: "时区上下文保持隔离",
+              description:
+                "一次执行不会把时区状态残留给后续用户或工作流。"
+            },
+            {
+              title: "生成表单更早失败",
+              description:
+                "SmartCMP 校验生成的 JavaScript 语法，并改进目录 Context 与字段值处理。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Core 执行",
+              title: "时区成为请求级运行上下文",
+              body: [
+                "Core 把请求时区传给 Skill 脚本，并在执行结束后恢复外围进程状态。这对并发任务可能使用不同时区的多用户部署尤其重要。"
+              ],
+              points: [
+                "日期计算可以服从用户请求上下文。",
+                "时区状态不会在脚本执行之间泄漏。",
+                "时区控制无效或缺失时可以回退，同时不污染后续运行。"
+              ]
+            },
+            {
+              eyebrow: "SmartCMP Provider",
+              title: "成本和表单流程更安全地处理生成输入",
+              body: [
+                "成本优化更一致地使用请求时区和最新默认值。表单设计器检查生成 JavaScript 语法，并改进目录 Context 与字段值进入设计流程的方式。"
+              ],
+              points: [
+                "成本窗口与请求用户的时间上下文保持一致。",
+                "无效时区控制进入定义明确的回退路径。",
+                "表单逻辑错误会在成为难排查的运行时失败之前被发现。"
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v0.9.13 发布",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v0.9.13"
+            },
+            {
+              label: "Providers v0.9.13 发布",
+              href: "https://github.com/CloudChef/atlasclaw-providers/releases/tag/v0.9.13"
+            }
+          ]
+        },
+        {
+          id: "v0-9-12",
+          version: "v0.9.12",
+          dateIso: "2026-06-24",
+          date: "2026 年 6 月 24 日",
+          title: "对象操作控件与更安全的响应处理",
+          keywords: [
+            "AtlasClaw v0.9.12",
+            "对象操作按钮",
+            "Agent 操作确认",
+            "Provider 响应处理",
+            "Minimax 兼容性"
+          ],
+          summary:
+            "Provider 响应可以把结构化对象操作显示为清晰的界面控件，同时提升操作确认、响应解析和模型兼容性的可靠性。",
+          lede:
+            "v0.9.12 让 Provider 定义的操作更容易发现，也更安全地进入执行流程。AtlasClaw 将结构化操作呈现为按钮，保留确认边界，并避免把普通 schema 输出误判为认证失败。",
+          tags: ["对象操作", "操作确认", "Chat UI", "兼容性"],
+          highlights: [
+            {
+              title: "Provider 操作成为可见控件",
+              description:
+                "结构化对象操作可以显示为按钮，用户无需从原始输出中猜测下一步操作。"
+            },
+            {
+              title: "确认边界保持明确",
+              description:
+                "操作 Prompt 与确认 metadata 始终关联到用户选择的操作，确认后才继续执行。"
+            },
+            {
+              title: "正确区分 schema 与认证错误",
+              description:
+                "普通 JSON schema 输出不再被改写成 Provider 凭证失败。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Agent 交互",
+              title: "对象操作把 Provider 结果连接到安全的下一步",
+              body: [
+                "运行时规范化 Provider 定义的对象操作并在 Chat 中展示，同时继续沿用普通 Agent、Skill、Tool、权限与确认路径。"
+              ],
+              points: [
+                "导航操作与 Prompt 操作使用一致的界面合同。",
+                "需要确认的操作在界面中保持明确区分。",
+                "消息布局让操作控件与对应结果保持关联。"
+              ]
+            },
+            {
+              eyebrow: "运行时可靠性",
+              title: "更准确地解释模型与 Provider 响应",
+              body: [
+                "该版本收窄认证失败识别条件，并改进模型消息兼容性，让有效的结构化输出继续保留在对话中。"
+              ],
+              points: [
+                "Schema 输出不会被误判为缺少凭证。",
+                "兼容 Minimax 的请求会正确合并 system messages。",
+                "流式消息与已保存消息保留对象操作 metadata。"
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v0.9.12 发布",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v0.9.12"
+            }
+          ]
+        },
         {
           id: "v0-9-11",
           version: "v0.9.11",
@@ -1889,7 +2617,7 @@ export const siteContent = {
         eyebrow: "集成",
         title: "这是一套面向企业系统的集成架构，而不是零散的工具连接。",
         description:
-          "AtlasClaw 把集成建模为 Provider 合同，让 IM、Web、嵌入式应用与 Webhook AI 集成都能访问同一个多用户 AI Agent 层，由 Skills 执行并连接受控企业系统。"
+          "AtlasClaw 把集成建模为 Provider 合同，让 IM、Web、嵌入式应用与 Webhook AI 集成都能访问同一个多用户 AI Agent 层。配置的 Provider 还可以把企业系统页面映射为实时业务对象与受控操作。"
       },
       architecture: {
         eyebrow: "为什么是这种架构",
@@ -1916,6 +2644,11 @@ export const siteContent = {
             title: "让现有系统获得 AI，而不是重建系统",
             description:
               "传统产品可以把 AtlasClaw 当作 Webhook AI 集成层调用，而不必从头实现自己的一整套 Agent 栈。"
+          },
+          {
+            title: "由 Provider 定义页面 Context",
+            description:
+              "通过确定性路由，把企业系统页面映射到当前业务对象、可用操作，以及真正理解该对象的 Provider 能力。"
           }
         ]
       },
@@ -1925,7 +2658,7 @@ export const siteContent = {
         description:
           "这套集成模型可读，是因为每一跳的职责边界都清晰。",
         items: [
-          "用户或系统通过 IM、Web UI、嵌入面板或 Webhook 入口访问 AtlasClaw。",
+          "用户或系统通过 IM、Web UI、嵌入面板或 Webhook 入口访问 AtlasClaw；企业系统还可为悬浮助手发送规范化的页面变化。",
           "Agent Engine 选择 provider-qualified skills，并生成执行计划。",
           "Provider 用正确的鉴权方式、数据边界与系统语义把意图翻译成目标系统操作。",
           "企业系统继续作为权限、流程状态与审计的真实来源。"
@@ -2004,6 +2737,204 @@ export const siteContent = {
         href: "/zh/docs/providers/",
         secondaryHref: repoLinks.providers,
         secondaryLabel: "前往 GitHub 提交集成"
+      }
+    },
+    embedded: {
+      title: "用内嵌 AI Agent 推动现有系统智能化升级 | AtlasClaw",
+      description:
+        "无需彻底改造现有系统，即可将 AtlasClaw Agent 轻量嵌入其中，用 AI 扩展系统能力，推动现有系统完成智能化升级。",
+      keywords: [
+        "AtlasClaw 内嵌 Agent",
+        "嵌入式 AI Agent",
+        "悬浮 AI 助手",
+        "企业系统 AI 集成",
+        "动态 Context 匹配",
+        "对象操作",
+        "Cookie 认证",
+        "企业 AI 助手"
+      ],
+      hero: {
+        eyebrow: "内嵌模式",
+        title: "用内嵌 AI Agent 推动现有系统智能化升级。",
+        description:
+          "无需彻底改造现有系统，即可将 AtlasClaw Agent 轻量嵌入其中，用 AI 扩展系统能力，推动现有系统完成智能化升级。",
+        primaryLabel: "查看架构",
+        secondaryLabel: "了解访问方式",
+        guideLabel: "阅读集成指南",
+        status: "v0.9.14 已支持"
+      },
+      surfaces: {
+        eyebrow: "两种访问方式",
+        title: "同一个 AtlasClaw Agent，通过两种入口访问。",
+        description:
+          "独立菜单访问和悬浮界面，都是进入同一个 AtlasClaw Agent 的方式。企业系统可以选择其中一个，也可以同时使用，不需要重复建设 AtlasClaw 集成。",
+        items: [
+          {
+            number: "01",
+            title: "独立菜单访问",
+            subtitle: "以完整页面访问同一个 AtlasClaw Agent",
+            description:
+              "在企业系统导航中增加独立菜单入口，以完整对话工作区打开 AtlasClaw。它只是访问同一个 AtlasClaw Agent 的另一个入口，不是另一套 AtlasClaw 实现。",
+            points: [
+              "完整对话与工作区体验",
+              "不需要页面 Context 桥接",
+              "适合跨系统任务"
+            ]
+          },
+          {
+            number: "02",
+            title: "悬浮助手",
+            subtitle: "跟随当前页面的即时协作",
+            description:
+              "在当前系统页面上打开紧凑助手。轻量消息桥发送规范化页面变化，让 AtlasClaw 动态刷新 Context，同时不暴露内部会话或业务数据对象。",
+            points: [
+              "紧凑启动器与悬浮层生命周期",
+              "动态页面 Context 与对象操作",
+              "适合原地分析和操作"
+            ]
+          }
+        ]
+      },
+      architecture: {
+        eyebrow: "融合核心",
+        title: "AtlasClaw 理解并操作你的现有系统。",
+        description:
+          "通过 embed_integration 配置的 HostApp Provider，将页面映射为业务对象、Domain Skills 与状态相关操作。AtlasClaw 因此能够响应当前 Context，并复用现有 API、身份、权限、流程与审计执行操作，无需新增服务或重构后端。",
+        caption:
+          "企业系统只增加访问入口与轻量页面桥接；现有 API、身份、权限、业务流程与审计继续沿用。",
+        signals: [
+          {
+            label: "运行在 AtlasClaw 中",
+            value: "Provider 包，不是企业系统新增服务"
+          },
+          {
+            label: "理解现有系统",
+            value: "页面路由、业务对象、Domain Skills 与对象操作"
+          },
+          {
+            label: "复用现有能力",
+            value: "现有 API、Cookie 身份、RBAC、流程与审计"
+          }
+        ]
+      },
+      showcase: {
+        eyebrow: "SmartCMP 参考实现",
+        title: "AtlasClaw 理解当前页面、对应的业务对象与可用操作。",
+        description:
+          "SmartCMP 保持现有架构。它的 AtlasClaw Provider 匹配页面路由，通过现有 API 解析当前对象，并让悬浮 Context 与普通 Chat 复用同一套 Domain Skill 操作构建器。",
+        primaryCaption:
+          "VM 详情路由匹配为 virtual_machine 与 smartcmp:resource。resource Domain Skill 提供打开、综合分析与操作，无需 SmartCMP 发送资源 DTO。",
+        secondaryCaption:
+          "告警详情路由匹配为 alarm_alert 与 smartcmp:alarm。alarm Domain Skill 提供分析，以及符合当前状态的静音、解决或重新打开操作。",
+        routes: [
+          {
+            label: "虚拟机",
+            path: "/main/virtual-machines/{resource_id}/details",
+            object: "virtual_machine",
+            skill: "smartcmp:resource",
+            actions: "打开 · 综合分析 · 操作"
+          },
+          {
+            label: "告警",
+            path: "/main/alarm-activity-management/alarm-triggered/edit/{alert_id}",
+            object: "alarm_alert",
+            skill: "smartcmp:alarm",
+            actions: "分析 · 静音 · 解决 · 重新打开"
+          },
+          {
+            label: "审批请求",
+            path: "/main/new-application/pendingApproval/{approval_type}/{approval_id}",
+            object: "approval_request",
+            skill: "smartcmp:approval",
+            actions: "分析 · 同意 · 拒绝"
+          }
+        ]
+      },
+      contextFlow: {
+        eyebrow: "动态 Context",
+        title: "从页面变化到受控操作。",
+        description:
+          "企业系统发送导航状态；AtlasClaw 与配置的 HostApp Provider 负责解释含义、解析数据并组织执行。",
+        steps: [
+          {
+            label: "企业系统",
+            title: "发送当前页面",
+            description: "发送规范化 router path，以及单调递增的 generation。"
+          },
+          {
+            label: "Core",
+            title: "使用固定 Provider",
+            description:
+              "选择 embed_integration 配置的 HostApp Provider，匹配唯一 Context 路由，并拒绝过期 generation。"
+          },
+          {
+            label: "HostApp Provider",
+            title: "解析含义与操作",
+            description:
+              "通过现有系统 API 读取对象，并复用所属 Domain Skill 的操作构建器。"
+          },
+          {
+            label: "AtlasClaw Agent",
+            title: "推理与执行",
+            description:
+              "继续沿用普通 Chat、Skill、Tool、RBAC、确认与审计边界。"
+          }
+        ]
+      },
+      hostApp: {
+        eyebrow: "企业系统集成",
+        title: "轻量集成，无需重构企业系统。",
+        description:
+          "企业系统只需增加访问入口与页面生命周期事件；AtlasClaw 及其配置的 Provider 提供智能能力，现有架构保持不变。",
+        common: {
+          title: "两个界面都需要",
+          points: [
+            "在企业系统已登录的浏览器会话中嵌入 AtlasClaw。",
+            "共享企业系统 Cookie，使 Provider 调用使用同一用户身份与上游权限。",
+            "跨窗口消息不传递 AtlasClaw session key、Provider 配置或业务 DTO。"
+          ]
+        },
+        menu: {
+          title: "独立菜单访问",
+          points: [
+            "在企业系统导航中添加独立 AtlasClaw 入口。",
+            "通过该菜单路由加载完整 AtlasClaw 界面。",
+            "不需要页面事件协议。"
+          ]
+        },
+        floating: {
+          title: "悬浮模式额外需要",
+          points: [
+            "管理启动器、iframe、ready 与 close 生命周期。",
+            "提供精确 host origin 和每个 iframe 独立的 nonce。",
+            "用严格的消息类型、nonce 与 generation 发送校验后的页面变化。"
+          ]
+        }
+      },
+      identity: {
+        eyebrow: "身份与连续性",
+        title: "AtlasClaw 以同一个已登录用户的身份工作。",
+        description:
+          "Embedded 认证基于 Cookie，因此 Provider 访问共享企业系统的浏览器会话，并继续服从已登录用户的真实权限。菜单与悬浮界面还可以共享当前 AtlasClaw Chat 会话；内嵌页面永远不会拿到内部 session key。",
+        signals: [
+          "企业系统 Cookie 身份",
+          "Provider 侧用户权限",
+          "共享当前 Chat 会话",
+          "宿主消息不包含 session key"
+        ]
+      },
+      boundary: {
+        eyebrow: "清晰归属",
+        title: "企业系统上报当前路由，AtlasClaw 提供业务含义。",
+        description:
+          "企业系统代码不选择 Provider、不发送业务 DTO，也不决定应该启用哪些 Skills 或操作。AtlasClaw 通过配置的 HostApp Provider 匹配 Context，Domain Skills 定义对象操作，普通权限和确认流程负责治理执行。"
+      },
+      cta: {
+        title: "把 AtlasClaw 带进你的业务系统",
+        description:
+          "先从 Embedded 集成合同开始，再为真正需要分析与操作的产品页面增加 Provider Context 路由。",
+        primaryLabel: "阅读 Embedded 集成",
+        secondaryLabel: "查看 Providers"
       }
     },
     docs: {
@@ -2145,14 +3076,14 @@ export const siteContent = {
     deployment: {
       title: "AtlasClaw 部署 | 多用户企业级 AI Agent",
       description:
-        "AtlasClaw 的部署模式、SSO/RBAC 配置基础、Provider 运行时接线与企业级 AI Agent 运行时关键点。",
+        "AtlasClaw 的部署模式、独立菜单访问、悬浮 AI 助手、Cookie 身份、动态 Context、SSO/RBAC 配置与 Provider 运行时接线。",
       intro:
-        "AtlasClaw 支持两种实用形态：嵌入已有产品，或者作为统一的多用户 AI Agent 层运行在多个企业系统之上。",
+        "AtlasClaw 支持两种实用形态：把同一个 AI 助手的访问入口内嵌到企业系统，或者作为统一的多用户 AI Agent 层运行在多个企业系统之上。",
       modes: [
         {
           title: "嵌入式部署",
           description:
-            "适合已有企业应用希望原位增加 AI 能力，而不把用户迁移到新的独立产品入口。"
+            "通过独立菜单入口和可选的 Context 感知悬浮助手访问同一个 Agent。两者共享企业系统 Cookie 身份；只有悬浮界面需要严格的页面变化桥接。"
         },
         {
           title: "独立式部署",
@@ -2180,10 +3111,14 @@ export const siteContent = {
       notes: [
         "使用 `providers_root` 从外部 providers 仓库加载 Provider 文件夹。",
         "密钥放在环境变量里，不要提交到 JSON 配置。",
+        "Embedded 访问使用企业系统 Cookie 身份。独立菜单访问只需企业系统路由；悬浮界面还需发送规范化 path、nonce 与 generation。",
+        "Context 解析与对象操作保留在 AtlasClaw 和 Providers 内部；企业系统不发送业务 DTO，也不直接调用 Agent 或 Tool API。",
         "Webhook 模式适合系统到系统的 fire-and-forget 调用，并通过受限 Skills 控制执行边界。",
         "目标平台的鉴权与审计继续保留在 Provider 和下游平台内部。"
       ],
       references: [
+        { label: "内嵌 Agent 概览", href: "/zh/embedded-agent/" },
+        { label: "Embedded 集成指南", href: repoLinks.embedGuide },
         { label: "核心仓库 README", href: repoLinks.architecture },
         { label: "Providers 仓库 README", href: repoLinks.providerGuide }
       ]

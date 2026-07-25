@@ -7,6 +7,7 @@ const links = [
   { key: "home", href: `/${lang}/` },
   { key: "architecture", href: `/${lang}/architecture/` },
   { key: "integrations", href: `/${lang}/integrations/` },
+  { key: "embedded", href: `/${lang}/embedded-agent/` },
   { key: "releases", href: `/${lang}/releases/` },
   { key: "docs", href: `/${lang}/docs/` }
 ];
@@ -41,7 +42,11 @@ function isActive(href) {
       {
         links.map((link) => (
           <a
-            class:list={["site-nav__link", isActive(link.href) && "is-active"]}
+            class:list={[
+              "site-nav__link",
+              link.key === "embedded" && "site-nav__link--featured",
+              isActive(link.href) && "is-active"
+            ]}
             href={link.href}
           >
             {content.nav[link.key]}

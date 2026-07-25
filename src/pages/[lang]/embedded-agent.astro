@@ -1,0 +1,315 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import CTASection from "../../components/CTASection.astro";
+import { repoLinks, siteContent } from "../../content/site.js";
+import { locales } from "../../lib/i18n.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const content = siteContent[lang];
+const embedded = content.embedded;
+const architectureImage = `/images/embedded/hostapp-provider-architecture-${lang === "zh" ? "zh" : "en"}.svg`;
+---
+
+<BaseLayout
+  lang={lang}
+  title={embedded.title}
+  description={embedded.description}
+  pathname={`/${lang}/embedded-agent/`}
+  keywords={embedded.keywords}
+  theme="light"
+>
+  <section class="shell embedded-hero">
+    <div class="embedded-hero__copy">
+      <span class="eyebrow">{embedded.hero.eyebrow}</span>
+      <h1>{embedded.hero.title}</h1>
+      <p>{embedded.hero.description}</p>
+      <div class="embedded-hero__actions">
+        <a class="button" href="#architecture">{embedded.hero.primaryLabel}</a>
+        <a class="button--ghost" href="#surfaces">
+          {embedded.hero.secondaryLabel}
+        </a>
+        <a class="button--ghost" href={repoLinks.embedGuide}>
+          {embedded.hero.guideLabel}
+        </a>
+      </div>
+      <span class="embedded-release-chip">
+        <span aria-hidden="true"></span>
+        {embedded.hero.status}
+      </span>
+    </div>
+
+    <div class="host-stage" aria-label={lang === "zh" ? "内嵌 AtlasClaw 的企业系统示意" : "Enterprise system with AtlasClaw embedded"}>
+      <div class="host-stage__topbar">
+        <div class="host-stage__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <span>cloud.console / resources / vm-51478</span>
+        <strong>{lang === "zh" ? "企业系统" : "ENTERPRISE SYSTEM"}</strong>
+      </div>
+      <div class="host-stage__body">
+        <aside class="host-stage__nav" aria-label={lang === "zh" ? "企业系统菜单示意" : "Enterprise system menu example"}>
+          <span class="host-stage__brand">E</span>
+          <i></i>
+          <i></i>
+          <i></i>
+          <span class="host-stage__agent">A</span>
+        </aside>
+        <div class="host-stage__canvas">
+          <div class="host-stage__resource">
+            <span>{lang === "zh" ? "当前资源" : "Current resource"}</span>
+            <strong>MyBG192.168.24.1612e4e</strong>
+            <small>resource.iaas.machine.instance.vsphere</small>
+          </div>
+          <div class="host-stage__metrics" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+          <div class="host-stage__assistant">
+            <header>
+              <span><b></b> MyBG192.168.24.1612e4e</span>
+              <strong>×</strong>
+            </header>
+            <div class="host-stage__actions">
+              <span>{lang === "zh" ? "打开" : "Open"}</span>
+              <span>{lang === "zh" ? "分析" : "Analyze"}</span>
+              <span>{lang === "zh" ? "操作" : "Operations"}</span>
+            </div>
+            <div class="host-stage__message">
+              <i></i><i></i><i></i>
+              <strong>{lang === "zh" ? "正在理解当前页面…" : "Understanding the current page…"}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="host-stage__signal">
+        <span>PAGE_CHANGED</span>
+        <code>/resources/vm-51478</code>
+        <strong>{lang === "zh" ? "动态匹配" : "Live match"}</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section embedded-architecture" id="architecture">
+    <SectionHeading
+      eyebrow={embedded.architecture.eyebrow}
+      title={embedded.architecture.title}
+      description={embedded.architecture.description}
+    />
+    <figure class="architecture-figure">
+      <div class="architecture-figure__frame">
+        <a
+          href={architectureImage}
+          aria-label={lang === "zh" ? "打开完整内嵌模式架构图" : "Open the full Embedded Mode architecture"}
+        >
+          <img
+            src={architectureImage}
+            alt={lang === "zh"
+              ? "AtlasClaw 内嵌到现有企业系统的架构"
+              : "AtlasClaw Embedded Mode architecture for an existing enterprise system"}
+            width="1440"
+            height="860"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
+      <figcaption>{embedded.architecture.caption}</figcaption>
+    </figure>
+    <div class="architecture-signals">
+      {embedded.architecture.signals.map((signal) => (
+        <article>
+          <span>{signal.label}</span>
+          <strong>{signal.value}</strong>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section" id="surfaces">
+    <SectionHeading
+      eyebrow={embedded.surfaces.eyebrow}
+      title={embedded.surfaces.title}
+      description={embedded.surfaces.description}
+    />
+    <div class="embedded-surface-grid">
+      {embedded.surfaces.items.map((surface) => (
+        <article class="embedded-surface-card">
+          <div class="embedded-surface-card__number">{surface.number}</div>
+          <div>
+            <span>{surface.subtitle}</span>
+            <h3>{surface.title}</h3>
+            <p>{surface.description}</p>
+            <ul class="signal-list">
+              {surface.points.map((point) => <li>{point}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="embedded-showcase">
+    <div class="shell section">
+      <SectionHeading
+        eyebrow={embedded.showcase.eyebrow}
+        title={embedded.showcase.title}
+        description={embedded.showcase.description}
+      />
+      <div class="context-gallery">
+        <figure class="context-shot context-shot--wide">
+          <div class="context-shot__frame">
+            <img
+              src="/images/embedded/context-vm-floating.png"
+              alt={lang === "zh"
+                ? "SmartCMP VM 详情页中的 AtlasClaw 悬浮助手与动态对象操作"
+                : "AtlasClaw floating assistant with dynamic object actions on a SmartCMP VM detail page"}
+              width="1281"
+              height="847"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span>{lang === "zh" ? "01 / 资源 CONTEXT" : "01 / RESOURCE CONTEXT"}</span>
+            <p>{embedded.showcase.primaryCaption}</p>
+          </figcaption>
+        </figure>
+        <figure class="context-shot context-shot--portrait">
+          <div class="context-shot__frame">
+            <img
+              src="/images/embedded/context-alert-analysis.png"
+              alt={lang === "zh"
+                ? "AtlasClaw 在告警 Context 中提供分析、静默和解决操作"
+                : "AtlasClaw offering analysis, mute, and resolve actions in an alert Context"}
+              width="711"
+              height="792"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span>{lang === "zh" ? "02 / 告警 CONTEXT" : "02 / ALERT CONTEXT"}</span>
+            <p>{embedded.showcase.secondaryCaption}</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="smartcmp-route-map">
+        {embedded.showcase.routes.map((route) => (
+          <article>
+            <span>{route.label}</span>
+            <code>{route.path}</code>
+            <dl>
+              <div>
+                <dt>{lang === "zh" ? "对象" : "OBJECT"}</dt>
+                <dd>{route.object}</dd>
+              </div>
+              <div>
+                <dt>SKILL</dt>
+                <dd>{route.skill}</dd>
+              </div>
+            </dl>
+            <p>{route.actions}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={embedded.contextFlow.eyebrow}
+      title={embedded.contextFlow.title}
+      description={embedded.contextFlow.description}
+    />
+    <ol class="context-flow">
+      {embedded.contextFlow.steps.map((step, index) => (
+        <li>
+          <span class="context-flow__index">{String(index + 1).padStart(2, "0")}</span>
+          <small>{step.label}</small>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell section">
+    <SectionHeading
+      eyebrow={embedded.hostApp.eyebrow}
+      title={embedded.hostApp.title}
+      description={embedded.hostApp.description}
+    />
+    <div class="host-contract">
+      <article class="host-contract__card host-contract__card--common">
+        <span>{lang === "zh" ? "共同要求" : "COMMON"}</span>
+        <h3>{embedded.hostApp.common.title}</h3>
+        <ul class="signal-list">
+          {embedded.hostApp.common.points.map((point) => <li>{point}</li>)}
+        </ul>
+      </article>
+      <article class="host-contract__card">
+        <span>{lang === "zh" ? "菜单访问" : "MENU ACCESS"}</span>
+        <h3>{embedded.hostApp.menu.title}</h3>
+        <ul class="signal-list">
+          {embedded.hostApp.menu.points.map((point) => <li>{point}</li>)}
+        </ul>
+      </article>
+      <article class="host-contract__card host-contract__card--floating">
+        <span>{lang === "zh" ? "悬浮界面" : "FLOATING"}</span>
+        <h3>{embedded.hostApp.floating.title}</h3>
+        <ul class="signal-list">
+          {embedded.hostApp.floating.points.map((point) => <li>{point}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell section embedded-identity">
+    <div class="embedded-identity__copy">
+      <SectionHeading
+        eyebrow={embedded.identity.eyebrow}
+        title={embedded.identity.title}
+        description={embedded.identity.description}
+      />
+      <div class="identity-signals">
+        {embedded.identity.signals.map((signal) => <span>{signal}</span>)}
+      </div>
+    </div>
+    <div class="identity-diagram" aria-hidden="true">
+      <div class="identity-diagram__host">
+        {lang === "zh" ? "企业系统" : "ENTERPRISE SYSTEM"}
+        <small>{lang === "zh" ? "COOKIE 身份" : "COOKIE"}</small>
+      </div>
+      <span>→</span>
+      <div class="identity-diagram__agent">
+        ATLASCLAW
+        <small>{lang === "zh" ? "同一用户" : "SAME USER"}</small>
+      </div>
+      <span>→</span>
+      <div class="identity-diagram__provider">
+        HOSTAPP PROVIDER
+        <small>{lang === "zh" ? "上游权限" : "UPSTREAM ACL"}</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <div class="embedded-boundary">
+      <span class="eyebrow">{embedded.boundary.eyebrow}</span>
+      <h2>{embedded.boundary.title}</h2>
+      <p>{embedded.boundary.description}</p>
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow={lang === "zh" ? "开始集成" : "Start integrating"}
+    title={embedded.cta.title}
+    description={embedded.cta.description}
+    href={repoLinks.embedGuide}
+    label={embedded.cta.primaryLabel}
+    secondaryHref={repoLinks.providers}
+    secondaryLabel={embedded.cta.secondaryLabel}
+  />
+</BaseLayout>
