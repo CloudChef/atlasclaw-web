@@ -21,6 +21,8 @@ const architectureImage = `/images/embedded/hostapp-provider-architecture-${lang
   description={embedded.description}
   pathname={`/${lang}/embedded-agent/`}
   keywords={embedded.keywords}
+  socialImagePath={embedded.socialImage.path}
+  socialImageAlt={embedded.socialImage.alt}
   theme="light"
 >
   <section class="shell embedded-hero">
@@ -300,6 +302,23 @@ const architectureImage = `/images/embedded/hostapp-provider-architecture-${lang
       <span class="eyebrow">{embedded.boundary.eyebrow}</span>
       <h2>{embedded.boundary.title}</h2>
       <p>{embedded.boundary.description}</p>
+    </div>
+  </section>
+
+  <section class="shell section embedded-faq" id="faq">
+    <SectionHeading
+      eyebrow={embedded.faq.eyebrow}
+      title={embedded.faq.title}
+      description={embedded.faq.description}
+    />
+    <div class="embedded-faq__grid">
+      {embedded.faq.items.map((item, index) => (
+        <article>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </article>
+      ))}
     </div>
   </section>
 

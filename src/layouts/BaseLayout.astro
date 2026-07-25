@@ -17,6 +17,8 @@ const {
   pathname,
   theme = "light",
   keywords,
+  socialImagePath,
+  socialImageAlt,
   structuredArticles = []
 } = Astro.props;
 const content = siteContent[lang];
@@ -25,7 +27,8 @@ const pageDescription = description ?? content.meta.defaultDescription;
 const { canonicalUrl, alternates, xDefaultUrl } = buildLocalizedSeoUrls(pathname, lang);
 const localeSeo = getLocaleSeoMetadata(lang);
 const pageKeywords = keywords ?? localeSeo.keywords;
-const socialImage = socialImageUrl();
+const socialImage = socialImageUrl(socialImagePath);
+const pageSocialImageAlt = socialImageAlt ?? `${content.meta.siteName}: ${pageTitle}`;
 const structuredData = buildStructuredData({
   lang,
   pathname,
@@ -33,6 +36,7 @@ const structuredData = buildStructuredData({
   description: pageDescription,
   content,
   keywords: pageKeywords,
+  socialImagePath,
   articles: structuredArticles
 });
 ---
@@ -44,7 +48,6 @@ const structuredData = buildStructuredData({
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <meta name="keywords" content={pageKeywords.join(", ")} />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="theme-color" content={theme === "light" ? "#fbfaf6" : "#343539"} />
     <link rel="icon" type="image/png" href="/images/brand/atlasclaw-icon.png" />
@@ -72,10 +75,14 @@ const structuredData = buildStructuredData({
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={pageSocialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={pageSocialImageAlt} />
     <script type="application/ld+json" set:html={structuredData} />
   </head>
   <body class:list={["theme", `theme--${theme}`]}>

@@ -1189,22 +1189,26 @@ export const siteContent = {
     embedded: {
       title: "Transform Existing Systems with an Embedded AI Agent | AtlasClaw",
       description:
-        "Without rebuilding existing systems, embed an AtlasClaw Agent with minimal effort to extend their capabilities and accelerate AI transformation.",
+        "Embed AtlasClaw as an enterprise AI assistant in your existing systems. Add context-aware help and AI Agent capabilities without rebuilding your applications.",
       keywords: [
-        "AtlasClaw Embedded Agent",
-        "embedded AI agent",
-        "floating AI assistant",
-        "enterprise system AI integration",
-        "dynamic Context matching",
-        "object actions",
-        "Cookie authentication",
-        "enterprise AI assistant"
+        "AI assistant",
+        "enterprise AI assistant",
+        "embedded AI assistant",
+        "AI agent for enterprise systems",
+        "context-aware AI assistant",
+        "enterprise AI agent",
+        "AI assistant for business applications",
+        "AtlasClaw"
       ],
+      socialImage: {
+        path: "/og/embedded-mode.png",
+        alt: "AtlasClaw Embedded Mode brings an enterprise AI assistant into an existing system"
+      },
       hero: {
         eyebrow: "Embedded Mode",
         title: "Transform your existing systems with an embedded AI Agent.",
         description:
-          "Without rebuilding your existing systems, embed an AtlasClaw Agent with minimal effort to extend their capabilities and accelerate AI transformation.",
+          "Without rebuilding your existing systems, embed AtlasClaw as an enterprise AI assistant to add context-aware help, cross-system intelligence, and governed Agent actions.",
         primaryLabel: "See the architecture",
         secondaryLabel: "Explore access modes",
         guideLabel: "Read integration guide",
@@ -1376,6 +1380,34 @@ export const siteContent = {
         title: "The enterprise system reports the route. AtlasClaw supplies the business meaning.",
         description:
           "Enterprise system code does not select a Provider, send business DTOs, or decide which Skills and operations apply. AtlasClaw matches Context through the configured HostApp Provider; Domain Skills define actions, and the ordinary permission and confirmation pipeline governs execution."
+      },
+      faq: {
+        eyebrow: "Embedded AI assistant",
+        title: "What teams ask before bringing AtlasClaw into an existing system.",
+        description:
+          "AtlasClaw adds a context-aware enterprise AI assistant while preserving the system architecture, identity, and controls already in place.",
+        items: [
+          {
+            question: "What is an embedded AI assistant?",
+            answer:
+              "An embedded AI assistant is available inside the enterprise application people already use. AtlasClaw provides independent menu access and a floating assistant so users can ask questions, understand the current page, and take governed actions without switching to a separate AI product."
+          },
+          {
+            question: "Can AtlasClaw add an AI assistant without rebuilding the application?",
+            answer:
+              "Yes. The existing system keeps its backend, APIs, workflows, and audit model. A light integration adds the AtlasClaw access surfaces and, for the floating assistant, publishes normalized page changes for dynamic Context matching."
+          },
+          {
+            question: "How does the context-aware AI assistant understand the current page?",
+            answer:
+              "The enterprise system publishes a normalized route change. The configured Provider matches that route to a business object, retrieves current data through existing APIs, and exposes the relevant Domain Skill and object actions to AtlasClaw."
+          },
+          {
+            question: "Does the embedded AI Agent reuse existing user permissions?",
+            answer:
+              "Yes. Cookie-based authentication shares the signed-in browser session, so Provider calls remain subject to the user's existing permissions, workflows, confirmations, and audit controls. Internal AtlasClaw session keys are not exposed to the embedding page."
+          }
+        ]
       },
       cta: {
         title: "Bring AtlasClaw into your enterprise application",
@@ -2742,22 +2774,26 @@ export const siteContent = {
     embedded: {
       title: "用内嵌 AI Agent 推动现有系统智能化升级 | AtlasClaw",
       description:
-        "无需彻底改造现有系统，即可将 AtlasClaw Agent 轻量嵌入其中，用 AI 扩展系统能力，推动现有系统完成智能化升级。",
+        "将 AtlasClaw 作为企业 AI 助手嵌入现有系统，无需重构应用，即可获得上下文感知、智能分析和 AI Agent 执行能力。",
       keywords: [
-        "AtlasClaw 内嵌 Agent",
-        "嵌入式 AI Agent",
-        "悬浮 AI 助手",
-        "企业系统 AI 集成",
-        "动态 Context 匹配",
-        "对象操作",
-        "Cookie 认证",
-        "企业 AI 助手"
+        "AI 助手",
+        "企业 AI 助手",
+        "嵌入式 AI 助手",
+        "业务系统 AI 助手",
+        "企业 AI Agent",
+        "上下文感知 AI 助手",
+        "现有系统 AI 化",
+        "AtlasClaw"
       ],
+      socialImage: {
+        path: "/og/embedded-mode.png",
+        alt: "AtlasClaw 内嵌模式为现有系统带来企业 AI 助手"
+      },
       hero: {
         eyebrow: "内嵌模式",
         title: "用内嵌 AI Agent 推动现有系统智能化升级。",
         description:
-          "无需彻底改造现有系统，即可将 AtlasClaw Agent 轻量嵌入其中，用 AI 扩展系统能力，推动现有系统完成智能化升级。",
+          "无需彻底改造现有系统，即可将 AtlasClaw 作为企业 AI 助手轻量嵌入，在当前页面提供上下文感知协助、跨系统分析与受控 Agent 操作。",
         primaryLabel: "查看架构",
         secondaryLabel: "了解访问方式",
         guideLabel: "阅读集成指南",
@@ -2928,6 +2964,34 @@ export const siteContent = {
         title: "企业系统上报当前路由，AtlasClaw 提供业务含义。",
         description:
           "企业系统代码不选择 Provider、不发送业务 DTO，也不决定应该启用哪些 Skills 或操作。AtlasClaw 通过配置的 HostApp Provider 匹配 Context，Domain Skills 定义对象操作，普通权限和确认流程负责治理执行。"
+      },
+      faq: {
+        eyebrow: "嵌入式 AI 助手",
+        title: "将 AtlasClaw 带入现有系统前，团队通常关心这些问题。",
+        description:
+          "AtlasClaw 为现有系统增加上下文感知的企业 AI 助手，同时保留原有系统架构、用户身份与治理边界。",
+        items: [
+          {
+            question: "什么是嵌入式 AI 助手？",
+            answer:
+              "嵌入式 AI 助手直接运行在用户日常使用的企业应用中。AtlasClaw 同时支持独立菜单和悬浮助手，让用户无需切换到另一个 AI 产品，就能提问、理解当前页面并执行受控操作。"
+          },
+          {
+            question: "不重构现有应用，也能加入 AI 助手吗？",
+            answer:
+              "可以。现有系统继续使用原来的后端、API、业务流程与审计模型。轻量集成只增加 AtlasClaw 访问入口；悬浮助手再发送规范化页面变化，用于动态 Context 匹配。"
+          },
+          {
+            question: "上下文感知 AI 助手如何理解当前页面？",
+            answer:
+              "企业系统发送规范化路由变化，配置的 Provider 将路由匹配为业务对象，通过现有 API 获取最新数据，并向 AtlasClaw 提供相关 Domain Skill 与对象操作。"
+          },
+          {
+            question: "内嵌 AI Agent 是否沿用现有用户权限？",
+            answer:
+              "是。基于 Cookie 的认证共享已登录浏览器会话，Provider 调用继续服从用户原有权限、流程、确认与审计控制；AtlasClaw 内部 session key 不会暴露给内嵌页面。"
+          }
+        ]
       },
       cta: {
         title: "把 AtlasClaw 带进你的业务系统",

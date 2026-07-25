@@ -2,7 +2,7 @@ import { defaultLocale, locales } from "./i18n.js";
 
 export const siteUrl = "https://atlasclaw.ai";
 
-const socialImagePath = "/og/atlasclaw-social.svg";
+const defaultSocialImagePath = "/og/atlasclaw-social.svg";
 const brandLogoPath = "/images/brand/atlasclaw-icon.png";
 
 const localeMetadata = {
@@ -146,6 +146,7 @@ export function buildBreadcrumbItems({ lang, pathname, content }) {
  * @param {string} params.description Rendered page description.
  * @param {object} params.content Locale content bundle from siteContent.
  * @param {string[]} [params.keywords] Page-specific search keywords.
+ * @param {string} [params.socialImagePath] Page-specific social preview image path.
  * @param {Array<{
  *   headline: string,
  *   description: string,
@@ -162,6 +163,7 @@ export function buildStructuredData({
   description,
   content,
   keywords,
+  socialImagePath,
   articles = []
 }) {
   const canonicalUrl = absoluteUrl(pathname);
@@ -213,7 +215,7 @@ export function buildStructuredData({
       keywords: pageKeywords.join(", "),
       isPartOf: { "@id": `${siteUrl}/#website` },
       inLanguage: localeSeo.languageName,
-      primaryImageOfPage: absoluteUrl(socialImagePath),
+      primaryImageOfPage: absoluteUrl(socialImagePath ?? defaultSocialImagePath),
       breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
       ...(articleNodes.length > 0
         ? { mainEntity: articleNodes.map((article) => ({ "@id": article["@id"] })) }
@@ -238,10 +240,11 @@ export function buildStructuredData({
 /**
  * Returns the absolute Open Graph and Twitter card image URL.
  *
+ * @param {string} [pathname] Page-specific social image path.
  * @returns {string} Fully qualified social preview image URL.
  */
-export function socialImageUrl() {
-  return absoluteUrl(socialImagePath);
+export function socialImageUrl(pathname = defaultSocialImagePath) {
+  return absoluteUrl(pathname);
 }
 
 function buildRouteLabels(content) {
