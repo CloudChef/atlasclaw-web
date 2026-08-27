@@ -32,18 +32,18 @@ const content = siteContent[lang];
       eyebrow={lang === "zh" ? "运行时架构" : "Runtime architecture"}
       title={lang === "zh" ? "先看 Provider 如何承接运行时。" : "See how a provider carries runtime execution."}
       description={lang === "zh"
-        ? "这张架构图展示了 Provider 如何承接鉴权、Skills、脚本与目标系统调用。"
-        : "This diagram shows how a provider carries auth, skills, scripts, and downstream system execution."}
+        ? "这张架构图展示了 Provider 如何承接配置 schema、鉴权与 Context、可复用领域包、薄 Skills 和目标系统调用。"
+        : "This diagram shows how a Provider carries configuration schema, auth and Context, reusable domain code, thin Skills, and downstream execution."}
     />
-    <div class="diagram-grid">
+    <div class="diagram-grid diagram-grid--single">
       <DiagramCard
         id={`providers-runtime-${lang}`}
         image="/images/providers/provider-runtime-overview.svg"
-        alt="AtlasClaw provider runtime overview for Skills, scripts, auth, and enterprise system execution"
+        alt="AtlasClaw Provider runtime overview for configuration, auth, Context, thin Skills, domain operations, and enterprise system execution"
         title={lang === "zh" ? "Provider 运行时架构" : "Provider runtime overview"}
         description={lang === "zh"
-          ? "Provider 把鉴权、Skills、脚本与目标系统执行收拢到清晰边界之内。"
-          : "The provider keeps auth, skills, scripts, and downstream execution inside one explicit boundary."}
+          ? "Provider 把鉴权、Context、typed domain operations、薄 Skill adapters 与目标系统执行收拢到清晰边界之内。"
+          : "The Provider keeps auth, Context, typed domain operations, thin Skill adapters, and downstream execution inside one explicit boundary."}
         zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
         closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
       />
@@ -61,7 +61,7 @@ const content = siteContent[lang];
     <div>
       <SectionHeading
         eyebrow={lang === "zh" ? "关键原则" : "Key rules"}
-        title={lang === "zh" ? "让边界明确、脚本收敛。" : "Keep boundaries explicit and scripts narrow."}
+        title={lang === "zh" ? "让边界明确、Adapter 保持薄层。" : "Keep boundaries explicit and adapters thin."}
       />
       <ul class="signal-list signal-list--light">
         {content.providers.points.map((point) => <li>{point}</li>)}

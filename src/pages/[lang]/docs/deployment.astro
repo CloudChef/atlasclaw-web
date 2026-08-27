@@ -30,7 +30,7 @@ const content = siteContent[lang];
   <section class="shell section">
     <SectionHeading
       eyebrow={lang === "zh" ? "模式" : "Modes"}
-      title={lang === "zh" ? "嵌入式与独立式。" : "Embedded and standalone."}
+      title={lang === "zh" ? "访问方式与运行模式。" : "Access and runtime modes."}
     />
     <FeatureGrid items={content.deployment.modes} compact={true} />
   </section>
@@ -41,6 +41,28 @@ const content = siteContent[lang];
       title={lang === "zh" ? "运行时围绕 providers_root 组织。" : "The runtime is anchored around providers_root."}
     />
     <CodeBlock code={content.deployment.config} />
+  </section>
+
+  <section class="shell section section--split">
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "高可用" : "High availability"}
+        title={lang === "zh" ? "显式配置共享状态与节点归属。" : "Make shared state and node ownership explicit."}
+        description={lang === "zh"
+          ? "v1.0.0 提供最小 HA 运行时；部署前必须满足数据库、Workspace、节点身份和粘性路由条件。"
+          : "v1.0.0 provides a minimal HA runtime whose database, Workspace, node identity, and sticky-routing requirements must be met before startup."}
+      />
+      <CodeBlock code={content.deployment.haConfig} />
+    </div>
+    <div>
+      <SectionHeading
+        eyebrow={lang === "zh" ? "运行边界" : "Runtime boundaries"}
+        title={lang === "zh" ? "Channel ownership 不做隐式转移。" : "Channel ownership never moves implicitly."}
+      />
+      <ul class="signal-list signal-list--light">
+        {content.deployment.haNotes.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
   </section>
 
   <section class="shell section section--split">

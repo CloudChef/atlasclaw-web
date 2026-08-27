@@ -32,8 +32,8 @@ const content = siteContent[lang];
       eyebrow={lang === "zh" ? "Provider 架构" : "Provider runtime"}
       title={lang === "zh" ? "先看 Provider 运行时架构。" : "Start with the provider runtime architecture."}
       description={lang === "zh"
-        ? "这张图把鉴权、Skills、脚本与目标系统调用如何落在 Provider 内部，展示得更清楚。"
-        : "This diagram shows more clearly how auth, skills, scripts, and downstream system execution are held inside the provider boundary."}
+        ? "这张图把配置 schema、鉴权与 Context、薄 Skills、typed domain operations 和目标系统调用如何落在 Provider 内部展示得更清楚。"
+        : "This diagram shows how configuration schema, auth and Context, thin Skills, typed domain operations, and downstream execution fit inside the Provider boundary."}
     />
     <div class="integration-runtime-diagram">
       <DiagramCard
@@ -42,8 +42,8 @@ const content = siteContent[lang];
         alt="AtlasClaw provider runtime overview for provider-based enterprise AI integrations"
         title={lang === "zh" ? "Provider 运行时架构" : "Provider runtime overview"}
         description={lang === "zh"
-          ? "Provider 把鉴权、Skills、脚本与目标系统执行收拢到清晰边界之内。"
-          : "The provider keeps auth, skills, scripts, and downstream execution inside one explicit boundary."}
+          ? "Provider 把鉴权、Context、typed domain operations、薄 Skill adapters 与目标系统执行收拢到清晰边界之内。"
+          : "The Provider keeps auth, Context, typed domain operations, thin Skill adapters, and downstream execution inside one explicit boundary."}
         zoomLabel={lang === "zh" ? "点击放大" : "Click to enlarge"}
         closeLabel={lang === "zh" ? "关闭预览" : "Close preview"}
       />

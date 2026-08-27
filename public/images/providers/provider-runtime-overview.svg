@@ -1,6 +1,6 @@
 <svg width="1320" height="840" viewBox="0 0 1320 840" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">AtlasClaw provider runtime overview</title>
-  <desc id="desc">A diagram showing how AtlasClaw routes requests into provider packages with multiple skills, provider-owned authentication, and external enterprise system APIs.</desc>
+  <desc id="desc">A diagram showing how AtlasClaw routes requests into versioned provider packages with configuration schema, thin skills, provider-owned authentication and context, typed domain operations, and external enterprise system APIs.</desc>
   <rect width="1320" height="840" fill="#F5F1E8"/>
   <rect x="36" y="36" width="1248" height="768" rx="28" fill="#FFFDFC" stroke="#D8CFC1" stroke-width="2"/>
   <text x="72" y="96" fill="#1B1B1B" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">AtlasClaw Providers</text>
@@ -19,22 +19,22 @@
 
   <rect x="700" y="180" width="500" height="460" rx="26" fill="#F8FBF6" stroke="#8FAF87" stroke-width="2"/>
   <text x="732" y="230" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Provider Package</text>
-  <text x="732" y="264" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">PROVIDER.md + README.md +</text>
-  <text x="732" y="288" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">one or more skills</text>
+  <text x="732" y="264" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">PROVIDER.md + provider.schema.json +</text>
+  <text x="732" y="288" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">package metadata and references</text>
 
   <rect x="732" y="316" width="436" height="76" rx="18" fill="#DFF0D8"/>
   <text x="760" y="362" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">skills/</text>
-  <text x="860" y="362" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">multiple focused skills</text>
+  <text x="860" y="362" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">thin callable adapters</text>
 
   <rect x="732" y="416" width="436" height="148" rx="18" fill="#E9F1FF"/>
-  <text x="760" y="458" fill="#1B3A6F" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Auth Bridge</text>
+  <text x="760" y="458" fill="#1B3A6F" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Auth + Context</text>
   <text x="760" y="489" fill="#42608F" font-family="Arial, Helvetica, sans-serif" font-size="17">Embedded UI: reuse browser identity</text>
   <text x="760" y="516" fill="#42608F" font-family="Arial, Helvetica, sans-serif" font-size="17">Standalone: SSO token -&gt; provider token</text>
   <text x="760" y="543" fill="#42608F" font-family="Arial, Helvetica, sans-serif" font-size="17">API/Webhook: resolve user-scoped auth</text>
 
   <rect x="732" y="588" width="436" height="76" rx="18" fill="#EAF6E4"/>
-  <text x="760" y="634" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">scripts/</text>
-  <text x="862" y="634" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">API calls + normalization</text>
+  <text x="760" y="634" fill="#25401E" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">src/</text>
+  <text x="830" y="634" fill="#45643C" font-family="Arial, Helvetica, sans-serif" font-size="18">typed models + domain operations + API</text>
 
   <rect x="360" y="500" width="292" height="132" rx="24" fill="#FFF3F1" stroke="#D29C92" stroke-width="2"/>
   <text x="390" y="552" fill="#5C261D" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Provider Config</text>

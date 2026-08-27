@@ -1,6 +1,7 @@
 export const repoLinks = {
   core: "https://github.com/CloudChef/atlasclaw",
   providers: "https://github.com/CloudChef/atlasclaw-providers",
+  docs: "https://github.com/CloudChef/atlasclaw-doc",
   website: "https://github.com/CloudChef/atlasclaw-web",
   contact: "mailto:atlasclaw@cloudchef.io",
   architecture:
@@ -9,6 +10,22 @@ export const repoLinks = {
     "https://github.com/CloudChef/atlasclaw-providers/blob/main/README.md",
   embedGuide:
     "https://github.com/CloudChef/atlasclaw/blob/main/docs/EMBED-INTEGRATION.md",
+  providerLoading:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/docs/provider-integration/provider-loading.md",
+  providerLoadingZh:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/i18n/zh-CN/docusaurus-plugin-content-docs/current/provider-integration/provider-loading.md",
+  haGuide:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/docs/manuals/installation/configuration.md",
+  haGuideZh:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/i18n/zh-CN/docusaurus-plugin-content-docs/current/manuals/installation/configuration.md",
+  embeddedDocs:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/docs/provider-integration/embedded-menu-and-floating-ui.md",
+  embeddedDocsZh:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/i18n/zh-CN/docusaurus-plugin-content-docs/current/provider-integration/embedded-menu-and-floating-ui.md",
+  editorAssistance:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/docs/provider-integration/smartcmp/editor-assistance.md",
+  editorAssistanceZh:
+    "https://github.com/CloudChef/atlasclaw-doc/blob/main/i18n/zh-CN/docusaurus-plugin-content-docs/current/provider-integration/smartcmp/editor-assistance.md",
   smartCmp:
     "https://github.com/CloudChef/atlasclaw-providers/tree/main/providers/SmartCMP-Provider",
   jira:
@@ -229,7 +246,7 @@ export const siteContent = {
       keywords: [
         "AtlasClaw release notes",
         "AtlasClaw releases",
-        "AtlasClaw v0.9.14",
+        "AtlasClaw v1.0.0",
         "embedded AI assistant",
         "dynamic Context matching",
         "object actions",
@@ -261,18 +278,18 @@ export const siteContent = {
       stats: [
         {
           label: "Latest release",
-          value: "v0.9.14",
-          detail: "Embedded Context, object actions, compact floating UI, and Provider-driven resource analysis."
+          value: "v1.0.0",
+          detail: "Reliable workflows, responsive Embedded intelligence, minimal HA, and versioned Provider packages."
         },
         {
           label: "Release entries",
-          value: "6",
-          detail: "Six curated release entries spanning April through July 2026."
+          value: "7",
+          detail: "Seven curated release entries spanning April through August 2026."
         },
         {
           label: "Coverage",
           value: "Core + Providers",
-          detail: "Embedded UX, Context routing, governed actions, resource intelligence, runtime, Providers, and deployment."
+          detail: "Agent workflows, Embedded UX, governed actions, HA runtime, versioned Providers, and deployment."
         }
       ],
       index: {
@@ -293,6 +310,108 @@ export const siteContent = {
         secondaryLabel: "Open providers repo"
       },
       items: [
+        {
+          id: "v1-0-0",
+          version: "v1.0.0",
+          dateIso: "2026-08-27",
+          date: "August 27, 2026",
+          title: "Reliable workflows, embedded intelligence, and HA runtime",
+          keywords: [
+            "AtlasClaw v1.0.0",
+            "enterprise AI agent",
+            "high availability AI agent",
+            "embedded AI assistant",
+            "Agent workflow continuity",
+            "SmartCMP Provider 1.0"
+          ],
+          summary:
+            "AtlasClaw 1.0 establishes a more reliable enterprise runtime with durable Agent workflows, native cancellation, responsive Embedded Context, minimal HA support, and a reusable SmartCMP Provider package.",
+          lede:
+            "v1.0.0 is the first major AtlasClaw baseline across Core and Providers. It strengthens multi-step Agent execution, preserves the current business target across follow-up turns, adds user-controlled cancellation, expands page-aware Embedded intelligence, introduces a minimal high-availability runtime, and packages SmartCMP domain execution behind typed Provider operations and thin Skill adapters.",
+          tags: ["1.0", "Agent Runtime", "Embedded", "High Availability", "SmartCMP"],
+          highlights: [
+            {
+              title: "Durable Agent workflows",
+              description:
+                "Structured workflow state, tool scope, exact targets, and bounded continuation metadata remain coherent across follow-up turns."
+            },
+            {
+              title: "Responsive user control",
+              description:
+                "Native stop cancels the active Agent run while preserving usable partial content, complete generated output, and generic code copy."
+            },
+            {
+              title: "Minimal HA runtime",
+              description:
+                "Shared state, stable node identity, sticky routing, and coordinated long-connection Channel ownership support multi-node operation."
+            },
+            {
+              title: "SmartCMP Provider 1.0",
+              description:
+                "SmartCMP becomes a versioned Python package with centralized auth, typed domain operations, deterministic Context, and thin Skill adapters."
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Agent runtime",
+              title: "Multi-step work stays bound to the right capability and target",
+              body: [
+                "Core now restores structured and serialized workflow context more reliably. Contextual text turns stay bound to the current business object without hiding other Skills that remain valid for the request."
+              ],
+              points: [
+                "Capability planning, tool execution, retries, and authorization are more stable.",
+                "Selected Skills retain their complete authorized Tool scope.",
+                "Trace-bound continuation metadata is bounded and produces diagnostics when it exceeds its context budget."
+              ]
+            },
+            {
+              eyebrow: "Chat and Embedded experience",
+              title: "Users can stop work safely while the assistant follows the latest page",
+              body: [
+                "The Chat interface adds a native stop control backed by real Agent cancellation. Embedded Context resolution now debounces rapid navigation, exposes a loading state, and applies only the latest page generation."
+              ],
+              points: [
+                "Cancelled runs preserve useful partial assistant output instead of discarding it.",
+                "Generated forms, scripts, policies, and code remain complete and copyable.",
+                "Generic object actions enter the ordinary Chat, Skill, Tool, RBAC, confirmation, and audit pipeline."
+              ]
+            },
+            {
+              eyebrow: "High availability",
+              title: "A minimal multi-node runtime defines explicit ownership boundaries",
+              body: [
+                "HA deployments use shared MySQL and an initialized shared Workspace, stable unique node IDs, and upstream sticky routing for authenticated users. Runtime-local state remains local to each node."
+              ],
+              points: [
+                "Agent Heartbeat work runs on at most one configured node.",
+                "HA accepts only registered long-connection Channel modes; webhook modes remain available for single-node deployments.",
+                "Channel ownership does not automatically transfer after a permanent node failure."
+              ]
+            },
+            {
+              eyebrow: "Provider 1.0",
+              title: "SmartCMP workflows use reusable domain operations and exact targets",
+              body: [
+                "SmartCMP centralizes authentication, transport, typed models, request placement, lifecycle operations, and business services in an installable Provider package. Skills and Context resolvers stay thin and AtlasClaw-facing."
+              ],
+              points: [
+                "Request, approval, work-order, resource, alarm, cost, compliance, and editor Contexts preserve exact target identity.",
+                "Template-aware provisioning revalidates live choices before submission and preserves opaque request IDs.",
+                "Lifecycle actions follow the recycle workflow, with permanent removal available only for already recycled resources."
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v1.0.0 release",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v1.0.0"
+            },
+            {
+              label: "Providers v1.0.0 release",
+              href: "https://github.com/CloudChef/atlasclaw-providers/releases/tag/v1.0.0"
+            }
+          ]
+        },
         {
           id: "v0-9-14",
           version: "v0.9.14",
@@ -1019,7 +1138,7 @@ export const siteContent = {
         {
           title: "Rich providers",
           description:
-            "Each provider packages auth behavior, Skills, scripts, references, and normalization for target systems such as SmartCMP, Jira, ITSM, observability, OA, and CRM."
+            "Each Provider packages configuration schema, auth behavior, reusable domain operations, thin Skills, Context, and normalization for target systems such as SmartCMP, Jira, ITSM, observability, OA, and CRM."
         },
         {
           title: "Permission inheritance",
@@ -1075,7 +1194,7 @@ export const siteContent = {
           {
             title: "Provider contracts, not loose tool wrappers",
             description:
-              "Each provider-based integration owns its auth model, scripts, references, and system-specific rules instead of leaking them into the core."
+              "Each provider-based integration owns its configuration schema, auth model, reusable domain rules, thin adapters, and references instead of leaking them into the core."
           },
           {
             title: "Skills become controlled system verbs",
@@ -1121,7 +1240,7 @@ export const siteContent = {
             eyebrow: "Reference today",
             name: "SmartCMP",
             description:
-              "A SmartCMP provider reference showing cloud management request flows, approvals, webhook orchestration, and business-facing Skill layers.",
+              "A versioned SmartCMP Provider reference with typed domain operations, page-aware requests and approvals, governed resource lifecycles, Security workflows, and read-only editor assistance.",
             href: repoLinks.smartCmp
           },
           {
@@ -1160,10 +1279,11 @@ export const siteContent = {
       providerModel: {
         title: "Provider model",
         description:
-          "A provider is a self-contained integration package: connection contract, auth conventions, skills, scripts, and reference material. The core loads providers from `providers_root` and exposes provider-qualified skills for runtime dispatch.",
+          "A Provider is a self-contained integration package: metadata and configuration schema, auth conventions, reusable domain code, thin Skill adapters, optional page Context, and reference material. Core loads Providers from `providers_root` and exposes provider-qualified Skills for runtime dispatch.",
         points: [
           "Providers keep platform-specific auth and workflow logic out of the core.",
-          "Skills stay readable for users while remaining explicit for runtime dispatch.",
+          "Reusable API and business operations live in an importable Provider package while Skills stay readable, explicit, and thin.",
+          "Explicit callable entrypoints receive scoped runtime Context without duplicating domain rules in protocol adapters.",
           "Webhook and channel access can target the same provider-qualified execution layer."
         ]
       },
@@ -1180,7 +1300,7 @@ export const siteContent = {
       cta: {
         title: "Build your own provider",
         description:
-          "Use the SmartCMP and Jira examples as reference points, then package your own platform with provider-level config, skill metadata, and narrow scripts. Contributions of new system integrations are welcome in the atlasclaw-providers repository.",
+          "Use the SmartCMP and Jira examples as reference points, then package your own platform with provider metadata, configuration schema, reusable domain operations, and thin Skill adapters. Contributions of new system integrations are welcome in the atlasclaw-providers repository.",
         href: "/en/docs/providers/",
         secondaryHref: repoLinks.providers,
         secondaryLabel: "Contribute integrations on GitHub"
@@ -1212,7 +1332,7 @@ export const siteContent = {
         primaryLabel: "See the architecture",
         secondaryLabel: "Explore access modes",
         guideLabel: "Read integration guide",
-        status: "Available in v0.9.14"
+        status: "Expanded in v1.0.0"
       },
       surfaces: {
         eyebrow: "Two access modes",
@@ -1272,7 +1392,9 @@ export const siteContent = {
         eyebrow: "SmartCMP reference",
         title: "AtlasClaw understands the current page, its business object, and available actions.",
         description:
-          "SmartCMP keeps its existing architecture. Its AtlasClaw Provider matches each route, resolves the visible object through existing APIs, and reuses Domain Skill action builders for both floating Context and normal Chat.",
+          "SmartCMP keeps its existing architecture. Its AtlasClaw Provider matches supported routes, resolves the visible object through existing APIs, and reuses Domain Skill action builders for floating Context and normal Chat. The routes below are representative examples from the broader v1.0.0 coverage.",
+        referenceLabel: "Read the editor-assistance contract",
+        referenceHref: repoLinks.editorAssistance,
         primaryCaption:
           "A VM detail route resolves to virtual_machine and smartcmp:resource. The resource Domain Skill exposes Open, Analyze, and Operations without requiring SmartCMP to send a resource DTO.",
         secondaryCaption:
@@ -1293,11 +1415,32 @@ export const siteContent = {
             actions: "Analyze · Mute · Resolve · Reopen"
           },
           {
-            label: "Approval request",
-            path: "/main/new-application/pendingApproval/{approval_type}/{approval_id}",
+            label: "Service request",
+            path: "/main/work-order-request/{catalog_id}",
+            object: "catalog",
+            skill: "smartcmp:request",
+            actions: "Build request · Validate live choices"
+          },
+          {
+            label: "Work-order approval",
+            path: "/main/work-order-process/ServiceRequest/myApproval/{generic_request_id}",
             object: "approval_request",
             skill: "smartcmp:approval",
-            actions: "Analyze · Approve · Reject"
+            actions: "Analyze · Approve · Reject with reason"
+          },
+          {
+            label: "Security policy",
+            path: "/main/resource-management/policy/edit/{policy_id}",
+            object: "security_policy",
+            skill: "smartcmp:security-compliance",
+            actions: "Read-only policy Context"
+          },
+          {
+            label: "Editor assistance",
+            path: "/main/service-model/forms/edit/{form_id}",
+            object: "form_definition",
+            skill: "smartcmp:form-designer",
+            actions: "Generate complete replacement · Review and copy"
           }
         ]
       },
@@ -1315,9 +1458,9 @@ export const siteContent = {
           },
           {
             label: "Core",
-            title: "Use the fixed Provider",
+            title: "Resolve only the latest page",
             description:
-              "Select the embed_integration HostApp Provider, match one Context route, and reject stale generations."
+              "Debounce rapid navigation, expose loading, use the fixed HostApp Provider, and reject stale generations."
           },
           {
             label: "HostApp Provider",
@@ -1329,7 +1472,7 @@ export const siteContent = {
             label: "AtlasClaw Agent",
             title: "Reason and execute",
             description:
-              "Continue through ordinary Chat, Skill, Tool, RBAC, confirmation, and audit boundaries."
+              "Bind action-only follow-ups to the current object while retaining ordinary Skill routing, RBAC, confirmation, and audit boundaries."
           }
         ]
       },
@@ -1437,14 +1580,20 @@ export const siteContent = {
         {
           title: "Providers",
           description:
-            "How AtlasClaw packages integrations as provider folders, skills, scripts, and references.",
+            "How AtlasClaw packages integrations as versioned metadata, reusable domain code, thin Skills, optional Context, and references.",
           href: "/en/docs/providers/"
         },
         {
           title: "Deployment",
           description:
-            "How embedded mode and standalone mode differ, and what configuration anchors the runtime.",
+            "How embedded, standalone, and minimal HA runtime modes differ and what configuration anchors them.",
           href: "/en/docs/deployment/"
+        },
+        {
+          title: "Full Documentation",
+          description:
+            "Open the versioned installation, administration, user, Core, Provider, and reference documentation.",
+          href: repoLinks.docs
         }
       ],
       repoCards: [
@@ -1457,6 +1606,11 @@ export const siteContent = {
           title: "atlasclaw-providers",
           description: "Reusable provider packages and reference implementations.",
           href: repoLinks.providers
+        },
+        {
+          title: "atlasclaw-doc",
+          description: "Versioned Docusaurus documentation for installation, operations, Core, and Provider integrations.",
+          href: repoLinks.docs
         },
         {
           title: "atlasclaw-web",
@@ -1483,6 +1637,12 @@ export const siteContent = {
           description:
             "Provider packages, starter patterns, and reference implementations such as Jira and SmartCMP.",
           href: repoLinks.providers
+        },
+        {
+          name: "atlasclaw-doc",
+          description:
+            "Versioned installation, administration, user, Core, Provider integration, and reference documentation.",
+          href: repoLinks.docs
         },
         {
           name: "atlasclaw-web",
@@ -1520,7 +1680,8 @@ export const siteContent = {
 }`,
       references: [
         { label: "Core README", href: repoLinks.architecture },
-        { label: "Providers README", href: repoLinks.providerGuide }
+        { label: "Providers README", href: repoLinks.providerGuide },
+        { label: "Full documentation", href: repoLinks.docs }
       ]
     },
     providers: {
@@ -1528,10 +1689,15 @@ export const siteContent = {
       description:
         "AtlasClaw Provider structure, Skill model, provider-qualified naming, webhook AI integration, SmartCMP, Jira, and enterprise AI integration references.",
       intro:
-        "Providers are AtlasClaw's integration boundary. Each provider packages the target-system contract, one or more Skills, implementation scripts, auth context, and the reference material needed to keep enterprise AI integrations understandable.",
+        "Providers are AtlasClaw's integration boundary. Each Provider packages target-system metadata, configuration and auth contracts, reusable domain operations, thin Skills, optional page Context, and the references needed to keep enterprise AI integrations understandable.",
       structure: `providers/<provider-name>/
 ├── PROVIDER.md
+├── provider.schema.json
 ├── README.md
+├── pyproject.toml              # optional importable package
+├── assets/                     # optional static assets
+├── src/<provider_package>/     # optional reusable domain code
+├── assistant_context/          # optional page Context
 └── skills/
     ├── <skill-a>/
     │   ├── SKILL.md
@@ -1540,9 +1706,11 @@ export const siteContent = {
     └── <skill-b>/`,
       points: [
         "The provider owns how AtlasClaw identity becomes provider-native target-system auth.",
-        "Skills stay human-readable while still binding to concrete entrypoints.",
+        "Reusable authentication, API, typed model, and business operations belong in the importable Provider package.",
+        "Skills stay human-readable and thin while binding to explicit `file.py:callable` entrypoints.",
+        "Optional `assistant_context` routes resolve the current enterprise-system page without accepting business DTOs from the host.",
         "Provider-qualified naming avoids collisions across integrations.",
-        "Scripts should stay narrow, predictable, and safe with secrets and error mapping."
+        "Callable results may carry small trace-bound continuation metadata, while public evidence remains visible to the Agent and user."
       ],
       naming: `{
   "providers_root": "../atlasclaw-providers/providers",
@@ -1556,15 +1724,16 @@ export const siteContent = {
 }`,
       examples: [
         { label: "SmartCMP reference architecture", href: repoLinks.smartCmp },
-        { label: "Jira provider example", href: repoLinks.jira }
+        { label: "Jira provider example", href: repoLinks.jira },
+        { label: "Provider loading reference", href: repoLinks.providerLoading }
       ]
     },
     deployment: {
       title: "AtlasClaw Deployment | Multi-User Enterprise AI Agent",
       description:
-        "AtlasClaw deployment modes, independent menu access, floating AI assistance, Cookie identity, dynamic Context, SSO/RBAC configuration, and Provider runtime wiring.",
+        "AtlasClaw deployment modes, minimal high availability, independent menu access, floating AI assistance, Cookie identity, SSO/RBAC, Channels, and Provider runtime wiring.",
       intro:
-        "AtlasClaw supports two practical shapes: embedding access to one AI assistant into an Enterprise System, or running as a standalone multi-user AI agent layer above multiple enterprise systems.",
+        "AtlasClaw supports embedded access and a standalone multi-user AI agent layer. Standalone deployments can run on one node or use the minimal v1.0.0 HA runtime when explicit shared-state, routing, and Channel constraints are met.",
       modes: [
         {
           title: "Embedded deployment",
@@ -1574,7 +1743,12 @@ export const siteContent = {
         {
           title: "Standalone deployment",
           description:
-            "Best when the enterprise needs one SSO-backed multi-user AI agent entry point above multiple systems."
+            "Best when the enterprise needs one SSO-backed multi-user AI agent entry point above multiple systems. A single node supports both long-connection and webhook Channel modes."
+        },
+        {
+          title: "High-availability runtime",
+          description:
+            "Runs multiple application nodes against shared MySQL and an initialized shared Workspace, with stable node IDs and sticky routing for each authenticated user."
         }
       ],
       config: `{
@@ -1594,19 +1768,32 @@ export const siteContent = {
     }
   }
 }`,
+      haConfig: `alembic upgrade head
+
+ATLASCLAW_ENABLE_HA=true
+ATLASCLAW_HA_NODE_ID=<unique-node-id>
+ATLASCLAW_RUN_AGENT_HEARTBEAT=false`,
+      haNotes: [
+        "Use shared MySQL; SQLite is not an HA database. Initialize the shared Workspace and run migrations once before application nodes start.",
+        "Assign every instance a stable unique node ID and configure the upstream proxy to keep each authenticated user's requests on one node.",
+        "Set `ATLASCLAW_RUN_AGENT_HEARTBEAT=true` on at most one node when singleton Agent Heartbeat work is enabled.",
+        "Keep each node's process-owned Token Health, Heartbeat state, and working runtime directory local to that node.",
+        "HA accepts only registered long-connection Channel modes. Webhook modes are rejected, and Channel ownership does not automatically transfer after permanent node failure."
+      ],
       notes: [
         "Use `providers_root` to load provider folders from the external providers repository.",
         "Keep secrets in environment variables, not committed JSON.",
         "Embedded access uses the enterprise-system Cookie identity. Independent menu access only needs an Enterprise System route; the floating interface additionally sends normalized path, nonce, and generation.",
         "Keep Context resolution and object actions inside AtlasClaw and Providers rather than sending business DTOs or calling Agent and Tool APIs from Enterprise System code.",
-        "Use webhook mode for fire-and-forget system-to-system invocation with constrained Skills.",
+        "Use webhook mode for fire-and-forget system-to-system invocation with constrained Skills in a single-node deployment; HA rejects webhook Channel modes.",
         "Keep target-platform auth and audit in the provider and the downstream platform."
       ],
       references: [
         { label: "Embedded Agent overview", href: "/en/embedded-agent/" },
-        { label: "Embedded integration guide", href: repoLinks.embedGuide },
+        { label: "Embedded integration reference", href: repoLinks.embeddedDocs },
+        { label: "High-availability configuration", href: repoLinks.haGuide },
         { label: "Core repo README", href: repoLinks.architecture },
-        { label: "Providers repo README", href: repoLinks.providerGuide }
+        { label: "Provider loading reference", href: repoLinks.providerLoading }
       ]
     }
   },
@@ -1814,7 +2001,7 @@ export const siteContent = {
       keywords: [
         "AtlasClaw 发布记录",
         "AtlasClaw 版本更新",
-        "AtlasClaw v0.9.14",
+        "AtlasClaw v1.0.0",
         "悬浮 AI 助手",
         "动态 Context 匹配",
         "对象操作",
@@ -1846,18 +2033,18 @@ export const siteContent = {
       stats: [
         {
           label: "最新版本",
-          value: "v0.9.14",
-          detail: "Embedded Context、对象操作、紧凑悬浮界面与 Provider 资源分析。"
+          value: "v1.0.0",
+          detail: "可靠工作流、响应式 Embedded 智能、最小 HA 与版本化 Provider 包。"
         },
         {
           label: "发布条目",
-          value: "6",
-          detail: "整理 2026 年 4 月至 7 月的六个代表性版本，并改写为中英文官网内容。"
+          value: "7",
+          detail: "整理 2026 年 4 月至 8 月的七个代表性版本，并改写为中英文官网内容。"
         },
         {
           label: "覆盖范围",
           value: "Core + Providers",
-          detail: "Embedded 体验、Context 路由、受控操作、资源智能、运行时、Providers 与部署。"
+          detail: "Agent 工作流、Embedded 体验、受控操作、HA 运行时、版本化 Providers 与部署。"
         }
       ],
       index: {
@@ -1878,6 +2065,108 @@ export const siteContent = {
         secondaryLabel: "打开 Providers 仓库"
       },
       items: [
+        {
+          id: "v1-0-0",
+          version: "v1.0.0",
+          dateIso: "2026-08-27",
+          date: "2026 年 8 月 27 日",
+          title: "可靠工作流、内嵌智能与高可用运行时",
+          keywords: [
+            "AtlasClaw v1.0.0",
+            "企业级 AI Agent",
+            "高可用 AI Agent",
+            "内嵌 AI 助手",
+            "Agent 工作流连续性",
+            "SmartCMP Provider 1.0"
+          ],
+          summary:
+            "AtlasClaw 1.0 建立更可靠的企业运行基线，带来持久的 Agent 工作流、原生取消、响应式 Embedded Context、最小 HA 支持，以及可复用的 SmartCMP Provider 包。",
+          lede:
+            "v1.0.0 是 AtlasClaw Core 与 Providers 的首个大版本基线。它强化多步骤 Agent 执行，在追问中保留当前业务目标，增加用户可控的取消能力，扩展页面感知的 Embedded 智能，引入最小高可用运行时，并将 SmartCMP 领域执行封装为 typed Provider operations 与薄 Skill adapters。",
+          tags: ["1.0", "Agent 运行时", "Embedded", "高可用", "SmartCMP"],
+          highlights: [
+            {
+              title: "持久的 Agent 工作流",
+              description:
+                "结构化工作流状态、Tool scope、精确目标与有界续跑 metadata 能在追问过程中保持一致。"
+            },
+            {
+              title: "响应式用户控制",
+              description:
+                "原生停止会真正取消当前 Agent run，同时保留可用的部分内容、完整生成结果和通用代码复制。"
+            },
+            {
+              title: "最小 HA 运行时",
+              description:
+                "共享状态、稳定节点身份、粘性路由与受控的长连接 Channel ownership 支持多节点运行。"
+            },
+            {
+              title: "SmartCMP Provider 1.0",
+              description:
+                "SmartCMP 成为版本化 Python 包，集中管理鉴权、typed domain operations、确定性 Context 与薄 Skill adapters。"
+            }
+          ],
+          sections: [
+            {
+              eyebrow: "Agent 运行时",
+              title: "多步骤任务持续绑定正确能力和目标",
+              body: [
+                "Core 现在能更可靠地恢复结构化和序列化工作流 Context。上下文文本会继续绑定当前业务对象，同时不隐藏请求仍可使用的其他 Skills。"
+              ],
+              points: [
+                "能力规划、Tool 执行、重试与授权更加稳定。",
+                "选中的 Skills 保留完整的已授权 Tool scope。",
+                "与请求 trace 绑定的续跑 metadata 保持有界，超出 Context 预算时产生明确诊断。"
+              ]
+            },
+            {
+              eyebrow: "Chat 与 Embedded 体验",
+              title: "用户可以安全停止任务，助手只跟随最新页面",
+              body: [
+                "Chat 界面增加由真实 Agent cancellation 支撑的原生停止控制。Embedded Context 解析会对快速导航进行防抖、呈现加载状态，并且只应用最新页面 generation。"
+              ],
+              points: [
+                "取消任务时保留有用的部分回答，而不是丢弃全部内容。",
+                "生成的表单、脚本、策略与代码保持完整并可复制。",
+                "通用对象操作继续进入普通 Chat、Skill、Tool、RBAC、确认与审计链路。"
+              ]
+            },
+            {
+              eyebrow: "高可用",
+              title: "最小多节点运行时定义明确的 ownership 边界",
+              body: [
+                "HA 部署使用共享 MySQL、已初始化的共享 Workspace、稳定且唯一的节点 ID，以及面向已认证用户的上游粘性路由；节点自身的运行状态仍保留在本地。"
+              ],
+              points: [
+                "Agent Heartbeat 任务最多只在一个配置节点运行。",
+                "HA 只接受已注册的 long-connection Channel 模式；Webhook 模式继续用于单节点部署。",
+                "节点永久故障后，Channel ownership 不会自动转移。"
+              ]
+            },
+            {
+              eyebrow: "Provider 1.0",
+              title: "SmartCMP 工作流复用领域操作并绑定精确目标",
+              body: [
+                "SmartCMP 将鉴权、传输、typed models、请求放置、生命周期操作和业务服务集中到可安装 Provider 包中，Skills 与 Context resolvers 保持为面向 AtlasClaw 的薄层。"
+              ],
+              points: [
+                "请求、审批、工单、资源、告警、成本、合规和编辑器 Context 都会保留精确目标 identity。",
+                "模板感知的资源申请会在提交前重新解析实时选项，并保留 opaque Request ID。",
+                "资源生命周期遵循回收站流程，只有已经回收的资源才能永久移除。"
+              ]
+            }
+          ],
+          links: [
+            {
+              label: "Core v1.0.0 发布",
+              href: "https://github.com/CloudChef/atlasclaw/releases/tag/v1.0.0"
+            },
+            {
+              label: "Providers v1.0.0 发布",
+              href: "https://github.com/CloudChef/atlasclaw-providers/releases/tag/v1.0.0"
+            }
+          ]
+        },
         {
           id: "v0-9-14",
           version: "v0.9.14",
@@ -2604,7 +2893,7 @@ export const siteContent = {
         {
           title: "强 Provider",
           description:
-            "每个 Provider 都封装 SmartCMP、Jira、ITSM、可观测、OA、CRM 等目标系统的鉴权行为、Skills、脚本、参考资料与接口归一化。"
+            "每个 Provider 都封装 SmartCMP、Jira、ITSM、可观测、OA、CRM 等目标系统的配置 schema、鉴权行为、可复用领域操作、薄 Skills、Context 与接口归一化。"
         },
         {
           title: "权限继承",
@@ -2660,7 +2949,7 @@ export const siteContent = {
           {
             title: "Provider 合同，而不是松散工具包装",
             description:
-              "每个 Provider 集成自己承接鉴权模型、脚本、参考资料与系统侧规则，而不是把这些逻辑泄漏到核心里。"
+              "每个 Provider 集成自己承接配置 schema、鉴权模型、可复用领域规则、薄 adapters 与参考资料，而不是把这些逻辑泄漏到核心里。"
           },
           {
             title: "Skills 变成受控的系统动作",
@@ -2706,7 +2995,7 @@ export const siteContent = {
             eyebrow: "当前参考",
             name: "SmartCMP",
             description:
-              "一个 SmartCMP Provider 参考，覆盖云管理请求流、审批、Webhook 编排和面向业务的 Skill 分层。",
+              "版本化 SmartCMP Provider 参考实现，覆盖 typed domain operations、页面感知的请求与审批、受控资源生命周期、Security 工作流和只读编辑辅助。",
             href: repoLinks.smartCmp
           },
           {
@@ -2745,10 +3034,11 @@ export const siteContent = {
       providerModel: {
         title: "Provider 模型",
         description:
-          "Provider 是自包含集成包：连接合同、鉴权约定、Skills、脚本与参考资料。Core 从 `providers_root` 加载它们，并以 provider-qualified skills 暴露给运行时。",
+          "Provider 是自包含集成包：metadata 与配置 schema、鉴权约定、可复用领域代码、薄 Skill adapters、可选页面 Context 与参考资料。Core 从 `providers_root` 加载它们，并以 provider-qualified Skills 暴露给运行时。",
         points: [
           "Provider 让平台特定的鉴权和流程逻辑不污染核心。",
-          "Skills 对用户可读，同时对运行时保持显式可调度。",
+          "可复用 API 与业务操作位于可导入 Provider 包中，Skills 保持对用户可读、对运行时显式且足够薄。",
+          "显式 callable entrypoint 接收限定范围的运行 Context，不在协议 Adapter 中重复领域规则。",
           "Webhook 和多通道访问都能落到同一个 provider-qualified 执行层。"
         ]
       },
@@ -2765,7 +3055,7 @@ export const siteContent = {
       cta: {
         title: "创建你自己的 Provider",
         description:
-          "从 SmartCMP 与 Jira 示例开始，按 Provider 级配置、Skill 元数据和窄脚本实现你的目标系统。欢迎把新的系统集成代码提交到 atlasclaw-providers 仓库。",
+          "从 SmartCMP 与 Jira 示例开始，按 Provider metadata、配置 schema、可复用领域操作与薄 Skill adapters 实现你的目标系统。欢迎把新的系统集成代码提交到 atlasclaw-providers 仓库。",
         href: "/zh/docs/providers/",
         secondaryHref: repoLinks.providers,
         secondaryLabel: "前往 GitHub 提交集成"
@@ -2797,7 +3087,7 @@ export const siteContent = {
         primaryLabel: "查看架构",
         secondaryLabel: "了解访问方式",
         guideLabel: "阅读集成指南",
-        status: "v0.9.14 已支持"
+        status: "v1.0.0 增强"
       },
       surfaces: {
         eyebrow: "两种访问方式",
@@ -2857,7 +3147,9 @@ export const siteContent = {
         eyebrow: "SmartCMP 参考实现",
         title: "AtlasClaw 理解当前页面、对应的业务对象与可用操作。",
         description:
-          "SmartCMP 保持现有架构。它的 AtlasClaw Provider 匹配页面路由，通过现有 API 解析当前对象，并让悬浮 Context 与普通 Chat 复用同一套 Domain Skill 操作构建器。",
+          "SmartCMP 保持现有架构。它的 AtlasClaw Provider 匹配受支持的页面路由，通过现有 API 解析当前对象，并让悬浮 Context 与普通 Chat 复用同一套 Domain Skill 操作构建器。以下是 v1.0.0 更广泛覆盖范围中的代表性示例。",
+        referenceLabel: "阅读编辑辅助合同",
+        referenceHref: repoLinks.editorAssistanceZh,
         primaryCaption:
           "VM 详情路由匹配为 virtual_machine 与 smartcmp:resource。resource Domain Skill 提供打开、综合分析与操作，无需 SmartCMP 发送资源 DTO。",
         secondaryCaption:
@@ -2878,11 +3170,32 @@ export const siteContent = {
             actions: "分析 · 静音 · 解决 · 重新打开"
           },
           {
-            label: "审批请求",
-            path: "/main/new-application/pendingApproval/{approval_type}/{approval_id}",
+            label: "服务申请",
+            path: "/main/work-order-request/{catalog_id}",
+            object: "catalog",
+            skill: "smartcmp:request",
+            actions: "创建申请 · 校验实时选项"
+          },
+          {
+            label: "工单审批",
+            path: "/main/work-order-process/ServiceRequest/myApproval/{generic_request_id}",
             object: "approval_request",
             skill: "smartcmp:approval",
-            actions: "分析 · 同意 · 拒绝"
+            actions: "分析 · 同意 · 填写原因后拒绝"
+          },
+          {
+            label: "安全策略",
+            path: "/main/resource-management/policy/edit/{policy_id}",
+            object: "security_policy",
+            skill: "smartcmp:security-compliance",
+            actions: "只读策略 Context"
+          },
+          {
+            label: "编辑辅助",
+            path: "/main/service-model/forms/edit/{form_id}",
+            object: "form_definition",
+            skill: "smartcmp:form-designer",
+            actions: "生成完整替换内容 · 人工检查并复制"
           }
         ]
       },
@@ -2899,9 +3212,9 @@ export const siteContent = {
           },
           {
             label: "Core",
-            title: "使用固定 Provider",
+            title: "只解析最新页面",
             description:
-              "选择 embed_integration 配置的 HostApp Provider，匹配唯一 Context 路由，并拒绝过期 generation。"
+              "对快速导航进行防抖、呈现加载状态、使用固定 HostApp Provider，并拒绝过期 generation。"
           },
           {
             label: "HostApp Provider",
@@ -2913,7 +3226,7 @@ export const siteContent = {
             label: "AtlasClaw Agent",
             title: "推理与执行",
             description:
-              "继续沿用普通 Chat、Skill、Tool、RBAC、确认与审计边界。"
+              "把仅包含动作的追问绑定到当前对象，同时保留普通 Skill 路由、RBAC、确认与审计边界。"
           }
         ]
       },
@@ -3019,13 +3332,18 @@ export const siteContent = {
         },
         {
           title: "Providers",
-          description: "理解 Provider 文件夹结构、Skill 模型与 provider-qualified naming。",
+          description: "理解版本化 Provider metadata、可复用领域代码、薄 Skills、可选 Context 与 provider-qualified naming。",
           href: "/zh/docs/providers/"
         },
         {
           title: "部署",
-          description: "理解嵌入式与独立式部署差异，以及运行时配置锚点。",
+          description: "理解嵌入式、独立式与最小 HA 运行模式的差异，以及各自的配置锚点。",
           href: "/zh/docs/deployment/"
+        },
+        {
+          title: "完整文档",
+          description: "打开版本化的安装、管理、用户、Core、Provider 与参考文档。",
+          href: repoLinks.docs
         }
       ],
       repoCards: [
@@ -3038,6 +3356,11 @@ export const siteContent = {
           title: "atlasclaw-providers",
           description: "可复用 Provider 包与参考实现仓库。",
           href: repoLinks.providers
+        },
+        {
+          title: "atlasclaw-doc",
+          description: "安装、运维、Core 与 Provider 集成的版本化 Docusaurus 文档。",
+          href: repoLinks.docs
         },
         {
           title: "atlasclaw-web",
@@ -3062,6 +3385,11 @@ export const siteContent = {
           name: "atlasclaw-providers",
           description: "Provider 包、起步模式与 Jira、SmartCMP 等参考实现。",
           href: repoLinks.providers
+        },
+        {
+          name: "atlasclaw-doc",
+          description: "版本化安装、管理、用户、Core、Provider 集成与参考文档。",
+          href: repoLinks.docs
         },
         {
           name: "atlasclaw-web",
@@ -3098,7 +3426,8 @@ export const siteContent = {
 }`,
       references: [
         { label: "核心仓库 README", href: repoLinks.architecture },
-        { label: "Providers 仓库 README", href: repoLinks.providerGuide }
+        { label: "Providers 仓库 README", href: repoLinks.providerGuide },
+        { label: "完整文档", href: repoLinks.docs }
       ]
     },
     providers: {
@@ -3106,10 +3435,15 @@ export const siteContent = {
       description:
         "AtlasClaw Provider 结构、Skill 模型、provider-qualified naming、Webhook AI 集成、SmartCMP、Jira 与企业 AI 集成参考示例。",
       intro:
-        "Provider 是 AtlasClaw 的集成边界。每个 Provider 都封装目标系统合同、一个或多个 Skills、鉴权上下文、实现脚本，以及让企业 AI 集成保持可理解的参考资料。",
+        "Provider 是 AtlasClaw 的集成边界。每个 Provider 都封装目标系统 metadata、配置与鉴权合同、可复用领域操作、薄 Skills、可选页面 Context，以及让企业 AI 集成保持可理解的参考资料。",
       structure: `providers/<provider-name>/
 ├── PROVIDER.md
+├── provider.schema.json
 ├── README.md
+├── pyproject.toml              # 可选可导入包
+├── assets/                     # 可选静态资源
+├── src/<provider_package>/     # 可选可复用领域代码
+├── assistant_context/          # 可选页面 Context
 └── skills/
     ├── <skill-a>/
     │   ├── SKILL.md
@@ -3118,9 +3452,11 @@ export const siteContent = {
     └── <skill-b>/`,
       points: [
         "Provider 负责把 AtlasClaw 的身份上下文变成目标系统可接受的鉴权方式。",
-        "Skill 既保持人类可读，也能绑定到具体脚本入口。",
+        "可复用鉴权、API、typed models 与业务操作归属于可导入 Provider 包。",
+        "Skill 保持人类可读和薄层结构，并绑定到显式 `file.py:callable` entrypoint。",
+        "可选 `assistant_context` 路由解析当前企业系统页面，不接受宿主发送的业务 DTO。",
         "Provider Qualified Naming 用于避免跨系统能力冲突。",
-        "脚本应该保持窄而可预测，并正确处理密钥与错误映射。"
+        "Callable 结果可以携带少量与请求 trace 绑定的续跑 metadata，公开证据继续对 Agent 和用户可见。"
       ],
       naming: `{
   "providers_root": "../atlasclaw-providers/providers",
@@ -3134,15 +3470,16 @@ export const siteContent = {
 }`,
       examples: [
         { label: "SmartCMP 参考架构", href: repoLinks.smartCmp },
-        { label: "Jira Provider 示例", href: repoLinks.jira }
+        { label: "Jira Provider 示例", href: repoLinks.jira },
+        { label: "Provider 加载参考", href: repoLinks.providerLoadingZh }
       ]
     },
     deployment: {
       title: "AtlasClaw 部署 | 多用户企业级 AI Agent",
       description:
-        "AtlasClaw 的部署模式、独立菜单访问、悬浮 AI 助手、Cookie 身份、动态 Context、SSO/RBAC 配置与 Provider 运行时接线。",
+        "AtlasClaw 的部署模式、最小高可用、独立菜单访问、悬浮 AI 助手、Cookie 身份、SSO/RBAC、Channels 与 Provider 运行时接线。",
       intro:
-        "AtlasClaw 支持两种实用形态：把同一个 AI 助手的访问入口内嵌到企业系统，或者作为统一的多用户 AI Agent 层运行在多个企业系统之上。",
+        "AtlasClaw 支持嵌入式访问和独立式多用户 AI Agent 层。独立式部署既可以运行在单节点，也可以在满足明确的共享状态、路由与 Channel 约束时使用 v1.0.0 最小 HA 运行时。",
       modes: [
         {
           title: "嵌入式部署",
@@ -3152,7 +3489,12 @@ export const siteContent = {
         {
           title: "独立式部署",
           description:
-            "适合企业需要在多个系统之上提供统一的 SSO 多用户 AI Agent 入口。"
+            "适合企业需要在多个系统之上提供统一的 SSO 多用户 AI Agent 入口。单节点同时支持 long-connection 与 webhook Channel 模式。"
+        },
+        {
+          title: "高可用运行时",
+          description:
+            "多个应用节点使用共享 MySQL 与已初始化的共享 Workspace，每个节点具有稳定 ID，并对每个已认证用户执行粘性路由。"
         }
       ],
       config: `{
@@ -3172,19 +3514,32 @@ export const siteContent = {
     }
   }
 }`,
+      haConfig: `alembic upgrade head
+
+ATLASCLAW_ENABLE_HA=true
+ATLASCLAW_HA_NODE_ID=<unique-node-id>
+ATLASCLAW_RUN_AGENT_HEARTBEAT=false`,
+      haNotes: [
+        "使用共享 MySQL；SQLite 不能作为 HA 数据库。应用节点启动前应初始化共享 Workspace，并且只执行一次 migration。",
+        "为每个实例分配稳定且唯一的 node ID，并配置上游代理，让同一个已认证用户的请求始终进入同一节点。",
+        "启用单例 Agent Heartbeat 任务时，最多只在一个节点设置 `ATLASCLAW_RUN_AGENT_HEARTBEAT=true`。",
+        "每个节点的 Token Health、Heartbeat 状态和工作 runtime 目录保持在该节点本地。",
+        "HA 只接受已注册的 long-connection Channel 模式；Webhook 模式会被拒绝，节点永久故障后也不会自动转移 Channel ownership。"
+      ],
       notes: [
         "使用 `providers_root` 从外部 providers 仓库加载 Provider 文件夹。",
         "密钥放在环境变量里，不要提交到 JSON 配置。",
         "Embedded 访问使用企业系统 Cookie 身份。独立菜单访问只需企业系统路由；悬浮界面还需发送规范化 path、nonce 与 generation。",
         "Context 解析与对象操作保留在 AtlasClaw 和 Providers 内部；企业系统不发送业务 DTO，也不直接调用 Agent 或 Tool API。",
-        "Webhook 模式适合系统到系统的 fire-and-forget 调用，并通过受限 Skills 控制执行边界。",
+        "单节点部署可以使用 Webhook 模式执行受限 Skills 的系统到系统 fire-and-forget 调用；HA 会拒绝 Webhook Channel 模式。",
         "目标平台的鉴权与审计继续保留在 Provider 和下游平台内部。"
       ],
       references: [
         { label: "内嵌 Agent 概览", href: "/zh/embedded-agent/" },
-        { label: "Embedded 集成指南", href: repoLinks.embedGuide },
+        { label: "Embedded 集成参考", href: repoLinks.embeddedDocsZh },
+        { label: "高可用配置", href: repoLinks.haGuideZh },
         { label: "核心仓库 README", href: repoLinks.architecture },
-        { label: "Providers 仓库 README", href: repoLinks.providerGuide }
+        { label: "Provider 加载参考", href: repoLinks.providerLoadingZh }
       ]
     }
   }

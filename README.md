@@ -9,8 +9,9 @@ The site includes localized English and Chinese pages for:
 - Embedded Mode, including independent menu access, the floating assistant,
   Enterprise System Cookie identity, dynamic Context matching, and governed
   object actions;
-- release notes through `v0.9.14`, including the `v0.9.12` object-action
-  interaction update;
+- release notes through `v1.0.0`, including reliable Agent workflows, native
+  cancellation, Embedded Context improvements, minimal HA, and versioned
+  Provider packages;
 - architecture, integrations, documentation entry points, and repository links.
 
 Shared localized content is maintained in `src/content/site.js`. The Embedded

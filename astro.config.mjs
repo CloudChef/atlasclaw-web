@@ -2,10 +2,18 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 const lastModifiedByPath = new Map([
-  ["/en/embedded-agent/", new Date("2026-07-25T00:00:00Z")],
-  ["/zh/embedded-agent/", new Date("2026-07-25T00:00:00Z")],
-  ["/en/releases/", new Date("2026-07-25T00:00:00Z")],
-  ["/zh/releases/", new Date("2026-07-25T00:00:00Z")]
+  ["/en/embedded-agent/", new Date("2026-08-27T00:00:00Z")],
+  ["/zh/embedded-agent/", new Date("2026-08-27T00:00:00Z")],
+  ["/en/integrations/", new Date("2026-08-27T00:00:00Z")],
+  ["/zh/integrations/", new Date("2026-08-27T00:00:00Z")],
+  ["/en/releases/", new Date("2026-08-27T00:00:00Z")],
+  ["/zh/releases/", new Date("2026-08-27T00:00:00Z")],
+  ["/en/docs/", new Date("2026-08-27T00:00:00Z")],
+  ["/zh/docs/", new Date("2026-08-27T00:00:00Z")],
+  ["/en/docs/providers/", new Date("2026-08-27T00:00:00Z")],
+  ["/zh/docs/providers/", new Date("2026-08-27T00:00:00Z")],
+  ["/en/docs/deployment/", new Date("2026-08-27T00:00:00Z")],
+  ["/zh/docs/deployment/", new Date("2026-08-27T00:00:00Z")]
 ]);
 
 export default defineConfig({

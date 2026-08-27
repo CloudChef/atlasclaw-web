@@ -710,6 +710,10 @@ body.theme--light .code-block {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.feature-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .feature-grid--compact,
 .compare-grid,
 .integration-grid {
@@ -718,6 +722,11 @@ body.theme--light .code-block {
 
 .diagram-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.diagram-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 48rem;
 }
 
 .path-grid {
@@ -1874,6 +1883,17 @@ body.theme--light .code-block {
   line-height: 1.65;
 }
 
+.embedded-showcase__reference {
+  display: inline-flex;
+  margin-top: 1.5rem;
+  color: var(--green);
+}
+
+.embedded-showcase__reference:hover,
+.embedded-showcase__reference:focus-visible {
+  color: #fff;
+}
+
 .context-flow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2188,6 +2208,7 @@ body.theme--light .code-block {
   .site-footer__grid,
   .diagram-grid,
   .feature-grid,
+  .feature-grid--four,
   .release-hero__stats,
   .release-index-grid,
   .release-highlight-grid,

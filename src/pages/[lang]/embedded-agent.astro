@@ -35,7 +35,7 @@ const architectureImage = `/images/embedded/hostapp-provider-architecture-${lang
         <a class="button--ghost" href="#surfaces">
           {embedded.hero.secondaryLabel}
         </a>
-        <a class="button--ghost" href={repoLinks.embedGuide}>
+        <a class="button--ghost" href={lang === "zh" ? repoLinks.embeddedDocsZh : repoLinks.embeddedDocs}>
           {embedded.hero.guideLabel}
         </a>
       </div>
@@ -216,6 +216,9 @@ const architectureImage = `/images/embedded/hostapp-provider-architecture-${lang
           </article>
         ))}
       </div>
+      <a class="text-link embedded-showcase__reference" href={embedded.showcase.referenceHref}>
+        {embedded.showcase.referenceLabel}
+      </a>
     </div>
   </section>
 
@@ -326,7 +329,7 @@ const architectureImage = `/images/embedded/hostapp-provider-architecture-${lang
     eyebrow={lang === "zh" ? "开始集成" : "Start integrating"}
     title={embedded.cta.title}
     description={embedded.cta.description}
-    href={repoLinks.embedGuide}
+    href={lang === "zh" ? repoLinks.embeddedDocsZh : repoLinks.embeddedDocs}
     label={embedded.cta.primaryLabel}
     secondaryHref={repoLinks.providers}
     secondaryLabel={embedded.cta.secondaryLabel}
