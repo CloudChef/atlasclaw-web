@@ -83,7 +83,7 @@ export const siteContent = {
         subtitle:
           "Built for multi-user AI agent deployment, governed execution, and real enterprise AI application delivery.",
         description:
-          "AtlasClaw helps enterprises move beyond personal agents with SSO-based access, RBAC permission governance, Skill-based system integration, provider-based integrations, webhook AI integration, and enterprise-approved model providers.",
+          "AtlasClaw brings text and image conversations to enterprise-approved models, with SSO-based access, RBAC governance, and Skills and provider integrations for operational work. Image analysis requires a compatible, explicitly enabled model.",
         primaryCta: { label: "Start with the core repo", href: repoLinks.core },
         secondaryCta: { label: "Read the architecture", href: "/en/architecture/" },
         panelTitle: "Enterprise fit",
@@ -246,7 +246,7 @@ export const siteContent = {
       keywords: [
         "AtlasClaw release notes",
         "AtlasClaw releases",
-        "AtlasClaw v1.0.0",
+        "AtlasClaw v1.0.1",
         "embedded AI assistant",
         "dynamic Context matching",
         "object actions",
@@ -278,13 +278,13 @@ export const siteContent = {
       stats: [
         {
           label: "Latest release",
-          value: "v1.0.0",
-          detail: "Reliable workflows, responsive Embedded intelligence, minimal HA, and versioned Provider packages."
+          value: "v1.0.1",
+          detail: "Image analysis, administrator access tokens, provider HTTP runtime, and more reliable workflows."
         },
         {
           label: "Release entries",
-          value: "7",
-          detail: "Seven curated release entries spanning April through August 2026."
+          value: "8",
+          detail: "Eight curated release entries spanning April through November 2026."
         },
         {
           label: "Coverage",
@@ -310,6 +310,113 @@ export const siteContent = {
         secondaryLabel: "Open providers repo"
       },
       items: [
+        {
+          "id": "v1-0-1",
+          "version": "v1.0.1",
+          "dateIso": "2026-11-15",
+          "date": "November 15, 2026",
+          "title": "Image analysis, access tokens, and reliable workflows",
+          "keywords": [
+            "AtlasClaw v1.0.1",
+            "image analysis",
+            "API access tokens",
+            "provider HTTP runtime"
+          ],
+          "summary": "Chat with images, manage administrator access tokens, and expose governed provider HTTP operations.",
+          "lede": "AtlasClaw Core v1.0.1 improves multimodal conversations, response-language consistency, workflow continuity, embedded chat, and runtime compatibility. Provider packages remain independently versioned.",
+          "tags": [
+            "Core",
+            "Image analysis",
+            "Access tokens"
+          ],
+          "highlights": [
+            {
+              "title": "Image-aware conversations",
+              "description": "Upload, paste, or drop images and ask follow-up questions with an explicitly enabled compatible model."
+            },
+            {
+              "title": "Governed API access",
+              "description": "Manage administrator access tokens and expose provider-owned HTTP routes through Core validation and RBAC."
+            },
+            {
+              "title": "Reliable execution",
+              "description": "Improve language consistency, capability routing, compiled image prompts, and model initialization."
+            }
+          ],
+          "sections": [
+            {
+              "eyebrow": "v1.0.1",
+              "title": "Chat and user experience",
+              "body": [],
+              "points": [
+                "Add image uploads through file selection, clipboard paste, and drag-and-drop, with composer previews and image-aware follow-up conversations.",
+                "Store attachments privately with authenticated access, upload validation, retention limits, and image-capable model failover.",
+                "Preserve multimodal prompts through planning and recovery in Cython-compiled releases.",
+                "Refine chat spacing and model settings layout, honor the configured API base path, and preserve stored API keys when editing models.",
+                "Hide the floating assistant’s welcome message when object context or actions are present, restoring it for empty chats without object context.",
+                "Remove time-based expiration from embedded context snapshots while retaining ownership, generation, and capacity checks."
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "Agent and workflow reliability",
+              "body": [],
+              "points": [
+                "Apply a shared response-language policy across regular replies, explicit-tool execution, and model-backed recovery: explicit conversation requests take precedence over global defaults and the interface locale.",
+                "Streamline server-validated explicit capability execution, prioritize current-turn tool evidence, and resolve copied slash commands case-insensitively.",
+                "Retain authorized skill tools for trace-bound workflow continuations so confirmed operations can execute while preserving permission and provider-instance isolation.",
+                "Resolve bare capability names when they uniquely identify an authorized capability for a new task, while rejecting ambiguous or invalid targets.",
+                "Improve planner structured-output compatibility with Qwen 3 Flash."
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "Authentication and provider extensibility",
+              "body": [],
+              "points": [
+                "Add administrator access-token creation, listing, rotation, and revocation, with digest-only storage, one-time plaintext display, and immediate revocation.",
+                "Add manifest-driven provider HTTP dispatch with RBAC, request validation, bounded request bodies, safe error mapping, capability discovery, and visual-model bridging.",
+                "Synchronize newly registered provider permissions into the built-in user role while preserving explicit allow and deny settings.",
+                "Update external integration quickstart guidance for API-token authentication."
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "Runtime and database compatibility",
+              "body": [],
+              "points": [
+                "Restore model initialization and update HTTP tracing for upgraded dependencies.",
+                "Preserve omitted optional tool arguments so handlers can apply their defaults.",
+                "Forward model settings correctly through the OpenAI compatibility adapter.",
+                "Align runtime configuration and Docker base images with Python 3.14.10 and update Python dependencies.",
+                "Replace timestamp defaults with explicit CURRENT_TIMESTAMP expressions in five migrations to address MySQL compatibility."
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "Upgrade notes",
+              "body": [],
+              "points": [
+                "Apply database migrations, including migration 011 for access tokens and 012 for chat attachments.",
+                "Explicitly enable capabilities.vision on the effective model configuration to use image analysis. It is disabled when unspecified.",
+                "Set agent_defaults.response_language to a concrete locale, null, or omit it. Language-selection mode values are rejected.",
+                "Include the shared response_language.json prompt resource in deployments and restart processes after changing it.",
+                "Refresh dependencies and rebuild native packages or container images for the updated Python configuration.",
+                "Previously completed migrations do not rerun automatically. Tables left by failed migrations require inspection and are not automatically removed."
+              ]
+            }
+          ],
+          "links": [
+            {
+              "label": "Core v1.0.1 release",
+              "href": "https://github.com/CloudChef/atlasclaw/releases/tag/v1.0.1"
+            },
+            {
+              "label": "Upgrade guide",
+              "href": "https://github.com/CloudChef/atlasclaw-doc/blob/main/docs/manuals/installation/upgrade.md"
+            }
+          ]
+        },
         {
           id: "v1-0-0",
           version: "v1.0.0",
