@@ -1948,7 +1948,7 @@ ATLASCLAW_RUN_AGENT_HEARTBEAT=false`,
         subtitle:
           "为多用户 AI Agent、受控执行、权限治理，以及真实企业 AI 技术应用而设计。",
         description:
-          "AtlasClaw 不是个人 Agent 的企业放大版，而是帮助组织通过多用户 AI Agent 部署、SSO、RBAC、Skill 执行、Provider 集成、Webhook AI 集成和企业受控大模型，把 AI 能力真正接入系统和流程。",
+          "AtlasClaw 通过企业批准的模型提供文字与图片对话，结合基于 SSO 的访问、RBAC 权限治理，以及用于业务操作的 Skills 和 Provider 集成。图片分析需要兼容且已明确启用该能力的模型。",
         primaryCta: { label: "从核心仓库开始", href: repoLinks.core },
         secondaryCta: { label: "阅读架构说明", href: "/zh/architecture/" },
         panelTitle: "企业适配",
@@ -2108,7 +2108,7 @@ ATLASCLAW_RUN_AGENT_HEARTBEAT=false`,
       keywords: [
         "AtlasClaw 发布记录",
         "AtlasClaw 版本更新",
-        "AtlasClaw v1.0.0",
+        "AtlasClaw v1.0.1",
         "悬浮 AI 助手",
         "动态 Context 匹配",
         "对象操作",
@@ -2140,13 +2140,13 @@ ATLASCLAW_RUN_AGENT_HEARTBEAT=false`,
       stats: [
         {
           label: "最新版本",
-          value: "v1.0.0",
-          detail: "可靠工作流、响应式 Embedded 智能、最小 HA 与版本化 Provider 包。"
+          value: "v1.0.1",
+          detail: "图片分析、管理员访问令牌、Provider HTTP 运行时与更可靠的工作流。"
         },
         {
           label: "发布条目",
-          value: "7",
-          detail: "整理 2026 年 4 月至 8 月的七个代表性版本，并改写为中英文官网内容。"
+          value: "8",
+          detail: "八个精选发布条目，覆盖 2026 年 4 月至 11 月。"
         },
         {
           label: "覆盖范围",
@@ -2172,6 +2172,113 @@ ATLASCLAW_RUN_AGENT_HEARTBEAT=false`,
         secondaryLabel: "打开 Providers 仓库"
       },
       items: [
+        {
+          "id": "v1-0-1",
+          "version": "v1.0.1",
+          "dateIso": "2026-11-15",
+          "date": "2026 年 11 月 15 日",
+          "title": "图片分析、访问令牌与可靠工作流",
+          "keywords": [
+            "AtlasClaw v1.0.1",
+            "图片分析",
+            "API 访问令牌",
+            "Provider HTTP 运行时"
+          ],
+          "summary": "通过图片开展对话，管理管理员访问令牌，并提供受权限治理的 Provider HTTP 操作。",
+          "lede": "AtlasClaw Core v1.0.1 改进多模态对话、回复语言一致性、工作流连续性、嵌入式聊天和运行时兼容性。Provider 包仍独立发布版本。",
+          "tags": [
+            "Core",
+            "图片分析",
+            "访问令牌"
+          ],
+          "highlights": [
+            {
+              "title": "理解图片的对话",
+              "description": "通过上传、粘贴或拖放加入图片，在明确启用图片能力的兼容模型上继续追问。"
+            },
+            {
+              "title": "受权限治理的 API 访问",
+              "description": "管理管理员访问令牌，并通过 Core 的验证和 RBAC 暴露 Provider 自有 HTTP 路由。"
+            },
+            {
+              "title": "可靠执行",
+              "description": "改进语言一致性、能力路由、编译版图片提示词和模型初始化。"
+            }
+          ],
+          "sections": [
+            {
+              "eyebrow": "v1.0.1",
+              "title": "聊天与用户体验",
+              "body": [],
+              "points": [
+                "支持通过文件选择、剪贴板粘贴和拖放上传图片，提供输入框预览，并支持基于图片的后续对话。",
+                "私密保存附件，实施认证访问、上传验证、保留限制，并将图片请求的故障转移限定为支持图片的模型。",
+                "在 Cython 编译版本的规划与恢复流程中保留原生多模态提示词。",
+                "优化聊天间距和模型设置布局，遵循配置的 API 基础路径，并在编辑模型时保留已保存的 API Key。",
+                "存在对象上下文或操作时隐藏悬浮助手欢迎消息；无对象上下文的空会话恢复显示。",
+                "移除嵌入式 Context 快照的时间过期机制，保留所有权、界面代次和容量检查。"
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "Agent 与工作流可靠性",
+              "body": [],
+              "points": [
+                "在常规回复、显式工具执行和模型恢复回复中使用共享语言策略：明确的会话语言要求优先于全局默认值和界面语言。",
+                "简化经服务端验证的显式能力执行，优先使用当前轮次工具证据，并以不区分大小写的方式解析复制的斜杠命令。",
+                "为绑定执行轨迹的工作流续接保留已授权 Skill 工具，使确认后的操作能够执行，同时保持权限和 Provider 实例隔离。",
+                "新任务中，无前缀能力名称唯一对应已授权能力时进行解析；仍拒绝歧义或无效目标。",
+                "改进规划器对 Qwen 3 Flash 结构化输出的兼容性。"
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "认证与 Provider 扩展",
+              "body": [],
+              "points": [
+                "新增管理员访问令牌的创建、查看、轮换和撤销，采用仅摘要存储、一次性明文展示和立即撤销机制。",
+                "新增清单驱动的 Provider HTTP 分发，支持 RBAC、请求验证、请求体大小限制、安全错误映射、能力发现和视觉模型桥接。",
+                "将新注册的 Provider 权限同步到内置用户角色，同时保留明确的允许和拒绝设置。",
+                "更新外部集成快速入门中的 API 令牌认证说明。"
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "运行时与数据库兼容性",
+              "body": [],
+              "points": [
+                "恢复模型初始化，并适配依赖升级后的 HTTP 跟踪。",
+                "保留可选工具参数的省略状态，使处理函数能够应用默认值。",
+                "通过 OpenAI 兼容适配器正确传递模型设置。",
+                "将运行时配置和 Docker 基础镜像统一到 Python 3.14.10，并更新 Python 依赖。",
+                "将五个迁移中的时间戳默认值替换为显式 CURRENT_TIMESTAMP 表达式，以解决 MySQL 兼容性问题。"
+              ]
+            },
+            {
+              "eyebrow": "v1.0.1",
+              "title": "升级说明",
+              "body": [],
+              "points": [
+                "执行数据库迁移，包括访问令牌迁移 011 和聊天附件迁移 012。",
+                "使用图片分析前，在实际生效的模型配置上明确启用 capabilities.vision；未声明时默认关闭。",
+                "将 agent_defaults.response_language 设为具体语言区域值、null，或省略该字段；不接受语言选择模式值。",
+                "部署时包含共享的 response_language.json 提示词资源，修改后重启进程。",
+                "按更新后的 Python 配置刷新依赖，并重新构建原生包或容器镜像。",
+                "已完成的迁移不会自动重新执行。失败迁移遗留的表需要检查，不会自动删除。"
+              ]
+            }
+          ],
+          "links": [
+            {
+              "label": "Core v1.0.1 发布",
+              "href": "https://github.com/CloudChef/atlasclaw/releases/tag/v1.0.1"
+            },
+            {
+              "label": "升级指南",
+              "href": "https://github.com/CloudChef/atlasclaw-doc/blob/main/i18n/zh-CN/docusaurus-plugin-content-docs/current/manuals/installation/upgrade.md"
+            }
+          ]
+        },
         {
           id: "v1-0-0",
           version: "v1.0.0",
